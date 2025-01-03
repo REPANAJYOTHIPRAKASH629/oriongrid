@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link rel="stylesheet" href="apply.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Application Form</h2>
+        <form id="application-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="college">College Name</label>
+                <input type="text" id="college" name="college" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="course">Select Course</label>
+                <select id="course" name="course">
+                    <option value="">Select Course</option>
+                    <option value="course1">SQL server</option>
+                    <option value="course2">Python Programming</option>
+                    <option value="course3">Java Programming</option>
+                    <option value="course4">Frontend</option>
+                    <option value="course5">Backend</option>
+                    <option value="course6">VLSI - Very Large Scale Integrations</option>
+                    <option value="course7">Signal Processing</option>
+                    <option value="course8">Embedded Systems</option>
+                </select>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 150px;">
+                <img src="/frontend/images/aicte.jpg" alt="SQL Server" class="course-img" height="100px" width="100px" style="max-width: 100%; max-height: 100%;">
+            </div>
+            
+            <div class="form-group">
+                <label for="scanner-image">Transaction screenshot</label>
+                <input type="file" id="scanner-image" name="scanner-image" accept="image/*">
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

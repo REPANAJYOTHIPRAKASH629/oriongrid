@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 20px;
+}
+
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.course-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+}
+
+.course-card button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.course-page {
+    display: flex;
+    height: 100vh;
+}
+
+.video-section {
+    flex: 2;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.video-player {
+    width: 100%;
+    height: 350px;
+    background-color: black;
+    margin-bottom: 10px;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.video-controls button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.index-section {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border-left: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.index-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.index-item:hover {
+    background-color: #f4f4f4;
+}
+
+.complete-button {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+    

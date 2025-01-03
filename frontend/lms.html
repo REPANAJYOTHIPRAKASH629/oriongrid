@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Portal</title>
+    <link rel="stylesheet" href="lms.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Courses List -->
+        <div class="courses" id="courses-list">
+            <div class="course-card">
+                <h3>Course Title 1</h3>
+                <button onclick="showCoursePage('Course Title 1')">Start Now</button>
+            </div>
+            <div class="course-card">
+                <h3>Course Title 2</h3>
+                <button onclick="showCoursePage('Course Title 2')">Start Now</button>
+            </div>
+            <!-- Add more courses as needed -->
+        </div>
+
+        <!-- Course Page -->
+        <div class="course-page" id="course-page" style="display: none;">
+            <div class="video-section">
+                
+                <div class="video-player" id="video-player">
+                    <!-- Embed video here -->
+                </div>
+                <p id="video-description">Description of the video goes here...</p>
+                <a href="#" class="complete-button">Complete Video</a>
+                <div class="video-controls">
+                    <button onclick="prevVideo()">Previous</button>
+                    <button onclick="nextVideo()">Next</button>
+                </div>
+            </div>
+            <div class="index-section" id="index-section">
+                <div class="index-item" onclick="loadVideo(1)">Video 1: Introduction</div>
+                <div class="index-item" onclick="loadVideo(2)">Video 2: Basics</div>
+                <div class="index-item" onclick="loadVideo(3)">Video 3: Advanced Topics</div>
+                <!-- Add more video indexes as needed -->
+            </div>
+        </div>
+    </div>
+    <script>
+        function showCoursePage(courseTitle) {
+    document.getElementById('courses-list').style.display = 'none';
+    document.getElementById('course-page').style.display = 'flex';
+    document.getElementById('video-description').innerText = `${courseTitle} - Introduction video description.`;
+}
+
+function loadVideo(videoIndex) {
+    const descriptions = [
+        "Introduction video description.",
+        "Basics video description.",
+        "Advanced topics video description."
+    ];
+
+    document.getElementById('video-description').innerText = descriptions[videoIndex - 1];
+}
+
+function prevVideo() {
+    alert("Previous video clicked.");
+}
+
+function nextVideo() {
+    alert("Next video clicked.");
+}
+
+    </script>
+</body>
+</html>

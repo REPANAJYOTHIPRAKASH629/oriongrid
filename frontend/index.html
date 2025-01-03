@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="/frontend/images/logo.jpg" alt="Orion Grid Logo" style="width: 200px; height: 100px; object-fit: contain;">
+        </div>
+              
+        <div class="navbar-links">
+            <a href="#">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-btn">Services</a>
+                <div class="dropdown-content">
+                    <a href="/frontend/courses.html">Courses</a>
+                    <a href="#">Projects</a>
+                    <a href="#">Workshops</a>
+                    <a href="#">Research</a>
+                </div>
+            </div>
+            <a href="/frontend/aboutus.html">About Us</a>
+            <a href="#">Careers</a>
+            <a href="/frontend/login.html">Login</a>
+        </div>
+    </nav>
+
+
+    <!-- Accreditation Logos -->
+    <section class="affiliation-section">
+        <h2>We are affiliated by</h2>
+        <div class="scrolling-logos">
+            <marquee><img src="/frontend/images/apsche.jpg" alt="Logo 1">
+            <img src="/frontend/images/aicte.jpg" alt="Logo 2">
+            <img src="/frontend/images/iso.png" alt="Logo 3">
+            <img src="/frontend/images//msme.png" alt="Logo 4"></marquee>
+        </div>
+    </section>
+
+    <!-- Mission and Vision -->
+    <section class="mission-vision">
+        <div class="mission">
+            <h2>Mission</h2>
+            <p>Our mission is to provide skill-based education to empower individuals.</p>
+        </div>
+        <div class="vision">
+            <h2>Vision</h2>
+            <p>Our vision is to foster innovation and create a global learning community.</p>
+        </div>
+    </section>
+
+    <!-- Core Features -->
+    <section class="core-features">
+        <h2>Our Core Features</h2>
+        <div class="feature">
+            <h3>Skill-based Courses</h3>
+            <img src="/frontend/images/skill.jpg" alt="Skill Based">
+            <p><br>Skill-based courses focus on practical, hands-on learning to develop specific competencies in areas like technology, communication, and leadership. These courses combine theory with real-world application, equipping learners with the skills needed to excel in today’s dynamic job market. By emphasizing active problem-solving and adaptability, they enhance employability and career growth.</p>
+        </div><hr>
+        <div class="feature">
+            <p>Project expertise domains refer to specialized areas of knowledge and skill required to manage and execute projects effectively. These domains include various aspects like project planning, risk management, budgeting, team coordination, and quality control. Professionals in project management typically develop expertise in domains such as construction, IT, marketing, or product development, allowing them to oversee projects within specific industries. Mastery of these domains ensures successful project delivery, meeting deadlines, budgets, and stakeholder expectations.</p>
+            <img src="/frontend/images/domain.jpeg" alt="Project Expertise">
+            <h3>Project Expertise Domains</h3>
+        </div><hr>
+        <div class="feature">
+            <h3>Workshops</h3>
+            <img src="/frontend/images/workshops.jpg" alt="Workshops">
+            <p>Workshops are interactive, hands-on learning sessions designed to teach specific skills or concepts in a focused, collaborative environment. Typically led by experts or instructors, workshops provide participants with the opportunity to engage in practical exercises, discussions, and problem-solving activities. They can cover a wide range of topics, from technical skills like coding or design to soft skills such as leadership or communication. Workshops are often short-term events aimed at deepening understanding, fostering creativity, and promoting skill development in a practical, engaging way.</p>
+        </div><hr>
+        <div class="feature">
+            
+            <p>Research is the systematic process of investigating a topic, question, or problem to discover new information, validate existing knowledge, or develop innovative solutions. It involves gathering, analyzing, and interpreting data using various methods, such as experiments, surveys, case studies, or literature reviews. Research can be conducted in diverse fields like science, technology, social sciences, and humanities, and its purpose is to contribute to the advancement of knowledge, inform decision-making, or solve specific challenges. Effective research requires critical thinking, attention to detail, and a rigorous approach to ensure the accuracy and relevance of findings.</p>
+            <img src="/frontend/images/research.jpg" alt="Research">
+            <h3>Research</h3>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="contact-us" id="contact">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Footer Contact Information -->
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><strong>Address:</strong> 123 Main Street, City, Country, 12345</p>
+                <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+                <p><strong>Email:</strong> contact@yourcompany.com</p>
+            </div>
+
+            
+            <!-- Google Map Embed -->
+            <div class="footer-map">
+                <h3>Our Location</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.2906353210434!2d-74.00601588413678!3d40.71277577932959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259af0e1258b3%3A0x4f7c82c21e1c6b65!2s123+Main+St%2C+New+York%2C+NY+10001%2C+USA!5e0!3m2!1sen!2sus!4v1633690703877!5m2!1sen!2sus"
+                        width="450" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/frontend/index.html">Home</a></li>
+                    <li><a href="/frontend/aboutus.html">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Footer Social Media Links -->
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <a href="https://facebook.com/yourcompany" target="_blank">Facebook</a>
+            <a href="https://twitter.com/yourcompany" target="_blank">Twitter</a>
+            <a href="https://linkedin.com/company/yourcompany" target="_blank">LinkedIn</a>
+            <a href="https://instagram.com/yourcompany" target="_blank">Instagram</a>
+        </div>
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <p>&copy; 2025 <a href="/frontend/index.html" style="color: rgb(0, 255, 0);">Orion Grid</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
