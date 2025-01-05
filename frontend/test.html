@@ -1,180 +1,324 @@
-<h1>Our Courses</h1>
-    <!-- Buttons for Course Categories -->
-    <div class="button-container">
-      <button onclick="showCourses('cse', this)" class="active">CSE</button>
-      <button onclick="showCourses('ece', this)">ECE/EEE</button>
-      <button onclick="showCourses('iot', this)">IoT</button>
-    </div>
+    <!DOCTYPE html>
+    <html lang="en">
 
-    <div id="courses" class="courses-container">
-      <div class="course cse">
-        <img src="https://miro.medium.com/v2/resize:fit:1200/0*ARCVgw1aDJ0vWXKM.jpeg" alt="Web Development" class="course-img">
-        <h2>Web Development</h2>
-        <p>Learn to build modern websites with HTML, CSS, and JavaScript.</p>
-        <p class="price"><strike>$350</strike> $199</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <div class="course cse">
-        <img src="https://gskygo.com/media/SQL.jpg" alt="SQL Server" class="course-img">
-        <h2>SQL Server</h2>
-        <p>Mastering SQL.</p>
-        <p class="price"><strike>$350</strike> $299</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <div class="course cse">
-        <img src="data:image/png;base64,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" alt="Python Programming" class="course-img">
-        <h2>Python Programming</h2>
-        <p>Learn Python from basics to advanced with hands-on projects.</p>
-        <p class="price"><strike>$350</strike> $149</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <div class="course cse">
-        <img src="https://ritjaipur.in/wp-content/uploads/2024/02/Core-Java-Pro.jpg" alt="Java" class="course-img">
-        <h2>Core Java</h2>
-        <p>Learn Java from basics to advanced with hands-on projects and more.</p>
-        <p class="price"><strike>$350</strike> $179</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <div class="course cse">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2023/9/347102331/AR/IS/LT/198979354/top-10-microsoft-office-tools-for-businesses-and-professional-v1-500x500.jpg" alt="msoffice" class="course-img">
-        <h2>MS Office Suite</h2>
-        <p>Learn to manage the organization.</p>
-        <p class="price"><strike>$350</strike> $199</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <div class="course cse">
-        <img src="https://cdn-dclcb.nitrocdn.com/nEJwBnJfMgrepTdEKiQJQkImAnkTSHTG/assets/images/optimized/rev-07d68f2/www.velvetech.com/wp-content/uploads/2022/07/data-analytics-role.jpg" alt="Data Analysis" class="course-img">
-        <h2>Data Analysis</h2>
-        <p>Exploratory data analysis using Python, NumPy, Pandas, Matplotlib, Seaborn</p>
-        <p class="price"><strike>$350</strike> $299</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <div class="course cse">
-        <img src="https://boostlabs.com/wp-content/uploads/2023/02/10-types-of-data-visualization-1-1024x614.jpg" alt="data analysis" class="course-img">
-        <h2>Data Visualization</h2>
-        <p>Data visualization is the graphical representation of data and information to help identify patterns, trends, and insights more easily.</p>
-        <p class="price"><strike>$350</strike> $149</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <div class="course cse">
-        <img src="https://www.codelabsystems.in/assets/img/services/full-stack-web-development.png" alt="Full Stack" class="course-img">
-        <h2>Full Stack Developmet</h2>
-        <p>Full-stack development involves building both the front-end and back-end of web applications, handling everything from user interfaces to databases and server management.</p>
-        <p class="price"><strike>$350</strike> $179</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <!-- ECE/EEE Courses -->
-      <div class="course ece hidden">
-        <img src="https://example.com/image1.jpg" alt="Embedded Systems" class="course-img">
-        <h2>Embedded Systems</h2>
-        <p>Learn the fundamentals of embedded systems.</p>
-        <p class="price"><strike>$400</strike> $250</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <div class="course ece hidden">
-        <img src="https://example.com/image2.jpg" alt="Signal Processing" class="course-img">
-        <h2>Signal Processing</h2>
-        <p>Master signal and systems concepts.</p>
-        <p class="price"><strike>$300</strike> $220</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <!-- Include TailwindCSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 
-      <!-- IoT Courses -->
-      <div class="course iot hidden">
-        <img src="https://example.com/image3.jpg" alt="IoT Basics" class="course-img">
-        <h2>IoT Basics</h2>
-        <p>Introduction to IoT and its applications.</p>
-        <p class="price"><strike>$350</strike> $270</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-      <div class="course iot hidden">
-        <img src="https://example.com/image4.jpg" alt="IoT Advanced" class="course-img">
-        <h2>IoT Advanced</h2>
-        <p>Explore advanced IoT techniques and systems.</p>
-        <p class="price"><strike>$450</strike> $370</p>
-        <a href="/frontend/apply.html" class="buy-now">Buy Now</a>
-      </div>
-    </div>
-    </div>
-  </main>
-  <!-- Footer Section -->
-  <footer>
-    <div class="footer-container">
-        <!-- Footer Contact Information -->
-        <div class="footer-contact">
-            <h3>Contact Us</h3>
-            <p><strong>Address:</strong> 123 Main Street, City, Country, 12345</p>
-            <p><strong>Phone:</strong> +1 (123) 456-7890</p>
-            <p><strong>Email:</strong> contact@yourcompany.com</p>
-        </div>
-
+    <body class="font-sans bg-white bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('https://img.freepik.com/free-photo/3d-background-with-white-cubes_23-2150472996.jpg?semt=ais_hybrid') text-gray-900">
+    <!-- bg-gradient-to-r from-[#0065BD] to-[#EE1C25] -->
+        <nav class="text-[#EE1C25] py-2 px-4 md:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="/frontend/images/logo.jpg" alt="Orion Grid Logo" class="w-32 md:w-48 h-auto object-contain">
+                </div>
         
-        <!-- Google Map Embed -->
-        <div class="footer-map">
-            <h3>Our Location</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.2906353210434!2d-74.00601588413678!3d40.71277577932959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259af0e1258b3%3A0x4f7c82c21e1c6b65!2s123+Main+St%2C+New+York%2C+NY+10001%2C+USA!5e0!3m2!1sen!2sus!4v1633690703877!5m2!1sen!2sus"
-                    width="450" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <!-- Navbar Links -->
+                <div class="hidden md:flex space-x-6 text-lg">
+                    <a href="#" class="hover:text-[#EE1C25]"><strong>Home</strong></a>
+        
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <a href="#" class="hover:text-[#EE1C25]"><strong>Services</strong></a>
+                        <!-- Submenu (Hidden by default) -->
+                        <div class="absolute left-0 mt-2 hidden bg-[white] text-black rounded-lg shadow-lg group-hover:block group-focus:block">
+                            <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
+                        </div>
+                    </div>
+        
+                    <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
+                    <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
+                    <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-[#EE1C25]" id="mobile-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="space-y-4 px-6 py-4">
+                <a href="#" class="block text-lg hover:text-[#EE1C25]">Home</a>
+                <div class="relative group">
+                    <a href="#" class="block text-lg hover:text-[#EE1C25]">Services</a>
+                    <div class="absolute left-0 mt-2 hidden bg-[white] text-black rounded-lg shadow-lg group-hover:block group-focus:block">
+                        <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
+                    </div>
+                </div>
+                <a href="/frontend/aboutus.html" class="block text-lg hover:text-[#EE1C25]">About Us</a>
+                <a href="/frontend/careers.html" class="block text-lg hover:text-[#EE1C25]">Careers</a>
+                <a href="/frontend/login.html" class="block text-lg hover:text-[#EE1C25]">Login</a>
+            </div>
         </div>
 
-        <!-- Footer Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="/frontend/index.html">Home</a></li>
-                <li><a href="/frontend/aboutus.html">About Us</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/contact">Contact Us</a></li>
-                <li><a href="/privacy-policy">Privacy Policy</a></li>
-                <li><a href="/terms-of-service">Terms & Conditions</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- Footer Social Media Links -->
-    <div class="footer-social">
-        <h3>Follow Us</h3>
-        <a href="https://facebook.com/yourcompany" target="_blank">Facebook</a>
-        <a href="https://twitter.com/yourcompany" target="_blank">Twitter</a>
-        <a href="https://linkedin.com/company/yourcompany" target="_blank">LinkedIn</a>
-        <a href="https://instagram.com/yourcompany" target="_blank">Instagram</a>
-    </div>
-  <!-- Copyright Section -->
-  <div class="footer-copyright">
-    <p>&copy; 2025 <a href="/frontend/index.html" style="color: rgb(0, 255, 0);">Orion Grid</a>. All Rights Reserved.</p>
-  </div>
+        <script>
+            document.getElementById('mobile-menu-button').addEventListener('click', function () {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+        </script>
+        
+        <!-- Accreditation Logos -->
+        <section class="py-2 text-center">
+            <h2 class="text-3xl text-[#0065BD] font-semibold mb-4">We are affiliated by</h2>
+            <div class="overflow-x-hidden">
+                <!-- Marquee for horizontal scrolling logos -->
+                <marquee behavior="scroll" direction="left" scrollamount="8" class="space-x-8">
+                    <img src="/frontend/images/apsche.jpg" alt="Logo 1" class="w-24 h-auto mx-4 inline-block">
+                    <img src="/frontend/images/aicte.jpg" alt="Logo 2" class="w-24 h-auto mx-4 inline-block">
+                    <img src="/frontend/images/iso.png" alt="Logo 3" class="w-24 h-auto mx-4 inline-block">
+                    <img src="/frontend/images/msme.png" alt="Logo 4" class="w-24 h-auto mx-4 inline-block">
+                </marquee>
+            </div>
+        </section>
 
-</footer>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const dropdownBtn = document.querySelector('.dropdown-btn');
-    const dropdownContent = document.querySelector('.dropdown-content');
-    
-    // Toggle dropdown visibility on click
-    dropdownBtn.addEventListener('click', function(event) {
-      event.preventDefault();  // Prevent the default link behavior
-      const isVisible = dropdownContent.style.display === 'block';
-      dropdownContent.style.display = isVisible ? 'none' : 'block';
-    });
-    
-    // Close the dropdown if clicking anywhere else on the document
-    document.addEventListener('click', function(event) {
-      if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
-        dropdownContent.style.display = 'none';
-      }
-    });
-  });
+        <!-- Banner Section -->
+        <section class="py-8">
+            <div class="relative w-full mx-auto px-2">
+                <!-- Carousel Wrapper -->
+                <div class="overflow-hidden">
+                    <div id="banner-carousel" class="flex transition-transform duration-1000 ease-in-out">
+                        <div class="w-full flex-shrink-0">
+                            <img src="https://via.placeholder.com/1200x450/EE1C25/ffffff?text=Banner+1" alt="Banner 1" class="w-full h-[450px] object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="w-full flex-shrink-0">
+                            <img src="https://via.placeholder.com/1200x450/0065BD/ffffff?text=Banner+2" alt="Banner 2" class="w-full h-[450px] object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="w-full flex-shrink-0">
+                            <img src="https://via.placeholder.com/1200x450/EE1C25/ffffff?text=Banner+3" alt="Banner 3" class="w-full h-[450px] object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="w-full flex-shrink-0">
+                            <img src="https://via.placeholder.com/1200x450/0065BD/ffffff?text=Banner+4" alt="Banner 4" class="w-full h-[450px] object-cover rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                </div>
+                <button id="prev" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-[#EE1C25] text-white px-4 py-2 rounded-full focus:outline-none"><</button>
+                <button id="next" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-[#EE1C25] text-white px-4 py-2 rounded-full focus:outline-none">></button>
+            </div>
+        </section>
 
-  // Function to show courses based on category
-  function showCourses(category) {
-    const allCourses = document.querySelectorAll('.course');
-    allCourses.forEach(course => {
-      course.classList.add('hidden');
-      if (course.classList.contains(category)) {
-        course.classList.remove('hidden');
-      }
-    });
-  }
+        <script>
+            let currentIndex = 0;
+            const images = document.querySelectorAll("#banner-carousel > div");
+            const totalImages = images.length;
+            const carousel = document.getElementById("banner-carousel");
 
-  // Default to show CSE courses
-  showCourses('cse');
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalImages;
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
 
-</script>
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            setInterval(nextSlide, 3000);
+
+            document.getElementById("next").addEventListener("click", nextSlide);
+            document.getElementById("prev").addEventListener("click", prevSlide);
+        </script>
+
+        <!-- Mission and Vision -->
+        <section class="py-2 text-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-4xl font-semibold text-center text-[#0065BD] mb-8">Our Mission and Vision</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h3 class="text-3xl font-semibold text-[#EE1C25] mb-4">Mission</h3>
+                        <p class="text-lg text-gray-700 text-justify">
+                            Our mission is to provide skill-based education to empower individuals with the knowledge and practical skills
+                            to excel in their careers and personal growth. Through innovative teaching methods and hands-on experience, we aim to equip individuals with the skills they need to succeed in today’s fast-paced job market.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h3 class="text-3xl font-semibold text-[#EE1C25] mb-4">Vision</h3>
+                        <p class="text-lg text-gray-700 text-justify">
+                            Our vision is to foster innovation and create a global learning community that encourages creativity, collaboration,
+                            and continuous learning in all fields. We strive to build a platform that connects like-minded individuals, empowering them to learn, grow, and contribute to societal progress through shared knowledge and experiences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gray-50">
+            <h2 class="text-center text-4xl font-semibold text-[#0065BD] mb-12">Our Core Features</h2>
+            <div class="max-w-screen-xl mx-auto px-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Skill-based Courses -->
+                    <div class="text-center bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                        <img src="/frontend/images/skill.jpg" alt="Skill Based" class="w-full h-48 object-cover mb-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Skill-based Courses</h3>
+                        <p class="text-gray-700 mb-4">
+                            Skill-based courses focus on practical, hands-on learning to develop specific competencies in areas like technology, communication, and leadership.
+                        </p>
+                        <a href="/frontend/courses.html" class="text-[#EE1C25] hover:text-[#0065BD] font-semibold">Explore Courses</a>
+                    </div>
+        
+                    <!-- Project Expertise Domains -->
+                    <div class="text-center bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                        <img src="/frontend/images/domain.jpeg" alt="Project Expertise" class="w-full h-48 object-cover mb-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Project Expertise Domains</h3>
+                        <p class="text-gray-700 mb-4">
+                            Project expertise domains refer to specialized areas of knowledge and skill required to manage and execute projects effectively.
+                        </p>
+                        <a href="/frontend/projects.html" class="text-[#EE1C25] hover:text-[#0065BD] font-semibold">Explore Projects</a>
+                    </div>
+        
+                    <!-- Workshops -->
+                    <div class="text-center bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                        <img src="/frontend/images/workshops.jpg" alt="Workshops" class="w-full h-48 object-cover mb-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Workshops</h3>
+                        <p class="text-gray-700 mb-4">
+                            Workshops are interactive, hands-on learning sessions designed to teach specific skills or concepts in a focused, collaborative environment.
+                        </p>
+                        <a href="/frontend/workshops.html" class="text-[#EE1C25] hover:text-[#0065BD] font-semibold">Explore Workshops</a>
+                    </div>
+        
+                    <!-- Research -->
+                    <div class="text-center bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                        <img src="/frontend/images/research.jpg" alt="Research" class="w-full h-48 object-cover mb-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Research</h3>
+                        <p class="text-gray-700 mb-4">
+                            Research is the systematic process of investigating a topic, question, or problem to discover new information, validate existing knowledge, or develop innovative solutions.
+                        </p>
+                        <a href="/frontend/research.html" class="text-[#EE1C25] hover:text-[#0065BD] font-semibold">Explore Research</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-4">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-4xl font-semibold text-center text-[#0065BD] mb-12">What We Offer</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <!-- Courses -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Courses</h3>
+                        <p class="text-gray-700 mb-4">
+                            We offer a wide range of skill-based courses to help individuals gain practical, hands-on experience in various fields.
+                        </p>
+                        <a href="/frontend/courses.html" class="text-[#EE1C25] hover:text-[#0065BD] font-semibold">Learn More</a>
+                    </div>
+        
+                    <!-- Internships -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Internships</h3>
+                        <p class="text-gray-700 mb-4">
+                            Our internships provide real-world experience and the opportunity to work on industry-relevant projects.
+                        </p>
+                        <a href="/frontend/internships.html" class="text-[#EE1C25] hover:text-[#0065BD] font-semibold">Learn More</a>
+                    </div>
+        
+                    <!-- Workshops -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Workshops</h3>
+                        <p class="text-gray-700 mb-4">
+                            Our interactive workshops are designed to build practical skills and foster collaboration among participants.
+                        </p>
+                        <a href="/frontend/workshops.html" class="text-[#EE1C25] hover:text-[#0065BD] font-semibold">Learn More</a>
+                    </div>
+        
+                    <!-- Projects -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Projects</h3>
+                        <p class="text-gray-700 mb-4">
+                            Get hands-on experience by working on innovative projects that make a real impact in the community.
+                        </p>
+                        <a href="/frontend/projects.html" class="text-[#EE1C25] hover:text-[#0065BD] font-semibold">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Contact Us -->
+        <section id="contact" class="py-2 text-center">
+            <div class="max-w-2xl mx-auto space-y-6 p-8 bg-white rounded-lg shadow-lg">
+                <h2 class="text-3xl font-semibold text-[#0065BD] mb-8">Contact Us</h2>
+                <form action="#" method="post" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-lg text-[#0065BD]">Email:</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-[#0065BD] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0065BD]">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-lg text-[#0065BD]">Message:</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-[#0065BD] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0065BD]"></textarea>
+                    </div>
+                    <button type="submit" class="px-6 py-2 bg-[#EE1C25] text-white rounded-lg hover:bg-[#D01C1F] focus:outline-none">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-[#0065BD] text-white py-8">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <p><strong>Address:</strong> 123 Main Street, City, Country, 12345</p>
+                    <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+                    <p><strong>Email:</strong> contact@yourcompany.com</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Location</h3>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.2906353210434!2d-74.00601588413678!3d40.71277577932959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259af0e1258b3%3A0x4f7c82c21e1c6b65!2s123+Main+St%2C+New+York%2C+NY+10001%2C+USA!5e0!3m2!1sen!2sus!4v1633690703877!5m2!1sen!2sus"
+                        class="w-256 max-w-lg h-48 sm:h-80 md:h-96 border-0"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul> 
+                        <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
+                        <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
+                        <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                        <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
+                        <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Social Media Links -->
+            <div class="text-center mt-8">
+                <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                <a href="https://facebook.com/yourcompany" target="_blank" class="mx-2 hover:text-[#EE1C25]">Facebook</a>
+                <a href="https://twitter.com/yourcompany" target="_blank" class="mx-2 hover:text-[#EE1C25]">Twitter</a>
+                <a href="https://linkedin.com/company/yourcompany" target="_blank" class="mx-2 hover:text-[#EE1C25]">LinkedIn</a>
+                <a href="https://instagram.com/yourcompany" target="_blank" class="mx-2 hover:text-[#EE1C25]">Instagram</a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center mt-8">
+                <p>&copy; 2025 <a href="/frontend/index.html" class="text-[#00FF00]">Orion Grid</a>. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+    </body>
+
+    </html>
