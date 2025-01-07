@@ -1,64 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login and Registration Page</title>
-    <link rel="stylesheet" href="login.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Animation */
+        .form-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Gradient Background */
+        .bg-gradient {
+            background: url('/frontend/images/bg.jpeg') center/cover no-repeat; /* Add a background image from an online URL */
+        }
+
+        /* Form Animation */
+        .form-entry {
+            transition: all 0.3s ease;
+        }
+
+        .form-entry:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Input Focus Transition */
+        .input-field:focus {
+            border-color: #34d399;
+            box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.5);
+        }
+
+        /* Logo inside the form container */
+        .logo {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0px;
+            border-radius: 8px;
+        }
+
+        .logo img {
+            width: 80px; /* Adjust size of logo */
+            height: auto;
+        }
+
+        /* Container adjustments */
+        .container {
+            max-width: 400px; /* Reduced width */
+            margin-left: auto; /* Align to the right */
+            margin-right: 40px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+                }
+
+                h1, h2, h3, h4 {
+                    font-family: 'Outfit', sans-serif;
+                }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <div class="logo">
-            <img src="/frontend/images/aicte.jpg" alt="Logo" class="logo-img">
+
+<body class="bg-gradient flex justify-center items-center min-h-screen">
+
+    <div class="container flex flex-col items-center w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+        <!-- Logo Section -->
+        <div class="logo mb-6">
+            <img src="/frontend/images/logo.jpg" alt="Logo" class="w-full">
         </div>
 
         <!-- Login Form -->
         <div class="form-section active" id="login-section">
-            <form>
+            <form class="bg-white p-6 rounded-lg shadow-lg form-entry w-full space-y-6">
+                <h2 class="text-2xl font-semibold text-gray-700 text-center">Login</h2>
+
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email" class="text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 input-field">
                 </div>
+
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 input-field">
                 </div>
-                <div class="form-group">
-                    <a href="#">Forgot Password?</a>
+
+                <div class="form-group text-right">
+                    <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Forgot Password?</a>
                 </div>
-                <button type="submit" class="btn">Login</button>
+
+                <button type="submit" class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 transition-all">Login</button>
             </form>
-            <button class="toggle-btn" onclick="showRegistration()">Don't have an account? Register</button>
+            <button class="mt-4 text-sm text-blue-600 hover:text-blue-800" onclick="showRegistration()">Don't have an account? Register</button>
         </div>
 
         <!-- Registration Form -->
         <div class="form-section" id="registration-section">
-            <form>
+            <form class="bg-white p-6 rounded-lg shadow-lg form-entry w-full space-y-2">
+                <h2 class="text-2xl font-semibold text-gray-700 text-center">Register</h2>
+
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="name" class="text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 input-field">
                 </div>
+
                 <div class="form-group">
-                    <label for="phone">Phone No.</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <label for="phone" class="text-sm font-medium text-gray-700">Phone No.</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 input-field">
                 </div>
+
                 <div class="form-group">
-                    <label for="college">College Name</label>
-                    <input type="text" id="college" name="college" required>
+                    <label for="college" class="text-sm font-medium text-gray-700">College Name</label>
+                    <input type="text" id="college" name="college" required class="w-full px-4 py-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 input-field">
                 </div>
+
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 input-field">
                 </div>
+
                 <div class="form-group">
-                    <label for="retype-password">Retype Password</label>
-                    <input type="password" id="retype-password" name="retype-password" required>
+                    <label for="retype-password" class="text-sm font-medium text-gray-700">Retype Password</label>
+                    <input type="password" id="retype-password" name="retype-password" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 input-field">
                 </div>
-                <button type="submit" class="btn">Register</button>
+
+                <button type="submit" class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 transition-all">Register</button>
             </form>
-            <button class="toggle-btn" onclick="showLogin()">Already have an account? Login</button>
+            <button class="mt-4 text-sm text-blue-600 hover:text-blue-800" onclick="showLogin()">Already have an account? Login</button>
         </div>
     </div>
+
     <script>
         function showLogin() {
             document.getElementById('login-section').classList.add('active');
@@ -71,4 +159,5 @@
         }
     </script>
 </body>
+
 </html>
