@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshops</title>
+    <title>Courses Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .red-btn {
+            background-color: #EE1C25;
+        }
+
+        .blue-btn {
+            background-color: #0065BD;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -18,7 +27,94 @@
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-white">
+
+  <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
+    <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+            <img src="/frontend/images/logo.jpg" alt="Orion Grid Logo" class="w-32 md:w-48 h-auto object-contain">
+        </div>
+
+        <!-- Navbar Links -->
+        <div class="hidden md:flex space-x-6 text-lg">
+            <a href="#" class="hover:text-[#EE1C25]"><strong>Home</strong></a>
+
+            <!-- Services Dropdown -->
+            <div class="relative group">
+                <a href="#" class="hover:text-[#EE1C25]"><strong>Services</strong></a>
+                <!-- Submenu (Hidden by default) -->
+                <div class="absolute left-0 mt-0 hidden bg-white text-[#0065BD] rounded-lg shadow-lg group-hover:block group-focus-within:block transition-opacity duration-300 ease-in-out" id="services-dropdown">
+                    <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
+                    <a href="/frontend/internships.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                    <a href="/frontend/projects.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                    <a href="/frontend/workshops.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
+                </div>
+            </div>
+
+            <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
+            <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
+            <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+            <button class="text-[#EE1C25]" id="mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="md:hidden hidden" id="mobile-menu">
+    <div class="space-y-4 px-6 py-4">
+        <a href="#" class="block text-lg hover:text-[#EE1C25]">Home</a>
+        
+        <!-- Services Dropdown for Mobile -->
+        <div class="relative" id="mobile-services-dropdown">
+            <button class="block text-lg hover:text-[#EE1C25]" id="mobile-services-button">Services</button>
+            <div class="absolute left-0 mt-2 hidden bg-white text-black rounded-lg shadow-lg" id="mobile-submenu">
+                <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
+                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
+            </div>
+        </div>
+        
+        <a href="/frontend/aboutus.html" class="block text-lg hover:text-[#EE1C25]">About Us</a>
+        <a href="/frontend/careers.html" class="block text-lg hover:text-[#EE1C25]">Careers</a>
+        <a href="/frontend/login.html" class="block text-lg hover:text-[#EE1C25]">Login</a>
+    </div>
+</div>
+
+<script>
+    // Mobile Menu Toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Mobile Services Dropdown Toggle
+    const mobileServicesButton = document.getElementById('mobile-services-button');
+    const mobileSubmenu = document.getElementById('mobile-submenu');
+    
+    mobileServicesButton.addEventListener('click', function () {
+        mobileSubmenu.classList.toggle('hidden');
+    });
+
+    // Optional: Close submenu when clicking outside (for mobile view)
+    document.addEventListener('click', function (e) {
+        const isClickInside = mobileServicesButton.contains(e.target) || mobileSubmenu.contains(e.target);
+        if (!isClickInside) {
+            mobileSubmenu.classList.add('hidden');
+        }
+    });
+</script>
 
     <div class="max-w-7xl mx-auto p-6">
 
@@ -33,7 +129,7 @@
 
             <!-- Workshop Card 1 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Workshop 1" class="w-full h-48 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/java.jpg" alt="Workshop 1" class="w-full h-48 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Java Programming Basics</h3>
                 <p class="text-gray-600 mb-2">Date: January 15, 2025</p>
                 <p class="text-gray-800 font-bold mb-4">Price: <strike>$99</strike>  Free</p>
@@ -42,7 +138,7 @@
 
             <!-- Workshop Card 2 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Workshop 2" class="w-full h-48 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/dataanalysis.jpg" alt="Workshop 2" class="w-full h-48 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Science Essentials</h3>
                 <p class="text-gray-600 mb-2">Date: February 20, 2025</p>
                 <p class="text-gray-800 font-bold mb-4">Price: $129</p>
@@ -51,7 +147,7 @@
 
             <!-- Workshop Card 3 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Workshop 3" class="w-full h-48 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/machinelearning.jpeg" alt="Workshop 3" class="w-full h-48 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Machine Learning Fundamentals</h3>
                 <p class="text-gray-600 mb-2">Date: March 10, 2025</p>
                 <p class="text-gray-800 font-bold mb-4">Price: <strike>$199</strike> Free</p>
@@ -60,7 +156,7 @@
 
             <!-- Workshop Card 4 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Workshop 4" class="w-full h-48 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/python.svg" alt="Workshop 4" class="w-full h-48 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Python for Beginners</h3>
                 <p class="text-gray-600 mb-2">Date: April 5, 2025</p>
                 <p class="text-gray-800 font-bold mb-4">Price: $89</p>
@@ -69,7 +165,7 @@
 
             <!-- Workshop Card 5 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Workshop 5" class="w-full h-48 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/ece/VLSI.png" alt="Workshop 5" class="w-full h-48 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">VLSI Design Fundamentals</h3>
                 <p class="text-gray-600 mb-2">Date: May 1, 2025</p>
                 <p class="text-gray-800 font-bold mb-4">Price: $149</p>
@@ -78,7 +174,7 @@
 
             <!-- Workshop Card 6 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Workshop 6" class="w-full h-48 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/CloudComputing.png" alt="Workshop 6" class="w-full h-48 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Cloud Computing Workshop</h3>
                 <p class="text-gray-600 mb-2">Date: June 12, 2025</p>
                 <p class="text-gray-800 font-bold mb-4">Price: $159</p>
@@ -87,7 +183,7 @@
 
             <!-- Workshop Card 7 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Workshop 7" class="w-full h-48 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/sql.png" alt="Workshop 7" class="w-full h-48 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">SQL Database Management</h3>
                 <p class="text-gray-600 mb-2">Date: July 10, 2025</p>
                 <p class="text-gray-800 font-bold mb-4">Price: $119</p>

@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internships Opportunities</title>
+    <title>Courses Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .red-btn {
+            background-color: #EE1C25;
+        }
+
+        .blue-btn {
+            background-color: #0065BD;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -18,13 +27,100 @@
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-white">
+
+  <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
+    <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+            <img src="/frontend/images/logo.jpg" alt="Orion Grid Logo" class="w-32 md:w-48 h-auto object-contain">
+        </div>
+
+        <!-- Navbar Links -->
+        <div class="hidden md:flex space-x-6 text-lg">
+            <a href="#" class="hover:text-[#EE1C25]"><strong>Home</strong></a>
+
+            <!-- Services Dropdown -->
+            <div class="relative group">
+                <a href="#" class="hover:text-[#EE1C25]"><strong>Services</strong></a>
+                <!-- Submenu (Hidden by default) -->
+                <div class="absolute left-0 mt-0 hidden bg-white text-[#0065BD] rounded-lg shadow-lg group-hover:block group-focus-within:block transition-opacity duration-300 ease-in-out" id="services-dropdown">
+                    <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
+                    <a href="/frontend/internships.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                    <a href="/frontend/projects.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                    <a href="/frontend/workshops.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
+                </div>
+            </div>
+
+            <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
+            <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
+            <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+            <button class="text-[#EE1C25]" id="mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="md:hidden hidden" id="mobile-menu">
+    <div class="space-y-4 px-6 py-4">
+        <a href="#" class="block text-lg hover:text-[#EE1C25]">Home</a>
+        
+        <!-- Services Dropdown for Mobile -->
+        <div class="relative" id="mobile-services-dropdown">
+            <button class="block text-lg hover:text-[#EE1C25]" id="mobile-services-button">Services</button>
+            <div class="absolute left-0 mt-2 hidden bg-white text-black rounded-lg shadow-lg" id="mobile-submenu">
+                <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
+                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
+            </div>
+        </div>
+        
+        <a href="/frontend/aboutus.html" class="block text-lg hover:text-[#EE1C25]">About Us</a>
+        <a href="/frontend/careers.html" class="block text-lg hover:text-[#EE1C25]">Careers</a>
+        <a href="/frontend/login.html" class="block text-lg hover:text-[#EE1C25]">Login</a>
+    </div>
+</div>
+
+<script>
+    // Mobile Menu Toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Mobile Services Dropdown Toggle
+    const mobileServicesButton = document.getElementById('mobile-services-button');
+    const mobileSubmenu = document.getElementById('mobile-submenu');
+    
+    mobileServicesButton.addEventListener('click', function () {
+        mobileSubmenu.classList.toggle('hidden');
+    });
+
+    // Optional: Close submenu when clicking outside (for mobile view)
+    document.addEventListener('click', function (e) {
+        const isClickInside = mobileServicesButton.contains(e.target) || mobileSubmenu.contains(e.target);
+        if (!isClickInside) {
+            mobileSubmenu.classList.add('hidden');
+        }
+    });
+</script>
 
     <div class="max-w-6xl mx-auto p-6">
 
         <!-- Header -->
         <header class="text-center mb-12">
-            <h1 class="text-3xl font-semibold text-[#0065BD]">Internship Opportunities</h1>
+            <h1 class="text-4xl font-semibold text-[#0065BD]">Internship Opportunities</h1>
             <p class="text-lg text-gray-600 mt-2">Explore the best internships in various fields. Apply now to kickstart your career!</p>
         </header>
 
@@ -33,7 +129,7 @@
             
             <!-- Internship Card 1 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/dataanalysis.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Analyst Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
@@ -44,7 +140,7 @@
 
             <!-- Internship Card 2 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/java.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Java Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
@@ -55,7 +151,7 @@
 
             <!-- Internship Card 3 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/python.svg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Python Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
@@ -66,7 +162,7 @@
 
             <!-- Internship Card 4 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/ece/VLSI.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">VLSI Design Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
@@ -77,7 +173,7 @@
 
             <!-- Internship Card 5 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/sql.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">SQL Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
@@ -88,7 +184,7 @@
 
             <!-- Internship Card 6 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/machinelearning.jpeg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Machine Learning </h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
@@ -99,7 +195,7 @@
 
             <!-- Internship Card 7 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/CloudComputing.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Gen AI Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
@@ -110,7 +206,7 @@
 
             <!-- Internship Card 8 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/frontend.jpeg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Frontend Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
@@ -121,7 +217,7 @@
 
             <!-- Internship Card 9 -->
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
-                <img src="https://via.placeholder.com/350x200" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <img src="/frontend/images/cse/backend.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Backend Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
