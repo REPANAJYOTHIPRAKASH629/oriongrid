@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +140,235 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Optical Communication</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1:Introduction to Optical Communication </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Historical Development: Explore the evolution of optical communication from early experiments to contemporary fiber-optic systems. </li>
+                        <li>Advantages and Applications: Understand the benefits of optical communication, including high bandwidth and low attenuation, and its applications in various fields.</li>
+                        <li>Basic Components: Introduction to the fundamental components of optical communication systems, such as transmitters, receivers, and optical fibers.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2: Fundamentals of Light and Optics</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li> Nature of Light: Study the dual nature of light, encompassing both wave and particle theories.</li>
+                        <li>Optical Laws: Review Snell's Law, reflection, refraction, and total internal reflection principles.</li>
+                        <li>Polarization: Understand the concept of light polarization and its significance in optical communication.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3: Optical Fibers</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Fiber Structures: Examine the different types of optical fibers, including single-mode and multimode fibers.</li>
+                        <li>Propagation of Light in Fibers: Learn how light signals propagate through optical fibers and the factors affecting propagation.</li>
+                        <li>Fiber Fabrication: Overview of the manufacturing processes involved in producing optical fibers.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4:Signal Degradation in Optical Fibers </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Attenuation: Identify the causes of signal loss in optical fibers, such as absorption and scattering.</li>
+                        <li>Dispersion: Understand chromatic and modal dispersion and their impact on signal quality. </li>
+                        <li>Nonlinear Effects: Explore phenomena like self-phase modulation and four-wave mixing that can distort signals.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5:Optical Sources </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Light Emitting Diodes (LEDs): Study the operation and characteristics of LEDs used in optical communication.</li>
+                        <li>Laser Diodes: Examine the principles of laser diodes, including their modulation and noise properties.</li>
+                        <li>Source Modulation Techniques: Learn about direct and external modulation methods for encoding data onto light signals.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6: Optical Detectors and Receivers</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li> Photodetectors: Understand the working principles of PIN diodes and avalanche photodiodes (APDs).</li>
+                        <li>Receiver Design: Explore the design considerations for optical receivers, including sensitivity and noise performance.</li>
+                        <li>Noise in Optical Receivers: Identify various noise sources and their effects on signal detection.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7:Optical Amplifiers </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Erbium-Doped Fiber Amplifiers (EDFAs): Study the operation and applications of EDFAs in boosting signal strength.</li>
+                        <li>Semiconductor Optical Amplifiers (SOAs): Examine the characteristics and uses of SOAs in optical networks.</li>
+                        <li>Amplifier Noise and Gain Dynamics: Understand the factors influencing amplifier performance and signal quality. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8: Wavelength Division Multiplexing (WDM)</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Principles of WDM: Learn how multiple wavelengths are used to increase the capacity of optical fibers.</li>
+                        <li> Components of WDM Systems: Explore multiplexers, demultiplexers, and filters essential for WDM.</li>
+                        <li>Dense and Coarse WDM: Differentiate between DWDM and CWDM technologies and their applications.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9: Optical Network Design</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Network Topologies: Study various optical network configurations, including ring, star, and mesh topologies.</li>
+                        <li>Routing and Wavelength Assignment: Understand strategies for efficient data routing and wavelength allocation.</li>
+                        <li>Optical Switching: Examine the mechanisms of optical switches and their role in network flexibility.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10: Dispersion Management</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Dispersion Compensation Techniques: Learn methods to mitigate dispersion effects, such as dispersion-compensating fibers.</li>
+                        <li>Advanced Modulation Formats: Explore modulation schemes designed to reduce dispersion-related issues.</li>
+                        <li> Pulse Shaping: Understand the importance of pulse shaping in maintaining signal integrity.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 11: Nonlinear Effects in Optical Fibers</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Self-Phase Modulation (SPM): Study the impact of SPM on signal propagation.</li>
+                        <li>Cross-Phase Modulation (XPM): Examine how XPM affects WDM systems. </li>
+                        <li>Four-Wave Mixing (FWM): Understand the conditions leading to FWM and its implications. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 12 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 12: Optical Modulation Techniques</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li> Intensity Modulation: Learn about on-off keying and other intensity modulation methods.</li>
+                        <li> Phase Modulation: Explore phase shift keying techniques used in advanced optical systems.</li>
+                        <li>Frequency Modulation: Understand frequency shift keying and its applications in optical communication.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 13 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 13:Optical Communication System Design </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Link Budget Analysis: Calculate power budgets to ensure reliable communication links.</li>
+                        <li> Bit Error Rate (BER) Analysis: Assess system performance by evaluating BER under various conditions.</li>
+                        <li>System Integration: Understand the integration of components into a cohesive optical communication system.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 14 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 14:Optical Access Networks </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Passive Optical Networks (PONs): Study the architecture and operation of PONs for last-mile connectivity.</li>
+                        <li>Fiber to the Home (FTTH): Explore the deployment strategies and benefits of FTTH networks. </li>
+                        <li>Optical Network Units (ONUs): Understand the role of ON</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+                <!-- Skills Gained -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Skills Gained:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Fundamentals of Optics and Photonics: A solid grasp of light behavior, wave propagation, and optical components is crucial.</li>
+                        <li>Network Design and Implementation: Proficiency in designing and deploying optical networks, including understanding protocols and configurations, is vital.</li>
+                        <li>Technical Proficiency: Familiarity with optical cabling, fiber count determination, and industry standards is necessary for effective system design and maintenance.</li>
+                        <li>Problem-Solving and Analytical Skills: The ability to troubleshoot and optimize optical systems is essential.</li>
+                        <li>Programming and Simulation: Skills in programming languages like Python, MATLAB, and C++ are valuable for designing, testing, and optimizing optical systems.</li>
+                    
+                        
+                    </ul>
+                </div>
+
+                <!-- Job Opportunities -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Job Opportunities:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Optical Communication Engineer: Designs and develops optical communication systems, ensuring efficient data transmission. Positions are available globally, with competitive salaries ranging from $129,000 to $167,000.</li>
+                        <li>Optical Engineer: Focuses on the design and testing of optical components and systems. Companies like Blue Origin offer roles such as Optical Communications Payload Lead, providing benefits like medical, dental, and vision insurance.</li>
+                        <li>Optical Communication Intern: Provides support in research and development projects related to optical communication technologies. Nokia offers internships in this area, allowing interns to work on cutting-edge research projects.</li>
+                        
+                        
+                    </ul>
+                </div>
+
+                <!-- Additional Benefits of Learning Optical Communication -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Additional Benefits of Learning Optical Communication:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> High Demand and Competitive Salaries: The growing reliance on high-speed data transmission increases the demand for skilled professionals, leading to attractive compensation packages. </li> 
+                        <li> Career Advancement: Expertise in optical communication opens doors to advanced roles in various industries, including telecommunications, aerospace, and medical devices. </li> 
+                        <li>Contribution to Technological Advancement: Professionals in this field play a pivotal role in developing faster and more secure communication systems, impacting global connectivity.  </li> 
+
+                        
+                    </ul>
+                </div>
+
+                <!-- Projects You Can Build -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Projects You Can Build:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong> Design and Simulation of Optical Networks: </strong>Create models of optical communication systems using simulation software to understand network behavior and performance.   </li>
+                        <li><strong>Development of Optical Sensors:   </strong> Build sensors that utilize optical fibers for data collection, applicable in various fields such as environmental monitoring.  </li>
+                        <li><strong>Implementation of Fiber Optic Communication Systems:   </strong> Set up a small-scale fiber optic communication system to demonstrate data transmission capabilities.    </li>
+                        <li><strong>Adaptive Eye Gaze Tracking System:  </strong> Develop a system that uses optical communication principles to track eye movement, useful in assistive technologies. </li>
+                        <li><strong>Optical Flow Measurement System:  </strong> Create a system that measures the flow of fluids or gases using optical communication techniques, applicable in industrial settings.   </li>
+                    </ul>
+                </div>
+            </div>
+        </div></div>
+
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +403,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +416,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +435,5 @@
     </footer>
 
 </body>
+
 </html>

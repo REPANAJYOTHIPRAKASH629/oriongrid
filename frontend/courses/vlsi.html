@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +140,235 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">VLSI</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1: Introduction to VLSI Systems</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Definition and history of VLSI. </li>
+                        <li>Applications in various industries.</li>
+                        <li>Trends in miniaturization and integration.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2: Semiconductor Device Fundamentals</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Intrinsic and extrinsic semiconductors. </li>
+                        <li>PN junction diodes and their characteristics.</li>
+                        <li>MOSFET structure and operation.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3: CMOS Technology and Fabrication</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>CMOS process flow.</li>
+                        <li>Photolithography, doping, and etching techniques.</li>
+                        <li>Layout design rules and considerations.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4: MOS Transistor Theory</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Threshold voltage and body effect. </li>
+                        <li>I-V characteristics and channel length modulation. </li>
+                        <li>Capacitance and switching behavior.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5: CMOS Inverter and Logic Gates</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Static and dynamic characteristics of CMOS inverters.</li>
+                        <li>Noise margins and power consumption.</li>
+                        <li>NAND, NOR, and XOR gate designs.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6: Combinational Logic Circuit Design</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Boolean algebra and logic minimization. </li>
+                        <li>Pass-transistor and transmission gate logic. </li>
+                        <li>•	Design of multiplexers, demultiplexers, and arithmetic circuits.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7: Sequential Logic Circuit Design</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Bistable elements and timing considerations. </li>
+                        <li>Setup and hold times.</li>
+                        <li>Design of counters and shift registers. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8: Memory Design</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Memory cell design and stability.</li>
+                        <li>Sense amplifiers and write circuits. </li>
+                        <li>Memory hierarchy and cache design. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9: VLSI Design Methodologies</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Top-down and bottom-up design approaches</li>
+                        <li>Introduction to Verilog and VHDL. </li>
+                        <li>•	Simulation, synthesis, and verification processes.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10: Physical Design and Layout</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Floorplanning and placement strategies. </li>
+                        <li>Routing techniques and parasitic extraction.</li>
+                        <li>Design rule checking (DRC) and layout versus schematic (LVS) verification. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 11: Testing and Verification</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Fault models and test pattern generation.</li>
+                        <li>Design for testability (DFT) techniques. </li>
+                        <li>Built-in self-test (BIST) architectures. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 12 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 12: Low-Power VLSI Design</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Sources of power dissipation. </li>
+                        <li>Power gating and clock gating strategies. </li>
+                        <li>Voltage scaling and dynamic power management. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 13 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 13: Advanced Topics in VLSI</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>3D IC integration and system-on-chip (SoC) design. </li>
+                        <li>Nanoelectronics and quantum computing implications. </li>
+                        <li>Reliability and variability issues in deep submicron technologies. </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+                <!-- Skills Gained -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Skills Gained:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Understanding the complete VLSI design process, including specification, architecture, logic design, physical design, verification, and testing.</li>
+                        <li>Ability to design and analyze both digital and analog circuits using CMOS technology.</li>
+                        <li>Mastery of HDLs such as Verilog and VHDL for modeling and simulating digital systems</li>
+                        <li>Experience with Electronic Design Automation (EDA) tools for the design, simulation, synthesis, and verification of VLSI circuits. </li>
+                        <li>Skills in creating efficient chip layouts, understanding design rules, and managing parasitic effects. </li>
+                        <li>Knowledge of various testing methodologies to ensure design functionality and reliability. </li>
+                        <li>Grasp the fundamental principles governing semiconductor devices and their behavior in circuits.</li>
+                    </ul>
+                </div>
+
+                <!-- Job Opportunities -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Job Opportunities:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>VLSI Design Engineer</li>
+                        <li>Verification Engineer</li>
+                        <li>Physical Design Engineer</li>
+                        <li>FPGA Engineer</li>
+                        <li>Application Engineer</li>
+                        <li>Process Engineer</li>
+                    </ul>
+                </div>
+
+                <!-- Additional Career Paths -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Additional Career Paths:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Embedded Systems Engineer:   </strong>Designs and develops embedded systems integrating VLSI components.   </li>
+                        <li><strong>Research Scientist:   </strong> Engages in advanced research in semiconductor technologies and VLSI design methodologies.  </li>
+                        <li><strong>Technical Consultant:</strong> Offers expertise in VLSI design and implementation to various organizations. </li>
+                    </ul>
+                </div>
+
+                <!-- Additional Benefits of Learning Java -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Additional Benefits of Learning Java:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> The semiconductor industry continually seeks skilled VLSI professionals, ensuring robust job opportunities. </li> 
+                        <li>VLSI professionals often command attractive compensation packages.  </li>
+                        <li>Involvement in cutting-edge technology development, contributing to advancements in electronics.  </li>
+                        <li> VLSI skills are applicable in various sectors, including consumer electronics, automotive, telecommunications, and more. </li>
+                    </ul>
+                </div>
+
+                <!-- Projects You Can Build -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Projects You Can Build:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Design of a 32-bit RISC Processor:   </strong>Implement a simplified RISC processor architecture using Verilog or VHDL.    </li>
+                        <li><strong>FPGA-Based Signal Processing System:   </strong> Develop a digital signal processing application, such as a real-time audio equalizer, on an FPGA platform.   </li>
+                        <li><strong>Low-Power ALU Design:   </strong> Create an Arithmetic Logic Unit optimized for low power consumption, suitable for portable devices.    </li>
+                        <li><strong>Memory Design:   </strong> Design and simulate SRAM or DRAM modules, focusing on speed and area optimization.  </li>
+                        <li><strong>ASIC Design for Image Processing:   </strong> Develop an Application-Specific Integrated Circuit tailored for image filtering applications.     </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div></div>
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +403,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +416,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +435,5 @@
     </footer>
 
 </body>
+
 </html>

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses Page</title>
+    <title>Orion Grid</title>
+    <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .red-btn {
@@ -135,28 +136,28 @@
     <script>
         const courses = {
             cse: [
-                { image: '/frontend/images/cse/fullstack.jpg', title: 'Full Stack Development', description: 'Comprehensive course on full stack development.', price: '$200', syllabus: 'https://example.com/full-stack-syllabus' },
-                { image: '/frontend/images/cse/frontend.jpeg', title: 'Front End Development', description: 'Learn modern front end technologies.', price: '$150', syllabus: 'https://example.com/front-end-syllabus' },
-                { image: '/frontend/images/cse/backend.png', title: 'Back End Development', description: 'Master back end frameworks and databases.', price: '$170', syllabus: 'https://example.com/back-end-syllabus' },
-                { image: '/frontend/images/cse/dataanalysis.jpg', title: 'Data Analysis', description: 'Analyze data effectively with Python.', price: '$180', syllabus: 'https://example.com/data-analysis-syllabus' },
-                { image: '/frontend/images/cse/machinelearning.jpeg', title: 'Machine Learning', description: 'Learn to build machine learning models.', price: '$220', syllabus: 'https://example.com/ml-syllabus' },
-                { image: '/frontend/images/cse/msoffice.jpeg', title: 'MS Office', description: 'Master Microsoft Office Suite.', price: '$100', syllabus: 'https://example.com/ms-office-syllabus' },
-                { image: '/frontend/images/cse/datavisualization.jpg', title: 'Data Visualization', description: 'Create insightful visualizations.', price: '$190', syllabus: 'https://example.com/data-viz-syllabus' },
-                { image: '/frontend/images/cse/CloudComputing.png', title: 'Cloud Computing', description: 'Learn cloud services and deployment.', price: '$250', syllabus: 'https://example.com/cloud-syllabus' },
-                { image: '/frontend/images/cse/webdevelopment.jpeg', title: 'Web Development', description: 'Full course on web development.', price: '$200', syllabus: 'https://example.com/web-dev-syllabus' },
-                { image: '/frontend/images/cse/java.jpg', title: 'Core Java', description: 'Mastering Core Java.', price: '$200', syllabus: '/frontend/java.html' },
-                { image: '/frontend/images/cse/python.svg', title: 'Python', description: 'Mastering Pyhton Programming.', price: '$200', syllabus: '/frontend/java.html' },
-                { image: '/frontend/images/cse/sql.png', title: 'SQL', description: 'Mastering SQL server.', price: '$200', syllabus: '/frontend/java.html' },
+                { image: '/frontend/images/cse/fullstack.jpg', title: 'Full Stack Development', description: 'Comprehensive course on full stack development.', price: '$200', syllabus: '/frontend/courses/fullstackdevelopment.html' },
+                { image: '/frontend/images/cse/frontend.jpeg', title: 'Front End Development', description: 'Learn modern front end technologies.', price: '$150', syllabus: '/frontend/courses/frontend.html' },
+                { image: '/frontend/images/cse/backend.png', title: 'Back End Development', description: 'Master back end frameworks and databases.', price: '$170', syllabus: '/frontend/courses/backend.html' },
+                { image: '/frontend/images/cse/dataanalysis.jpg', title: 'Data Analysis', description: 'Analyze data effectively with Python.', price: '$180', syllabus: '/frontend/courses/dataanalysis.html' },
+                { image: '/frontend/images/cse/machinelearning.jpeg', title: 'Machine Learning', description: 'Learn to build machine learning models.', price: '$220', syllabus: '/frontend/courses/machinelearning.html' },
+                { image: '/frontend/images/cse/msoffice.jpeg', title: 'MS Office', description: 'Master Microsoft Office Suite.', price: '$100', syllabus: '/frontend/courses/msoffice.html' },
+                { image: '/frontend/images/cse/datavisualization.jpg', title: 'Data Visualization', description: 'Create insightful visualizations.', price: '$190', syllabus: '/frontend/courses/datavisualization.html' },
+                { image: '/frontend/images/cse/CloudComputing.png', title: 'Cloud Computing', description: 'Learn cloud services and deployment.', price: '$250', syllabus: '/frontend/courses/cloudcomputing.html' },
+                { image: '/frontend/images/cse/webdevelopment.jpeg', title: 'Web Development', description: 'Full course on web development.', price: '$200', syllabus: '/frontend/courses/fullstackdevelopment.html' },
+                { image: '/frontend/images/cse/java.jpg', title: 'Core Java', description: 'Mastering Core Java.', price: '$200', syllabus: '/frontend/courses/java.html' },
+                { image: '/frontend/images/cse/python.svg', title: 'Python', description: 'Mastering Pyhton Programming.', price: '$200', syllabus: '/frontend/courses/python.html' },
+                { image: '/frontend/images/cse/sql.png', title: 'SQL', description: 'Mastering SQL server.', price: '$200', syllabus: '/frontend/courses/sql.html' },
 
             ],
             ece: [
-                { image: '/frontend/images/ece/Microwave.jpg', title: 'Antenna', description: 'Study the fundamentals of antennas.', price: '$180', syllabus: 'https://example.com/antenna-syllabus' },
-                { image: '/frontend/images/ece/DIP.png', title: 'DIP', description: 'Learn Digital Image Processing.', price: '$160', syllabus: 'https://example.com/dip-syllabus' },
-                { image: '/frontend/images/ece/Embedded Systems.png', title: 'Embedded Systems', description: 'Embedded systems design and development.', price: '$210', syllabus: 'https://example.com/embedded-syllabus' },
-                { image: '/frontend/images/ece/Networking.png', title: 'Networking', description: 'Understand computer networking concepts.', price: '$175', syllabus: 'https://example.com/networking-syllabus' },
-                { image: '/frontend/images/ece/Microwave.jpg', title: 'Microwave Communication', description: 'Learn about microwave communication systems.', price: '$190', syllabus: 'https://example.com/microwave-syllabus' },
-                { image: '/frontend/images/ece/OPtical.jpg', title: 'Optical Communication', description: 'Introduction to optical communication.', price: '$200', syllabus: 'https://example.com/optical-syllabus' },
-                { image: '/frontend/images/ece/VLSI.png', title: 'VLSI', description: 'Very-Large-Scale Integration systems.', price: '$220', syllabus: 'https://example.com/vlsi-syllabus' },
+                { image: '/frontend/images/ece/Microwave.jpg', title: 'Antenna', description: 'Study the fundamentals of antennas.', price: '$180', syllabus: '/frontend/courses/antenna.html' },
+                { image: '/frontend/images/ece/DIP.png', title: 'DIP', description: 'Learn Digital Image Processing.', price: '$160', syllabus: '/frontend/courses/digitalimageprocessing.html' },
+                { image: '/frontend/images/ece/Embedded Systems.png', title: 'Embedded Systems', description: 'Embedded systems design and development.', price: '$210', syllabus: '/frontend/courses/embeddedsystems.html' },
+                { image: '/frontend/images/ece/Networking.png', title: 'Networking', description: 'Understand computer networking concepts.', price: '$175', syllabus: '/frontend/courses/networking.html' },
+                { image: '/frontend/images/ece/Microwave.jpg', title: 'Microwave Communication', description: 'Learn about microwave communication systems.', price: '$190', syllabus: '/frontend/courses/microwavecommunication.html' },
+                { image: '/frontend/images/ece/OPtical.jpg', title: 'Optical Communication', description: 'Introduction to optical communication.', price: '$200', syllabus: '/frontend/courses/opticalcommunication.html' },
+                { image: '/frontend/images/ece/VLSI.png', title: 'VLSI', description: 'Very-Large-Scale Integration systems.', price: '$220', syllabus: '/frontend/courses/vlsi.html' },
                 { image: '/frontend/images/ece/signals.png', title: 'Signals', description: 'Study of signals and systems.', price: '$150', syllabus: 'https://example.com/signals-syllabus' },
                 { image: '/frontend/images/ece/Power Electronics.jpg', title: 'Power Electronics', description: 'Power electronics fundamentals.', price: '$190', syllabus: 'https://example.com/power-electronics-syllabus' },
                 { image: '/frontend/images/ece/Thermal Engineering.jpeg', title: 'Thermal Electronics', description: 'Learn about thermal electronics.', price: '$170', syllabus: 'https://example.com/thermal-electronics-syllabus' },

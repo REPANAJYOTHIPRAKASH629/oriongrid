@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +140,275 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Digital image processing</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1: Introduction to Digital Image Processing</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Definition and scope of digital image processing.</li>
+                        <li>Historical development and current trends.</li>
+                        <li>Overview of image processing applications in medical imaging, remote sensing, and entertainment.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2:  Digital Image Fundamentals</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Image acquisition and digitization. </li>
+                        <li>Sampling and quantization.</li>
+                        <li>Pixel relationships and image geometry.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3: Visual Perception and Color Models</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Structure of the human eye and color perception.</li>
+                        <li>RGB, HSV, and CMYK color models.</li>
+                        <li>Color transformations and conversions.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4: Image Enhancement in Spatial Domain</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Point processing operations: contrast stretching, thresholding.</li>
+                        <li>Spatial filtering: smoothing and sharpening filters. </li>
+                        <li>Histogram equalization and specification.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5:  Image Enhancement in Frequency Domain</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Fourier transform and its properties.</li>
+                        <li>Frequency domain filtering: low-pass, high-pass, and band-pass filters.</li>
+                        <li>Homomorphic filtering.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6: Image Restoration</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Noise models and statistical properties.</li>
+                        <li>Inverse filtering and Wiener filtering.</li>
+                        <li>Constrained least squares restoration.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7:  Image Compression</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Redundancy and entropy in images. </li>
+                        <li>Lossless compression methods: Huffman coding, Run-length encoding.</li>
+                        <li>Lossy compression methods: JPEG, MPEG standards. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8: Morphological Image Processing</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Structuring elements and basic operations: erosion, dilation.</li>
+                        <li>Advanced operations: opening, closing, hit-or-miss transform.</li>
+                        <li>Applications in boundary extraction and region filling.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9: Image Segmentation</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Thresholding methods: global, adaptive.</li>
+                        <li>Edge-based segmentation: edge detection operators.</li>
+                        <li>Region-based segmentation: region growing, splitting, and merging.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10: Feature Extraction and Representation</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Boundary descriptors: shape, curvature. </li>
+                        <li>Regional descriptors: texture, moments.</li>
+                        <li>Principal Component Analysis (PCA) for feature reduction. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 11: Object Recognition</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Pattern recognition fundamentals.</li>
+                        <li>Template matching techniques. </li>
+                        <li>Machine learning approaches: neural networks, support vector machines. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 12 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 12: Motion Analysis</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Optical flow estimation. </li>
+                        <li>Motion segmentation and tracking.</li>
+                        <li>Applications in video surveillance and animation.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 13 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 13: 3D Image Processing</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Stereoscopic imaging and depth perception. </li>
+                        <li>3D reconstruction from multiple images. </li>
+                        <li>Visualization techniques for 3D data. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 14 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 14: Image Processing with Machine Learning</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Supervised and unsupervised learning in image analysis. </li>
+                        <li>Convolutional Neural Networks (CNNs) for image recognition. </li>
+                        <li>Generative models for image synthesis.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 15 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 15: Biomedical Image Processing</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Medical imaging modalities: MRI, CT, Ultrasound. </li>
+                        <li>Image enhancement and segmentation in medical images.</li>
+                        <li>Feature extraction for disease detection.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 16 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 16: Remote Sensing and Satellite Image Processing</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Image correction: radiometric and geometric corrections. </li>
+                        <li>Vegetation indices and land cover classification. </li>
+                        <li>Change detection analysis.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 17 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 17: Real-Time Image Processing</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Hardware and software considerations for real-time processing.</li>
+                        <li>Parallel processing and GPU acceleration.</li>
+                        <li>Applications in robotics and industrial automation. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 18 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 18: Advanced Topics in Image Processing</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Deep learning advancements in image processing.</li>
+                        <li>Image processing in augmented and virtual reality. </li>
+                        <li>Ethical considerations and future directions in image processing research. </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+                <!-- Skills Gained -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Skills Gained in Digital Image Processing:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Fundamentals of Image Processing: Understanding core concepts such as image acquisition, enhancement, restoration, and compression. This foundation is essential for effectively manipulating and improving image quality.</li>
+                        <li>Programming Proficiency: Developing skills in programming languages commonly used in DIP, such as Python and MATLAB, to implement algorithms and process images efficiently. Familiarity with libraries like OpenCV further enhances this capability.</li>
+                        <li>Mathematical and Algorithmic Skills: Applying mathematical concepts, including linear algebra and statistics, to develop and understand image processing algorithms.</li>
+                        <li>Machine Learning Integration: Leveraging machine learning techniques, particularly deep learning, to perform complex tasks such as image recognition and classification.  </li>
+                        <li>Understanding of Computer Vision: Gaining insights into how machines interpret visual information, enabling the development of applications like object detection and facial recognition. </li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Job Opportunities -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Job Opportunities in Digital Image Processing:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Image Processing Engineer</li>
+                        <li>Computer Vision Engineer</li>
+                        <li>Research Scientist</li>
+                        <li>Software Developer</li>
+                        <li>Medical Imaging Specialist</li>
+                        
+                    </ul>
+                </div>
+
+
+                <!-- Additional Benefits of Learning Digital Image Processing -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Benefits of Learning Digital Image Processing:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> High Demand: With the proliferation of digital media and the need for automated image analysis, there is a growing demand for professionals skilled in DIP. Industries such as healthcare, automotive, and entertainment seek experts to develop innovative solutions. </li> 
+                        <li>Competitive Salaries: Professionals in this field often command attractive compensation packages, reflecting the specialized skills and expertise required. </li>
+                        <li>Diverse Applications: DIP skills are applicable in various sectors, including healthcare (e.g., medical imaging), security (e.g., surveillance systems), and entertainment (e.g., special effects in movies).  </li>
+                        <li> Innovation Opportunities: Engaging in DIP allows individuals to contribute to cutting-edge technologies, such as autonomous vehicles and artificial intelligence, driving future advancements. </li>
+                    </ul>
+                </div>
+
+                <!-- Projects You Can Build -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Projects You Can Build:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>License Plate Recognition System:  </strong>Develop a system that can detect and recognize license plates from vehicle images, useful in traffic monitoring and law enforcement.   </li>
+                        <li><strong>Facial Emotion Recognition:  </strong> Create a program that identifies human emotions from facial expressions in images, applicable in areas like user experience research and security   </li>
+                        <li><strong>Object Detection in Images:   </strong> Implement an algorithm that can detect and classify multiple objects within an image, a fundamental task in computer vision applications.     </li>
+                        <li><strong>Image Compression Tool:</strong> Build a tool that reduces the file size of images while maintaining quality, essential for efficient storage and transmission.  </li>
+                        <li><strong>Medical Image Segmentation:  </strong> Develop a system that segments and highlights specific regions in medical images, such as tumors in MRI scans, aiding in diagnostics. This project applies image segmentation techniques critical in medical analysis    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +443,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +456,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +475,5 @@
     </footer>
 
 </body>
+
 </html>

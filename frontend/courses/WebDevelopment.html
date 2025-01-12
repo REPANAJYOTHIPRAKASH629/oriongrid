@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +140,282 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Web Development Course Syllabus</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1:Introduction to Web Development</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Understanding Web Development</b> </li>
+                        <li>What is Web Development? Overview and Importance </li>
+                        <li>Difference Between Web Development and Web Design</li>
+                        <li>Overview of Front-End, Back-End, and Full-Stack Development</li>
+                        <li>Tools Required for Web Development (Text Editors, Browsers, Version Control)</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>The Internet and How Websites Work</b> </li> 
+                        <li> Overview of the Internet: DNS, HTTP/HTTPS, Web Servers, and Browsers</li>
+                        <li>Request-Response Cycle: From Browser to Web Server and Back</li>
+                        <li>Client-Side vs Server-Side Processing</li>
+                        <li>Introduction to Web Hosting and Domains</li>
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2: Front-End Development Basics</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Front-End Development</b> </li> 
+                        <li>What is Front-End Development? Overview of HTML, CSS, and JavaScript </li>
+                        <li>Tools for Front-End Development: Text Editors (VS Code, Sublime), Browsers (Chrome, Firefox), and Dev Tools</li>
+                        <li>Role of Front-End Developer in the Web Development Life Cycle</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>HTML5 (Hypertext Markup Language)</b> </li>
+                        <li>Structure of an HTML Document: DOCTYPE </li>
+                        <li>Common HTML Elements</li>
+                        <li>Semantic HTML Elements</li>
+                        <li>HTML5 Features: Audio/Video, Canvas, Local Storage, and Geo-location API</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>CSS3 (Cascading Style Sheets)</b> </li>
+                        <li>Introduction to CSS: Styling HTML Elements </li>
+                        <li>Selectors, Properties, and Values: Classes, IDs, and Element Selectors</li>
+                        <li>CSS Box Model: Margin, Border, Padding, and Content</li>
+                        <li>Flexbox and Grid Layout for Responsive Design</li>
+                        <li>CSS3 Advanced Styling: Transitions, Animations, and Transforms</li>
+                        <li>Media Queries for Responsive Web Design</li>
+                        <li>Introduction to CSS Frameworks: Bootstrap, Tailwind CSS</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>JavaScript Basics</b> </li>
+                        <li> What is JavaScript? Introduction to Scripting for Web Pages</li>
+                        <li>Variables, Data Types, and Operators</li>
+                        <li> Conditional Statements (if-else, switch)</li>
+                        <li> Loops: for, while, and do-while</li>
+                        <li> Functions and Scope</li>
+                        <li>DOM Manipulation: Selecting and Modifying HTML Elements</li>
+                        <li> Event Handling: Click, Hover, Submit, etc.</li>
+                        <li> JavaScript Debugging and Error Handling </li>
+                        
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3:Advanced Front-End Development </h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>JavaScript Advanced Topics</b> </li> 
+                        <li>Arrays, Objects, and JSON (JavaScript Object Notation)</li>
+                        <li> Working with Asynchronous JavaScript: Callbacks, Promises, and async/await</li>
+                        <li>JavaScript Closures, Higher-Order Functions, and Lambda Functions</li>
+                        <li> JavaScript ES6 Features: let/const, Arrow Functions, Template Literals, Modules, Destructuring</li>
+                        <li>Introduction to JavaScript Libraries: jQuery (Optional but useful for quick DOM manipulation)</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Front-End Frameworks and Libraries</b> </li> 
+                        <li> Introduction to React.js: Components, State, and Props</li>
+                        <li> JSX Syntax and Virtual DOM in React</li>
+                        <li> React Hooks: useState, useEffect, useContext</li>
+                        <li> Component Lifecycle in React</li>
+                        <li> Introduction to Vue.js: Vue Components and Directives</li>
+                        <li> Introduction to Angular: Components, Services, Directives, and Data Binding</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Front-End Tooling</b> </li> 
+                        <li>Package Managers: npm (Node Package Manager) and Yarn</li>
+                        <li>Task Runners: Gulp, Webpack</li>
+                        <li>Front-End Frameworks: Introduction to Next.js (React-based), Nuxt.js (Vue-based)</li>
+                        <li>Version Control: Introduction to Git and GitHub for Collaboration</li>
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4:Back-End Development Basics</h3>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Back-End Development</b> </li>
+                        <li>What is Back-End Development? Overview of Server-Side Programming</li>
+                        <li>Role of Back-End Developer in Web Development</li>
+                        <li>Introduction to Server-Side Programming Languages: Node.js, Python, Ruby, PHP, Java, etc.</li>
+                        <li>Setting Up a Development Environment: Local Server, Text Editor, IDE</li>
+                        
+                    </ul>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b> Introduction to Node.js</b> </li>
+                        <li>What is Node.js? Overview of Server-Side JavaScript with Node.js</li>
+                        <li>Setting Up a Node.js Application</li>
+                        <li>npm and Managing Packages</li>
+                        <li>Creating HTTP Servers with Node.js</li>
+                        <li>Handling Requests and Responses in Node.js</li>
+                    </ul>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Express.js: Web Framework for Node.js</b> </li>
+                        <li> Introduction to Express.js: Simplifying Server-Side Development</li>
+                        <li> Setting Up and Configuring Express.js</li>
+                        <li> Routing in Express.js: Handling GET, POST, PUT, DELETE Requests</li>
+                        <li> Middleware Functions in Express</li>
+                        <li> Template Engines: EJS, Handlebars</li>
+                        <li> Error Handling in Express.js</li>
+                        
+                    </ul>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Databases and Data Management</b> </li>
+                        <li>Introduction to Databases: Relational vs Non-Relational</li>
+                        <li> Introduction to SQL Databases: MySQL, PostgreSQL</li>
+                        <li> Setting Up a Database</li>
+                        <li> Writing Basic SQL Queries: SELECT, INSERT, UPDATE, DELETE</li>
+                        <li> Introduction to NoSQL Databases: MongoDB</li>
+                        <li> Setting Up MongoDB</li>
+                        <li> Working with MongoDB Collections and Documents</li>
+                        <li>CRUD Operations in MongoDB</li>
+                        
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5:Advanced Back-End Development</h3>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Authentication and Authorization</b> </li>
+                        
+                        <li>Understanding Authentication vs Authorization</li>
+                        <li>User Authentication with JWT (JSON Web Tokens)</li>
+                        <li>Implementing User Login and Registration</li>
+                        <li>Securing APIs and Routes with Authentication Middleware</li>
+                        <li>Role-Based Access Control (RBAC)</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>RESTful API Development</b> </li>
+                        <li>What is a RESTful API? Principles and Design </li>
+                        <li>Creating RESTful APIs with Express.js and Node.js</li>
+                        <li>HTTP Methods and Status Codes in REST</li>
+                        <li>Sending and Receiving Data via JSON</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Web Security Best Practices</b> </li>
+                        <li>Securing Web Applications: HTTPS, Secure Cookies, CSRF Protection </li>
+                        <li>OWASP Top 10 Security Risks for Web Applications</li>
+                        <li>SQL Injection Prevention and Input Validation</li>
+                        <li>XSS (Cross-Site Scripting) Protection</li>
+                        <li>Rate Limiting and DDoS Protection</li>
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6: Project Work and Capstone Project</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Capstone Project:</b> </li>
+                        <li> Build a Full-Stack Web Application (e.g., an e-commerce platform, blog, social media app)</li>
+                        <li>Use all the tools and technologies learned: React.js for Front-End, Node.js/Express for Back-End, MongoDB for Database</li>
+                        <li>Implement user authentication, deploy the application, and handle data management</li>
+                        <li>Project Presentation and Code Review</li>
+                        
+                    </ul>
+                    
+                    
+                    
+                    
+                </div>
+
+                
+
+                
+                
+                
+
+                
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+
+                
+
+                
+                <!-- Recommended Prerequisites -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Recommended Prerequisites</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Basic understanding of computer programming concepts.  </li> 
+                        <li> Familiarity with HTML and CSS (optional but recommended). </li> 
+                        <li>No prior experience in JavaScript or back-end technologies is necessary, as the course covers all levels of learning. </li> 
+
+                        
+                    </ul>
+                </div>
+
+                <!-- Learning Outcomes -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Learning Outcomes:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> 1. Build responsive and interactive front-end web applications using HTML, CSS, and JavaScript.</li>
+                        <li> 2. Develop dynamic and scalable back-end web applications with Node.js and Express.</li>
+                        <li>  3. Integrate front-end and back-end to create full-stack web applications.</li>
+                        <li>  4. Deploy web applications to cloud platforms like Heroku, AWS, and Netlify.</li>
+                        <li>  5. Implement security practices, version control, and debugging techniques in web applications.</li>
+                        <li> 6. Work with databases (SQL and NoSQL) and create RESTful APIs.</li>
+                        <li>    7. Understand and apply modern web development best practices in real-world projects. </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div></div>
+
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +450,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +463,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +482,5 @@
     </footer>
 
 </body>
+
 </html>

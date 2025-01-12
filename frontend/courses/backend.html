@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +50,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +78,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +139,413 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Back-End Development Course Syllabus</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1:Introduction to Back-End Development </h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Overview of Back-End Development</b> </li>
+                        <li> Role of Back-End Developer in Full Stack Development</li>
+                        <li>Server-Side Programming vs Client-Side Programming</li>
+                        <li>Understanding the Client-Server Model</li>
+                        <li>Web Application Architecture: Front-End, Back-End, and Databases</li>
+                        <li>Tools and Technologies: IDEs, CLI, Version Control (Git), and Deployment Platforms</li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2:Node.js - Introduction and Fundamentals </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>What is Node.js?</b> </li> 
+                        <li>Node.js Overview: Event-Driven, Non-Blocking I/O </li>
+                        <li>Setting Up a Node.js Development Environment</li>
+                        <li>Node.js Core Modules: http, fs, path, url, events</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>JavaScript for Node.js</b> </li> 
+                        <li> Asynchronous Programming: Callbacks, Promises, async/await</li>
+                        <li>Event Loop in Node.js</li>
+                        <li>Error Handling in Node.js Applications</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Working with Node.js</b> </li> 
+                        <li>Creating a Simple Web Server with http Module </li>
+                        <li>Understanding and Working with Express.js (for routing and middleware)</li>
+                        <li>Managing Packages with npm: Installing, Updating, and Removing Packages</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3:Express.js - Building RESTful APIs </h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Express.js</b> </li> 
+                        <li>What is Express.js and Why Use It?</li>
+                        <li>Setting Up a Basic Express Application</li>
+                        <li>Routing in Express: Defining Routes, Handling HTTP Methods (GET, POST, PUT, DELETE)</li>
+                        <li>Middleware in Express: Built-in Middleware and Custom Middleware</li>
+                        <li>Error Handling in Express Applications</li>
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>RESTful API Design</b> </li> 
+                        <li>REST Principles and Best Practices</li>
+                        <li>Setting Up RESTful Routes in Express</li>
+                        <li>Handling Query Parameters and URL Parameters</li>
+                        <li>Sending JSON Responses</li>
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Working with Data</b> </li> 
+                        <li>Using Middleware for JSON Parsing (express.json())</li>
+                        <li>Validating Input and Handling Errors</li>
+                        <li>Building CRUD APIs: Create, Read, Update, Delete operations</li>
+                        
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4:Databases and Data Modeling</h3>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Relational Databases (SQL)</b> </li>
+                        <li>Introduction to Relational Databases: MySQL, PostgreSQL</li>
+                        <li>Database Design: Tables, Keys (Primary, Foreign), Relationships (One-to-Many, Many-to-Many)</li>
+                        <li>Writing SQL Queries: SELECT, INSERT, UPDATE, DELETE</li>
+                        <li>JOIN Operations: INNER JOIN, LEFT JOIN, RIGHT JOIN</li>
+                        <li>Advanced SQL Queries: Aggregate Functions, GROUP BY, HAVING, Subqueries</li>
+                    </ul>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>NoSQL Databases</b> </li>
+                        <li>What is NoSQL? When to Use NoSQL Databases</li>
+                        <li>Introduction to MongoDB and Document-Oriented Data Model</li>
+                        <li>CRUD Operations in MongoDB: find(), insertOne(), updateOne(), deleteOne()</li>
+                        <li>Using Mongoose (ODM for MongoDB) for Data Modeling and Validation</li>
+                        <li>Data Validation with Mongoose</li>
+                    </ul>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Database Integration in Node.js</b> </li>
+                        <li>Integrating MySQL/PostgreSQL with Node.js using mysql2 or pg modules</li>
+                        <li>Integrating MongoDB with Node.js using Mongoose </li>
+                        <li>Performing CRUD operations in Express with SQL and MongoDB</li>
+                    </ul>
+
+                    
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5:Authentication and Authorization</h3>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Understanding Authentication and Authorization</b> </li>
+                        <li>Authentication: Verifying User Identity</li>
+                        <li>Authorization: Managing User Permissions and Roles</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>User Authentication in Node.js</b> </li>
+                        <li>Implementing JWT (JSON Web Token) Authentication</li>
+                        <li>Setting Up Registration and Login Routes</li>
+                        <li>Storing Passwords Securely: Hashing with bcrypt.js</li>
+                        <li> Managing User Sessions with JWT Tokens</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Role-Based Access Control (RBAC)</b> </li>
+                        <li>Protecting Routes Based on User Roles (Admin, User)</li>
+                        <li>Middleware for Authentication and Authorization</li>
+                        <li>Securing Routes with JWT Authentication</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>OAuth 2.0 Authentication</b> </li>
+                        <li>Introduction to OAuth: Third-Party Authentication (Google, Facebook, GitHub)</li>
+                        <li>Implementing OAuth Authentication in Node.js</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6:Building RESTful APIs with Node.js and Express </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Advanced Routing in Express</b> </li>
+                        <li>Nested Routes, Route Parameters, and Query Parameters </li>
+                        <li>Implementing CRUD Operations on REST APIs</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Handling File Uploads</b> </li>
+                        <li>Handling File Uploads with Multer.js </li>
+                        <li>Storing Files on the Server and Cloud Storage (AWS S3, Cloudinary)</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>API Versioning and Documentation</b> </li>
+                        <li>Versioning RESTful APIs </li>
+                        <li>Using Swagger/OpenAPI for API Documentation</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Error Handling and Logging</b> </li>
+                        <li>Error Handling Strategies in Express.js </li>
+                        <li>Logging Requests and Errors with Winston or Morgan</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7:Real-Time Communication with WebSockets </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to WebSockets</b> </li>
+                        <li>Understanding WebSockets and Real-Time Communication</li>
+                        <li>Setting Up a WebSocket Server in Node.js</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Socket.io for Real-Time Applications</b> </li>
+                        <li>Installing and Configuring Socket.io</li>
+                        <li>Sending and Receiving Events in Real-Time</li>
+                        <li>Broadcasting Messages to All Clients or Specific Clients</li>
+                        <li> Building a Real-Time Chat Application with Node.js and Socket.io</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8:Advanced Back-End Topics</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Microservices Architecture</b> </li>
+                        <li>Introduction to Microservices and Service-Oriented Architecture (SOA)</li>
+                        <li>Benefits and Challenges of Microservices</li>
+                        <li>Building and Deploying Microservices with Node.js</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>GraphQL</b> </li>
+                        <li>Introduction to GraphQL and its Benefits over REST</li>
+                        <li>Setting Up a Basic GraphQL Server with Apollo Server</li>
+                        <li>Querying and Mutating Data in GraphQL</li>
+                        <li>Connecting GraphQL with MongoDB and SQL Databases</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Caching in Back-End Systems</b> </li>
+                        <li>Introduction to Caching and Caching Strategies (In-Memory, Redis)</li>
+                        <li>Using Redis for Caching API Responses</li>
+                        <li>Optimizing Database Queries with Caching</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Serverless Architectures</b> </li>
+                        <li>Introduction to Serverless Computing (AWS Lambda, Google Cloud Functions)</li>
+                        <li>Deploying a Serverless Node.js API</li>
+                        <li>Using API Gateway for API Management</li>
+                    </ul>
+                </div>
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9:Testing Back-End Applications</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Unit Testing with Mocha and Chai</b> </li>
+                        <li>Introduction to Testing in Node.js</li>
+                        <li>Setting Up Mocha and Chai for Unit Testing</li>
+                        <li>Writing Unit Tests for API Endpoints</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Integration Testing with Supertest</b> </li>
+                        <li>Testing Express API Endpoints with Supertest</li>
+                        <li>Simulating HTTP Requests and Assertions</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Test-Driven Development (TDD)</b> </li>
+                        <li>Writing Tests First and Building Back-End Logic</li>
+                        <li>Integration of Mocha, Chai, and Supertest in a Test Suite</li>
+                        
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Mocking and Stubbing with Sinon</b> </li>
+                        <li>Mocking Database Calls and External API Calls</li>
+                        
+                    </ul>
+                </div>
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10:Deployment and Scaling</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Deployment Basics</b> </li>
+                        <li>Introduction to Deployment Platforms: Heroku, AWS EC2, DigitalOcean</li>
+                        <li>Deploying a Node.js Application to Heroku</li>
+                        <li>Managing Environment Variables and Configuration</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Containerization with Docker</b> </li>
+                        <li>Introduction to Docker and Containers</li>
+                        <li>Creating Docker Containers for Node.js Applications</li>
+                        <li>Docker Compose for Multi-Container Applications</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>CI/CD (Continuous Integration/Continuous Deployment)</b> </li>
+                        <li>Introduction to CI/CD Pipelines</li>
+                        <li>Setting up a CI/CD Pipeline with GitHub Actions or Jenkins</li>
+                        <li>Automating Tests, Builds, and Deployment</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Performance Optimization</b> </li>
+                        <li>Load Balancing and Horizontal Scaling</li>
+                        <li>Caching Strategies for Performance Improvement</li>
+                        <li>Optimizing API Response Times and Server Resources</li>
+                    </ul>
+                </div>
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 11:Final Project</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Capstone Project</b> </li>
+                        <li>Design and Build a Complete Back-End Application (e.g., E-Commerce API, Blogging API, or Task Management App)</li>
+                        <li>Implement the Full Back-End Stack: Node.js, Express, Authentication, Database Integration</li>
+                        <li>Handle CRUD operations, Real-Time Features (WebSockets), and Authentication</li>
+                        <li>Write Unit Tests and Document APIs with Swagger/OpenAPI</li>
+                        <li>Deploy the Application to a Cloud Service (Heroku, AWS, etc.)</li>
+                        
+                    </ul>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+
+                <!-- Evaluation and Assessment -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Evaluation and Assessment</strong></p>
+                    
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><b>Assignments</b> </li>
+                        <li>Weekly tasks that cover key back-end development concepts like API development, authentication, and database integration.</li>
+                        
+                        
+                    </ul>
+                    
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><b>Quizzes</b> </li>
+                        <li>Periodic quizzes to test understanding of back-end programming principles and technologies.</li>
+                        
+                        
+                    </ul>
+                    
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><b>Capstone Project</b> </li>
+                        <li>Final project that tests the ability to develop, test, and deploy a full-fledged back-end application.</li>
+                        
+                        
+                    </ul>
+                </div>
+
+                <!-- Tools and Technologies Covered -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Tools and Technologies Covered</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Languages: JavaScript (Node.js), ES6+ Features </li> 
+                        <li> Frameworks: Express.js, Socket.io, Apollo Server (GraphQL) </li> 
+                        <li> Databases: MongoDB (with Mongoose), MySQL/PostgreSQL </li> 
+                        <li>Authentication: JWT, OAuth, bcrypt.js </li> 
+                        <li> Testing: Mocha, Chai, Supertest, Sinon </li> 
+                        <li> Deployment: Heroku, AWS EC2, Docker, Jenkins, GitHub Actions </li>
+                        <li>Caching: Redis  </li> 
+                        <li>Others: Swagger/OpenAPI, Winston (Logging), AWS Lambda (Serverless) </li> 
+
+                        
+                    </ul>
+                </div>
+                <!-- Recommended Prerequisites -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Recommended Prerequisites</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Familiarity with JavaScript (ES6+), HTML, and CSS </li> 
+                        <li> Basic knowledge of front-end technologies (for integration with back-end) </li> 
+                        <li> Understanding of databases and basic SQL queries</li> 
+
+                        
+                    </ul>
+                </div>
+
+                <!-- Learning Outcomes -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Learning Outcomes:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Build and deploy scalable back-end systems using Node.js and Express.js. </li>
+                        <li> Integrate databases (SQL and NoSQL) with back-end applications.</li>
+                        <li>Implement authentication and authorization mechanisms (JWT, OAuth).</li>
+                        <li>Build real-time applications with WebSockets and Socket.io.</li>
+                        <li> Develop RESTful APIs and GraphQL APIs with proper error handling and validation.</li>
+                        <li>Implement caching strategies to improve application performance.</li>
+                        <li> Test and debug back-end applications using tools like Mocha, Chai, and Supertest.</li>
+                        <li> Deploy applications to cloud platforms like Heroku, AWS, and Docker.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +580,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +593,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +612,5 @@
     </footer>
 
 </body>
+
 </html>

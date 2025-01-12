@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +140,294 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Embedded Systems  </h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1:  Introduction to Embedded Systems</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Definition and characteristics of embedded systems</li>
+                        <li>Differences between embedded and general-purpose computing systems</li>
+                        <li>Applications and real-world examples of embedded systems.</li>
+                        <li>Overview of embedded system components</li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2: Microcontrollers and Microprocessors</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Architecture of microcontrollers and microprocessors </li>
+                        <li>Comparison between RISC and CISC architectures</li>
+                        <li>Harvard vs. Von Neumann architectures</li>
+                        <li>Introduction to ARM Cortex-M series</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3: Embedded System Components</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Memory types: ROM, RAM, Flash</li>
+                        <li>Input/Output devices</li>
+                        <li>Sensors and actuators</li>
+                        <li>Communication interfaces: I2C, SPI, UART</li>
+                    </ul>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4: Embedded C Programming</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Fundamentals of C programming </li>
+                        <li>Embedded C extensions </li>
+                        <li>Writing and compiling embedded code</li>
+                        <li>Debugging and testing embedded applications</li>
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5: Real-Time Operating Systems (RTOS)</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Introduction to RTOS concepts</li>
+                        <li>Task scheduling and management</li>
+                        <li>Inter-task communication and synchronization</li>
+                        <li>Examples of popular RTOS: FreeRTOS, VxWorks</li>
+                    </ul>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6: Hardware-Software Co-Design</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Principles of hardware-software co-design </li>
+                        <li>Partitioning of tasks between hardware and software</li>
+                        <li>Co-simulation and co-verification techniques</li>
+                        <li>Case studies</li>
+                    </ul>
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7: Embedded System Design and Development</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Design methodologies </li>
+                        <li>Development life cycle</li>
+                        <li>Requirements analysis and specification</li>
+                        <li>System integration and testing</li>
+                    </ul>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8:Interfacing and Peripherals</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Interfacing digital and analog peripherals</li>
+                        <li>ADC and DAC concepts </li>
+                        <li>Timer and counter modules</li>
+                        <li>PWM generation and applications</li>
+                    </ul>
+                </div>
+
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9: Communication Protocols</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Serial communication: UART, SPI, I2C</li>
+                        <li>Wireless communication: Bluetooth, Wi-Fi, Zigbee </li>
+                        <li>Network protocols: TCP/IP basics</li>
+                        <li>CAN bus and automotive communication</li>
+                    </ul>
+                </div>
+
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10: Power Management in Embedded Systems</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Power consumption considerations </li>
+                        <li>Low-power design techniques</li>
+                        <li>Battery management</li>
+                        <li>Energy harvesting methods</li>
+                    </ul>
+                </div>
+
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 11: Embedded System Security</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Security threats and vulnerabilities</li>
+                        <li>Cryptography basics</li>
+                        <li>Secure boot and firmware updates</li>
+                        <li>Authentication and authorization mechanisms</li>
+                    </ul>
+                </div>
+
+                <!-- Module 12 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 12: Embedded Linux</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Introduction to Embedded Linux </li>
+                        <li>Bootloader and kernel configuration</li>
+                        <li>Root filesystem setup </li>
+                        <li>Device drivers and application development</li>
+                    </ul>
+                </div>
+
+                <!-- Module 13 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 13: Internet of Things (IoT) Fundamentals</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>IoT architecture and protocols </li>
+                        <li>Sensor networks</li>
+                        <li>Data acquisition and processing </li>
+                        <li>Cloud integration</li>
+                    </ul>
+                </div>
+
+                <!-- Module 14 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 14: Embedded Systems in Automotive Applications</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Automotive embedded systems overview </li>
+                        <li>In-vehicle networks and communication </li>
+                        <li>Safety-critical system design </li>
+                        <li>AUTOSAR standard</li>
+                    </ul>
+                </div>
+
+                <!-- Module 15 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 15: Digital Signal Processing in Embedded Systems</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Introduction to DSP concepts </li>
+                        <li>Signal sampling and quantization</li>
+                        <li>FIR and IIR filter design</li>
+                        <li>Real-time audio processing</li>
+                    </ul>
+                </div>
+
+                <!-- Module 16 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 16: FPGA-Based Embedded Systems </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Introduction to FPGAs </li>
+                        <li>HDL programming basics</li>
+                        <li>FPGA design flow </li>
+                        <li>Implementing embedded processors on FPGAs</li>
+                    </ul>
+                </div>
+
+                <!-- Module 17 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 17: Embedded System Testing and Debugging</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Testing methodologies </li>
+                        <li>Debugging tools and techniques</li>
+                        <li>Performance analysis and optimization </li>
+                        <li>Reliability and fault tolerance</li>
+                    </ul>
+                </div>
+
+                <!-- Module 18 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 18: Capstone Project</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Project planning and management </li>
+                        <li>System design and implementation </li>
+                        <li>Documentation and presentation </li>
+                        <li>Evaluation and feedback</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+                <!-- Skills Gained -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Skills Gained:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Proficiency in Programming Languages: Mastering languages such as C and C++ is essential for developing efficient embedded software.</li>
+                        <li>Understanding of Hardware Design: A solid grasp of electrical engineering principles enables engineers to design and interpret schematics, understand microcontroller architectures, and manage hardware-software integration effectively.</li>
+                        <li>Real-Time Operating Systems (RTOS) Knowledge: Experience with RTOS is crucial for developing applications that require precise timing and concurrency, common in embedded systems.</li>
+                        <li>Debugging and Testing Skills: Proficiency in using debugging tools and methodologies ensures the reliability and performance of embedded applications. This includes the ability to troubleshoot hardware and software issues effectively. </li>
+                        <li>Algorithm Optimization: The ability to optimize algorithms is vital for enhancing the efficiency and performance of embedded systems, ensuring they meet stringent resource constraints. </li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Job Opportunities -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Job Opportunities in Embedded Systems:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Embedded Software Engineer</li>
+                        <li>Firmware Engineer</li>
+                        <li>Hardware Engineer</li>
+                        <li>Application Engineer</li>
+                        <li>Systems Enginee</li>
+                        
+                    </ul>
+                </div>
+
+                
+
+                <!-- Additional Benefits of Learning Embedded Systems -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Additional Benefits of Learning Embedded Systems:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> High Demand: The proliferation of smart devices and the Internet of Things (IoT) has led to a surge in demand for embedded systems professionals across various industries. </li> 
+                        <li>Competitive Salaries: Embedded systems engineers often command attractive salaries, reflecting the specialized skills and expertise required in this field.  </li>
+                        <li>Diverse Applications: Skills in embedded systems are applicable in numerous sectors, including automotive, healthcare, consumer electronics, and aerospace, providing a wide range of career opportunities</li>
+                        <li> Innovation Opportunities: Engaging in embedded systems allows professionals to contribute to cutting-edge technologies, such as autonomous vehicles and smart home devices, driving future advancements.</li>
+                    </ul>
+                </div>
+
+                <!-- Projects You Can Build -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Projects You Can Build:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Home Automation System:   </strong>Develop a system that allows users to control household appliances remotely, enhancing convenience and energy efficiency.  </li>
+                        <li><strong>Wearable Health Monitor:   </strong> Create a device that tracks vital signs, providing real-time health data to users and healthcare providers.  </li>
+                        <li><strong>Autonomous Robot:   </strong> Build a robot capable of navigating and performing tasks without human intervention, showcasing skills in sensor integration and control algorithms.  </li>
+                        <li><strong>Smart Irrigation System: </strong> Design a system that optimizes water usage for agriculture by monitoring soil moisture and weather conditions, promoting sustainable farming practices. </li>
+                        <li><strong>Vehicle Tracking System: </strong> Implement a GPS-based system that monitors vehicle location and status, useful for fleet management and security applications.    </li>
+                    </ul>
+                </div>
+            </div>
+        </div></div>
+
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +462,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +475,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +494,5 @@
     </footer>
 
 </body>
+
 </html>

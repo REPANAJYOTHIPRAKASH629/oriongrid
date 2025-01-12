@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses Page</title>
+    <title>Orion Grid</title>
+    <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .red-btn {
@@ -14,37 +16,68 @@
         .blue-btn {
             background-color: #0065BD;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Outfit', sans-serif;
-                }
+        }
 
-                h1, h2, h3, h4 {
-                    font-family: 'Outfit', sans-serif;
-                }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+        }
     </style>
 </head>
 
 <body class="bg-white">
 
-  <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
-    <div class="flex justify-between items-center">
-        <!-- Logo -->
-        <div class="flex-shrink-0">
-            <img src="/frontend/images/logo.jpg" alt="Orion Grid Logo" class="w-32 md:w-48 h-auto object-contain">
+    <nav class="text-[#EE1C25] py-2 px-4 md:px-8 bg-[white]">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <img src="/frontend/images/logo.jpg" alt="Orion Grid Logo" class="w-32 md:w-48 h-auto object-contain">
+            </div>
+
+            <!-- Navbar Links -->
+            <div class="hidden md:flex space-x-6 text-lg">
+                <a href="#" class="hover:text-[#EE1C25]"><strong>Home</strong></a>
+                <div class="relative group">
+                    <a href="#" class="hover:text-[#EE1C25]"><strong>Services</strong></a>
+                    <div class="absolute left-0 mt-2 hidden bg-white text-[#0065BD] rounded-lg shadow-lg group-hover:block">
+                        <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
+                        <a href="/frontend/internships.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                        <a href="/frontend/projects.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                        <a href="/frontend/workshops.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
+                    </div>
+                </div>
+                <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
+                <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
+                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button class="text-[#EE1C25]" id="mobile-menu-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
+    </nav>
 
-        <!-- Navbar Links -->
-        <div class="hidden md:flex space-x-6 text-lg">
-            <a href="#" class="hover:text-[#EE1C25]"><strong>Home</strong></a>
-
-            <!-- Services Dropdown -->
-            <div class="relative group">
-                <a href="#" class="hover:text-[#EE1C25]"><strong>Services</strong></a>
-                <!-- Submenu (Hidden by default) -->
-                <div class="absolute left-0 mt-0 hidden bg-white text-[#0065BD] rounded-lg shadow-lg group-hover:block group-focus-within:block transition-opacity duration-300 ease-in-out" id="services-dropdown">
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+        <div class="space-y-4 px-6 py-4">
+            <a href="#" class="block text-lg hover:text-[#EE1C25]">Home</a>
+            <div class="relative">
+                <button class="block text-lg hover:text-[#EE1C25]" id="mobile-services-button">Services</button>
+                <div class="absolute left-0 mt-2 hidden bg-white text-black rounded-lg shadow-lg" id="mobile-submenu">
                     <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
                     <a href="/frontend/internships.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
                     <a href="/frontend/projects.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
@@ -52,223 +85,567 @@
                     <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
                 </div>
             </div>
-
-            <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
-            <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-            <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden flex items-center">
-            <button class="text-[#EE1C25]" id="mobile-menu-button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+            <a href="/frontend/aboutus.html" class="block text-lg hover:text-[#EE1C25]">About Us</a>
+            <a href="/frontend/careers.html" class="block text-lg hover:text-[#EE1C25]">Careers</a>
+            <a href="/frontend/login.html" class="block text-lg hover:text-[#EE1C25]">Login</a>
         </div>
     </div>
-</nav>
-
-<!-- Mobile Menu -->
-<div class="md:hidden hidden" id="mobile-menu">
-    <div class="space-y-4 px-6 py-4">
-        <a href="#" class="block text-lg hover:text-[#EE1C25]">Home</a>
-        
-        <!-- Services Dropdown for Mobile -->
-        <div class="relative" id="mobile-services-dropdown">
-            <button class="block text-lg hover:text-[#EE1C25]" id="mobile-services-button">Services</button>
-            <div class="absolute left-0 mt-2 hidden bg-white text-black rounded-lg shadow-lg" id="mobile-submenu">
-                <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
-            </div>
-        </div>
-        
-        <a href="/frontend/aboutus.html" class="block text-lg hover:text-[#EE1C25]">About Us</a>
-        <a href="/frontend/careers.html" class="block text-lg hover:text-[#EE1C25]">Careers</a>
-        <a href="/frontend/login.html" class="block text-lg hover:text-[#EE1C25]">Login</a>
-    </div>
-</div>
-
-<script>
-    // Mobile Menu Toggle
-    document.getElementById('mobile-menu-button').addEventListener('click', function () {
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // Mobile Services Dropdown Toggle
-    const mobileServicesButton = document.getElementById('mobile-services-button');
-    const mobileSubmenu = document.getElementById('mobile-submenu');
-    
-    mobileServicesButton.addEventListener('click', function () {
-        mobileSubmenu.classList.toggle('hidden');
-    });
-
-    // Optional: Close submenu when clicking outside (for mobile view)
-    document.addEventListener('click', function (e) {
-        const isClickInside = mobileServicesButton.contains(e.target) || mobileSubmenu.contains(e.target);
-        if (!isClickInside) {
-            mobileSubmenu.classList.add('hidden');
-        }
-    });
-</script>
 
     <div class="max-w-7xl mx-auto p-6">
-
         <!-- Header -->
         <header class="text-center mb-12">
             <h1 class="text-4xl font-semibold text-[#0065BD] mb-4">Explore Exciting Projects</h1>
             <p class="text-lg text-gray-600 mt-2 mb-8">Browse through our wide variety of projects categorized by technology field. Start building your next innovation today!</p>
         </header>
 
-        <!-- Project Categories -->
-        <div class="space-y-12">
-
-            <!-- CSE Projects -->
-            <section>
-                <h2 class="text-3xl font-semibold text-[#0065BD] mb-6">CSE Projects</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Project Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 1" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Machine Learning Model for Predicting Housing Prices</h3>
-                        <p class="text-gray-600 mb-2">An ML model that predicts housing prices based on features like location, size, and more.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $299</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 2" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Chatbot Using Natural Language Processing</h3>
-                        <p class="text-gray-600 mb-2">A chatbot that can understand and respond intelligently using NLP techniques.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $199</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 3 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 3" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Web Scraping and Data Analysis Tool</h3>
-                        <p class="text-gray-600 mb-2">A tool that extracts data from websites and performs analysis on the gathered data.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $149</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 1" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Machine Learning Model for Predicting Housing Prices</h3>
-                        <p class="text-gray-600 mb-2">An ML model that predicts housing prices based on features like location, size, and more.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $299</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 2" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Chatbot Using Natural Language Processing</h3>
-                        <p class="text-gray-600 mb-2">A chatbot that can understand and respond intelligently using NLP techniques.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $199</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 3 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 3" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Web Scraping and Data Analysis Tool</h3>
-                        <p class="text-gray-600 mb-2">A tool that extracts data from websites and performs analysis on the gathered data.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $149</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ECE/EEE Projects -->
-            <section>
-                <h2 class="text-3xl font-semibold text-[#EE1C25] mb-6">ECE/EEE Projects</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Project Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 1" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#EE1C25] mb-2">Solar-Powered Smart Street Light System</h3>
-                        <p class="text-gray-600 mb-2">A solar-powered streetlight system with IoT-based monitoring and control.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $249</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 2" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#EE1C25] mb-2">Microcontroller-Based Temperature Monitoring System</h3>
-                        <p class="text-gray-600 mb-2">A project based on microcontroller to monitor and display temperature readings.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $169</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- IoT Projects -->
-            <section>
-                <h2 class="text-3xl font-semibold text-[#0065BD] mb-6">IoT Projects</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Project Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 1" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Smart Farming System using IoT</h3>
-                        <p class="text-gray-600 mb-2">A smart farming system to monitor and manage crops using IoT technology.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $179</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 2" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">IoT-Enabled Smart Wearables</h3>
-                        <p class="text-gray-600 mb-2">Wearable devices integrated with IoT for health and fitness tracking.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $199</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+        <!-- Buttons for Departments -->
+        <div class="flex justify-center space-x-4 mb-8">
+            <button class="blue-btn text-white px-6 py-2 rounded-md" onclick="showProjects('cse')">CSE</button>
+            <button class="blue-btn text-white px-6 py-2 rounded-md" onclick="showProjects('ece')">ECE/EEE</button>
+            <button class="blue-btn text-white px-6 py-2 rounded-md" onclick="showProjects('iot')">IoT</button>
         </div>
 
+        <!-- Project Sections -->
+        <div id="projects-container">
+            <!-- CSE Projects -->
+            <section id="cse-projects" class="active">
+                <h1 class="text-3xl text-red-600"> CSE Projects</h1>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 1: Restaurant Bill Management System in Python -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Restaurant Bill Management System in Python" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Restaurant Bill Management System in Python</h3>
+                        <p class="text-gray-600 mb-2">A system for managing and calculating restaurant bills, including itemized prices.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+            
+                    <!-- Project 2: Captcha Generator in Python -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Captcha Generator in Python" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Captcha Generator in Python</h3>
+                        <p class="text-gray-600 mb-2">A Python project that generates CAPTCHA images for website security.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+            
+                    <!-- Project 3: Calculator App in Tkinter -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Calculator App in Tkinter" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Calculator App in Tkinter</h3>
+                        <p class="text-gray-600 mb-2">A simple calculator app built using Tkinter in Python.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+            
+                    <!-- Project 4: Movie Recommendation System in Python -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Movie Recommendation System in Python" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Movie Recommendation System in Python</h3>
+                        <p class="text-gray-600 mb-2">A system that recommends movies based on user preferences and ratings.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+            
+                    <!-- Project 5: Student Management System in Python -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Student Management System in Python" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Student Management System in Python</h3>
+                        <p class="text-gray-600 mb-2">A system to manage student data, including grades, assignments, and attendance.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+            
+                    <!-- Project 6: AI Chatbot in Python -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="AI Chatbot in Python" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">AI Chatbot in Python</h3>
+                        <p class="text-gray-600 mb-2">An AI-powered chatbot built in Python using NLP techniques.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+            
+                    <!-- Project 7: Best Employee Management System -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Best Employee Management System" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Best Employee Management System</h3>
+                        <p class="text-gray-600 mb-2">A system to manage employee data such as attendance, payroll, and performance.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+            
+                    <!-- Project 8: Best House Rental Management System -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Best House Rental Management System" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Best House Rental Management System</h3>
+                        <p class="text-gray-600 mb-2">A system for managing house rentals, tenant information, and rental payments.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+            
+                    <!-- Project 9: Prison Management System Using PHP -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Prison Management System Using PHP</h3>
+                        <p class="text-gray-600 mb-2">A PHP-based system for managing prisoners' records and prison operations.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+            
+                    <!-- Project 10: Computer Laboratory Management System using PHP and MySQL -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Computer Laboratory Management System using PHP and MySQL</h3>
+                        <p class="text-gray-600 mb-2">A system to manage computer lab resources, student usage, and availability.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Best Courier Management System Project in PHP</h3>
+                        <p class="text-gray-600 mb-2">A PHP-based courier management system for tracking packages, orders, and deliveries.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Inventory Management System PHP</h3>
+                        <p class="text-gray-600 mb-2">Inventory management system for tracking products, suppliers, and stock levels.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">AC Repair and Services System using PHP and MySQL</h3>
+                        <p class="text-gray-600 mb-2">A system for managing AC repair services, customer details, appointments, and technician assignments using PHP and MySQL.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Service Provider Management System using PHP and MySQL</h3>
+                        <p class="text-gray-600 mb-2">A PHP and MySQL-based system for managing various service providers, their services, and client interactions.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Fake News Detection Using Python</h3>
+                        <p class="text-gray-600 mb-2">A Python-based model to detect fake news articles by analyzing text patterns and sources.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Sentimental Analysis</h3>
+                        <p class="text-gray-600 mb-2">A system using natural language processing to analyze and determine the sentiment (positive, negative, neutral) of a given text.               </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Speech Recognition through the Emotions</h3>
+                        <p class="text-gray-600 mb-2">A system that recognizes speech and analyzes the emotional tone behind the spoken words.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Gender Detection and Age Prediction</h3>
+                        <p class="text-gray-600 mb-2">A machine learning model that predicts the gender and age of a person based on images or other input data.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Password Generator using Java</h3>
+                        <p class="text-gray-600 mb-2">A Java program that generates secure random passwords with various complexity levels.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Online Survey System</h3>
+                        <p class="text-gray-600 mb-2">A platform that allows users to create, distribute, and analyze online surveys in real-time.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Online Resume Builder</h3>
+                        <p class="text-gray-600 mb-2">A web-based application that allows users to create professional resumes using templates and customization options.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Visualization Software</h3>
+                        <p class="text-gray-600 mb-2">A tool that enables users to create visual representations of data through graphs, charts, and other graphical elements.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Exam Seating Arrangement System in Java</h3>
+                        <p class="text-gray-600 mb-2">A Java-based application to arrange and manage seating assignments for students during exams.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Consumer Relationship Management System</h3>
+                        <p class="text-gray-600 mb-2">A CRM system designed to manage and analyze customer interactions and data throughout the customer lifecycle.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Criminal Face Detection System</h3>
+                        <p class="text-gray-600 mb-2">A system using facial recognition technology to identify criminal suspects based on existing databases.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Home Value Prediction Project</h3>
+                        <p class="text-gray-600 mb-2">A machine learning project that predicts the market value of homes based on various features like location, size, and amenities.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Sales Prediction Project</h3>
+                        <p class="text-gray-600 mb-2">A data-driven project that predicts future sales trends based on historical sales data and market factors.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Music Recommendation System Project</h3>
+                        <p class="text-gray-600 mb-2">A system that recommends music to users based on their listening history and preferences.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Black Friday Sales Prediction</h3>
+                        <p class="text-gray-600 mb-2">A predictive model that forecasts sales volume and trends during Black Friday based on past data and market insights.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Stock Prices Predictor with the help of TimeSeries</h3>
+                        <p class="text-gray-600 mb-2">A predictive model that uses time series analysis to forecast future stock prices based on historical data.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Predicting Wine Quality</h3>
+                        <p class="text-gray-600 mb-2">A machine learning project that predicts the quality of wine based on chemical properties and other factors in the dataset.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>  
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Handwritten Digit Classification</h3>
+                        <p class="text-gray-600 mb-2">A machine learning project that classifies handwritten digits from the MNIST dataset using various algorithms.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div> 
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Market Basket Analysis</h3>
+                        <p class="text-gray-600 mb-2">A data mining technique used to find associations between products bought together by analyzing transactional data.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div> 
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="project" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Text Summarisation</h3>
+                        <p class="text-gray-600 mb-2">A system that automatically summarizes long pieces of text while retaining key information and context.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div> 
+
+
+
+                </div>
+            </section>
+            
+            
+
+            <section id="ece-projects" class="hidden">
+                <h1 class="text-3xl text-red-600 mb-4">ECE / EEE Projects</h1>
+                
+                <!-- Toggle Project Type List -->
+                <div class="mb-6">
+                    <button class="blue-btn text-white px-6 py-2 rounded-md" onclick="toggleProjectList('ece')">ECE Projects</button>
+                    <button class="blue-btn text-white px-6 py-2 rounded-md" onclick="toggleProjectList('vlsi')">VLSI Projects</button>
+                    <button class="blue-btn text-white px-6 py-2 rounded-md" onclick="toggleProjectList('signal')">Signal Projects</button>
+
+
+                </div>
+            
+                <!-- ECE Projects List -->
+                <div id="ece-project-list" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- ECE Project 1 -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/350x200" alt="Smart Energy Metering System" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Smart Energy Metering System</h3>
+                            <p class="text-gray-600 mb-2">An IoT-based system to monitor and manage energy consumption in real-time.</p>
+                            <p class="text-gray-800 font-bold mb-4">Price: $249</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VLSI Projects List -->
+                <div id="vlsi-project-list" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- VLSI Project 1 -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/350x200" alt="High Voltage Protection System" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">High Voltage Protection System</h3>
+                            <p class="text-gray-600 mb-2">A protection system designed to prevent electrical equipment from damage caused by high voltage spikes.</p>
+                            <p class="text-gray-800 font-bold mb-4">Price: $279</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- signal Projects List -->
+                <div id="signal-project-list" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Signal Project 1 -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/350x200" alt="High Voltage Protection System" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">High Voltage Protection System</h3>
+                            <p class="text-gray-600 mb-2">A protection system designed to prevent electrical equipment from damage caused by high voltage spikes.</p>
+                            <p class="text-gray-800 font-bold mb-4">Price: $279</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- EEE Projects List -->
+                <div id="vlsi-project-list" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- EEE Project 1 -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/350x200" alt="High Voltage Protection System" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">High Voltage Protection System</h3>
+                            <p class="text-gray-600 mb-2">A protection system designed to prevent electrical equipment from damage caused by high voltage spikes.</p>
+                            <p class="text-gray-800 font-bold mb-4">Price: $279</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <script>
+    function toggleProjects(category) {
+        // Hide all project sections
+        document.querySelectorAll('section[id$="-projects"]').forEach(section => {
+            section.classList.add('hidden');
+        });
+
+        // Show the selected category project section
+        document.getElementById(`${category}-projects`).classList.remove('hidden');
+    }
+
+    function toggleProjectList(category) {
+        // Hide all project lists
+        document.querySelectorAll('[id$="-project-list"]').forEach(list => {
+            list.classList.add('hidden');
+        });
+
+        // Show the selected project list
+        document.getElementById(`${category}-project-list`).classList.remove('hidden');
+    }
+</script>
+
+            <!-- IoT Projects -->
+            <section id="iot-projects" class="hidden">
+                <h1 class="text-3xl text-red-600"> IOT Projects</h1>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 1 -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="IoT-Based Smart Home Automation" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">IoT-Based Smart Home Automation</h3>
+                        <p class="text-gray-600 mb-2">An IoT solution for smart home control including lighting, temperature, and security.</p>
+                        <p class="text-gray-800 font-bold mb-4">Price: $299</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+                    <!-- More IoT projects -->
+                </div>
+            </section>
+
+            <!-- Mech Projects -->
+            <section id="mech-projects" class="hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 1 -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Automated Manufacturing System" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Automated Manufacturing System</h3>
+                        <p class="text-gray-600 mb-2">A project to automate the production line using robotics and IoT technology.</p>
+                        <p class="text-gray-800 font-bold mb-4">Price: $349</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+                    <!-- More Mech projects -->
+                </div>
+            </section>
+
+            <!-- Civil Projects -->
+            <section id="civil-projects" class="hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 1 -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                        <img src="https://via.placeholder.com/350x200" alt="Smart Construction Monitoring System" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Smart Construction Monitoring System</h3>
+                        <p class="text-gray-600 mb-2">A system to monitor construction progress using sensors and data analytics.</p>
+                        <p class="text-gray-800 font-bold mb-4">Price: $399</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
+                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+                    <!-- More Civil projects -->
+                </div>
+            </section>
+        </div>
     </div>
 
+    <script>
+        function showProjects(department) {
+            const departments = ['cse', 'ece', 'iot'];
+            departments.forEach((dept) => {
+                const section = document.getElementById(`${dept}-projects`);
+                if (dept === department) {
+                    section.classList.remove('hidden');
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                    section.classList.add('hidden');
+                }
+            });
+        }
+
+        // By default, show CSE projects
+        showProjects('cse');
+    </script>
 </body>
 
 </html>

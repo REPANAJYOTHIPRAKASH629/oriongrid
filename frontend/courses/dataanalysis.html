@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +140,407 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Data Analysis Course Syllabus</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1: Introduction to Data Analysis</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Overview of Data Analysis</b> </li>
+                        <li>What is Data Analysis? Importance in Decision Making </li>
+                        <li>The Data Analysis Process: Data Collection, Cleaning, Exploration, Modeling, and Visualization</li>
+                        <li>Introduction to Types of Data: Quantitative vs Qualitative, Structured vs Unstructured</li>
+                        <li>Introduction to Types of Data: Quantitative vs Qualitative, Structured vs Unstructured</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Data Analysis Workflow</b> </li> 
+                        <li> Understanding the Data Lifecycle</li>
+                        <li>Setting Clear Objectives: Descriptive, Predictive, and Prescriptive Analytics</li>
+                        <li>Ethical Issues in Data Analysis: Privacy, Bias, Transparency</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2:  Data Collection and Cleaning</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Data Collection</b> </li> 
+                        <li>Sources of Data: Structured, Semi-Structured, and Unstructured </li>
+                        <li>Data Collection Techniques: Surveys, Web Scraping, APIs, and Databases</li>
+                        <li>Tools for Data Collection: Python (Requests, BeautifulSoup, Scrapy), SQL Queries</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Data Cleaning</b> </li> 
+                        <li> Introduction to Data Cleaning: Importance and Challenges</li>
+                        <li>Handling Missing Data: Imputation, Deletion, or Filling Techniques</li>
+                        <li>Identifying and Removing Duplicates</li>
+                        <li> Handling Outliers: Detection Methods and Treatment</li>
+                        <li>Data Transformation: Normalization, Scaling, Encoding (Categorical Data)</li>
+                        <li>Using Pandas (Python) and dplyr (R) for Data Cleaning</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3:Exploratory Data Analysis (EDA) </h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to EDA</b> </li> 
+                        <li>What is EDA? Importance of Understanding Data Before Analysis</li>
+                        <li>Descriptive Statistics: Measures of Central Tendency (Mean, Median, Mode) and Dispersion (Variance, Standard Deviation, IQR)</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Data Visualization Techniques</b> </li> 
+                        <li>Introduction to Visualization: Importance and Tools</li>
+                        <li>Univariate Analysis: Histograms, Boxplots, and Density Plots</li>
+                        <li>Bivariate Analysis: Scatterplots, Line Charts, Heatmaps</li>
+                        <li>Multivariate Analysis: Pair Plots, 3D Plots, Correlation Matrix</li>
+                        <li>Visualizing Categorical Data: Bar Plots, Pie Charts, Count Plots</li>
+                        <li>Python Visualization Libraries: Matplotlib, Seaborn, Plotly</li>
+                        <li>R Visualization Libraries: ggplot2, plotly, Shiny</li>
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>EDA with Python (Pandas, Matplotlib, Seaborn)</b> </li> 
+                        <li>DataFrame Manipulation: GroupBy, Pivot Tables, Aggregations</li>
+                        <li>Visual Exploration: Plotting Distributions, Trends, and Relationships</li>
+                        <li>Detecting Patterns and Insights</li>
+                    
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4:Statistical Analysis and Hypothesis Testing</h3>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Statistics</b> </li>
+                        <li>Descriptive vs Inferential Statistics</li>
+                        <li>Probability Distributions: Normal, Binomial, Poisson</li>
+                        <li>Sampling Methods: Random, Stratified, and Systematic Sampling</li>
+                        <li>Central Limit Theorem and its Implications</li>
+                        
+                    </ul>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Hypothesis Testing</b> </li>
+                        <li>What is Hypothesis Testing? Null vs Alternative Hypothesis</li>
+                        <li>p-values and Significance Levels</li>
+                        <li>Types of Errors: Type I and Type II</li>
+                        <li>Common Statistical Tests: t-Test, Chi-Square, ANOVA, Z-Test</li>
+                        <li>One-tailed and Two-tailed Tests</li>
+                        
+                    </ul>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Correlation and Regression Analysis</b> </li>
+                        <li>Correlation: Pearson, Spearman, and Kendall</li>
+                        <li>Simple Linear Regression: Model Building, Assumptions, and Interpretation </li>
+                        <li>Multiple Linear Regression</li>
+                        <li>Evaluating Regression Models: R-Squared, Mean Squared Error</li>
+                    </ul>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Tools for Statistical Analysis</b> </li>
+                        <li>Python: Scipy, Statsmodels, Numpy</li>
+                        <li>R: stats, car, ggplot2</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5:Working with SQL and Databases</h3>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Databases</b> </li>
+                        
+                        <li>Relational vs Non-Relational Databases</li>
+                        <li>Overview of SQL (Structured Query Language)</li>
+                        <li>SQL Syntax: SELECT, INSERT, UPDATE, DELETE</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Advanced SQL Queries</b> </li>
+                        
+                        <li>Aggregation Functions: COUNT, SUM, AVG, MAX, MIN</li>
+                        <li>Group By, HAVING, and JOIN operations (Inner Join, Left Join, Right Join, Full Join)</li>
+                        <li>Subqueries and Nested Queries</li>
+                        <li>Window Functions: ROW_NUMBER, RANK, DENSE_RANK</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>SQL for Data Analysis</b> </li>
+                        
+                        <li>Writing Complex Queries for Analysis</li>
+                        <li>Filtering and Sorting Data</li>
+                        <li>Combining Data from Multiple Tables</li>
+                        <li>Using SQL for Data Wrangling</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>SQL Integration with Python</b> </li>
+                        
+                        <li>Using SQLite, MySQL, or PostgreSQL in Python with sqlite3, SQLAlchemy, or psycopg2</li>
+                        <li>Connecting Python to Databases for Query Execution</li>
+                        <li>Extracting and Importing Data into Python for Analysis</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6: Advanced Data Visualization</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Data Visualization Best Practices</b> </li>
+                        <li>The Importance of Good Data Visualization: Choosing the Right Chart for the Data </li>
+                        <li>Aesthetics and Design: Colors, Fonts, Layouts</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Interactive Data Visualization</b> </li>
+                        <li> Introduction to Dashboards</li>
+                        <li>Building Interactive Dashboards using Power BI and Tableau</li>
+                        <li>Interactive Visualizations with Python (Plotly, Dash)</li>
+                        <li> Using Tableau Public for Sharing Interactive Visuals </li>
+                        
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Advanced Visualization Techniques</b> </li>
+                        <li>Heatmaps, Word Clouds, Sankey Diagrams, and Network Graphs</li>
+                        <li> Geospatial Analysis: Mapping Data with Folium, Geopandas, or Tableau</li>
+                        <li> Time Series Visualizations: Trendlines, Seasonal Plots, and Moving Averages </li>
+                        
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7: Machine Learning for Data Analysis</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Machine Learning</b> </li>
+                        <li>What is Machine Learning? Types of Machine Learning (Supervised, Unsupervised, Reinforcement Learning)</li>
+                        <li>The Data Science Workflow: Data Collection, Preprocessing, Model Selection, Evaluation, and Deployment</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Supervised Learning</b> </li>
+                        <li>Classification: Decision Trees, Random Forest, K-Nearest Neighbors, Logistic Regression</li>
+                        <li>Regression: Linear Regression, Polynomial Regression</li>
+                        <li>Model Evaluation Metrics: Accuracy, Precision, Recall, F1-Score, ROC Curve, Confusion Matrix</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Unsupervised Learning</b> </li>
+                        <li>Clustering: K-Means, Hierarchical Clustering, DBSCAN</li>
+                        <li>Dimensionality Reduction: PCA (Principal Component Analysis)</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Tools for Machine Learning</b> </li>
+                        <li>Python Libraries: Scikit-learn, TensorFlow, Keras, XGBoost</li>
+                        <li>R Libraries: caret, randomForest, xgboost</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Model Validation and Tuning</b> </li>
+                        <li>Cross-Validation Techniques: K-Fold Cross-Validation, Grid Search, Random Search</li>
+                        <li>Hyperparameter Tuning for Optimal Model Performance</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8:Time Series Analysis</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Time Series Data</b> </li>
+                        <li>What is Time Series Data? Key Components: Trend, Seasonality, and Noise</li>
+                        <li>Time Series Decomposition</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Time Series Forecasting</b> </li>
+                        <li>Autoregressive (AR), Moving Average (MA), and ARIMA Models</li>
+                        <li>Time Series Analysis using Python (Statsmodels)</li>
+                        <li>Forecasting with Exponential Smoothing</li>
+                        <li>Evaluating Forecasting Models: MAE, MSE, RMSE</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Applications of Time Series Analysis</b> </li>
+                        <li>Sales Prediction, Stock Market Analysis, Weather Forecasting</li>
+                        <li>Seasonal Decomposition and Trend Analysis</li>
+                        
+                    </ul>
+                </div>
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9:Data Reporting and Communication</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Effective Data Reporting</b> </li>
+                        <li>Reporting Strategies: Executive Summaries, Technical Reports, Presentations</li>
+                        <li>Creating Data-Driven Reports and Dashboards (Excel, Power BI, Tableau)</li>
+                        <li>Communicating Findings Clearly and Concisely</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Storytelling with Data</b> </li>
+                        <li>The Art of Data Storytelling: Crafting a Narrative from Data</li>
+                        <li>Using Visuals to Support Key Messages</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Data Presentation Skills</b> </li>
+                        <li>Creating Impactful Data Visualizations for Presentations</li>
+                        <li>Presenting Insights and Recommendations to Stakeholders</li>
+                        <li>Ethical Considerations in Reporting Data</li>
+                    
+                    </ul>
+                </div>
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10:Capstone Project</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Capstone Project</b> </li>
+                        <li>Students will choose a real-world dataset (e.g., from Kaggle, government sources, or company data) to analyze</li>
+                        <li>Complete Data Cleaning, EDA, Statistical Analysis, and Visualization</li>
+                        <li> Build predictive models (if applicable) and provide insights and recommendations based on the analysis</li>
+                        <li>The project will involve creating a comprehensive report and presentation that showcases the analysis and findings</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Evaluation Criteria</b> </li>
+                        <li>Data Quality and Cleaning Techniques Used</li>
+                        <li> Depth of Exploratory Data Analysis and Insights</li>
+                        <li> Correct Application of Statistical Methods and Machine Learning Models (if applicable)</li>
+                        <li>Visualizations: Clarity, Aesthetics, and Relevance</li>
+                        <li> Final Report and Presentation</li>
+                        
+                    </ul>
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+
+                <!-- Evaluation and Assessment -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Evaluation and Assessment</strong></p>
+                    
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><b>Weekly Assignments</b> </li>
+                        <li>Assignments focused on practicing concepts covered in each module.</li>
+                        
+                        
+                    </ul>
+                    
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><b>Mid-term Exam</b> </li>
+                        <li>Covering theoretical concepts and practical application of data analysis.</li>
+                        
+                        
+                    </ul>
+                    
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><b>Capstone Project</b> </li>
+                        <li>A comprehensive end-to-end data analysis project, demonstrating the skills learned throughout the course.</li>
+                        
+                        
+                    </ul>
+                </div>
+
+                <!-- Tools and Technologies Covered -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Tools and Technologies Covered</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Languages and Tools: Python (Pandas, Numpy, Scikit-learn, Statsmodels), R (dplyr, ggplot2, caret), SQL (MySQL, PostgreSQL), Excel, Power BI, Tableau, Plotly, Dash </li> 
+                        <li>Libraries for Data Analysis: Matplotlib, Seaborn, Plotly, ggplot2, TensorFlow, Keras  </li> 
+                        <li> Databases: MySQL, PostgreSQL, SQLite, MongoDB </li> 
+                        <li>Visualization Tools: Power BI, Tableau, Excel, Plotly, ggplot2 </li> 
+                        
+
+                        
+                    </ul>
+                </div>
+                <!-- Recommended Prerequisites -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Recommended Prerequisites</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Basic knowledge of programming concepts (preferably Python or R) </li> 
+                        <li> Familiarity with Excel </li> 
+                        <li> Basic understanding of statistics</li> 
+
+                        
+                    </ul>
+                </div>
+
+                <!-- Learning Outcomes -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Learning Outcomes:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> 1. Collect, clean, and preprocess data from various sources.</li>
+                        <li> 2. Perform exploratory data analysis and interpret data patterns.</li>
+                        <li> 3. Use statistical techniques to draw inferences and test hypotheses.</li>
+                        <li> 4. Analyze and model data using machine learning algorithms.</li>
+                        <li> 5. Create effective visualizations and reports to communicate findings.</li>
+                        <li> 6. Work with SQL databases to manage and analyze structured data.</li>
+                        <li> 7. Apply time series forecasting methods for prediction tasks.</li>
+                        <li> 8. Present data insights and recommendations to stakeholders. </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div></div>
+
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +575,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +588,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +607,5 @@
     </footer>
 
 </body>
+
 </html>

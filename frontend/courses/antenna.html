@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +140,204 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">ANTENNA</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1: Introduction to Antenna Theory</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Definition and functions of antennas.</li>
+                        <li>Historical development and applications in modern technology.</li>
+                        <li>Overview of electromagnetic wave propagation.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2: Fundamental Antenna Parameters</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Radiation patterns, beamwidth, and directivity.</li>
+                        <li>Gain, efficiency, and polarization.</li>
+                        <li>Input impedance and bandwidth considerations.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3:  Radiation Mechanisms and Electromagnetic Theory</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Electromagnetic field theory basics.</li>
+                        <li>Radiation integrals and vector potentials.</li>
+                        <li>Near-field and far-field regions.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4: Wire Antennas</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Dipole and monopole antenna structures.</li>
+                        <li>Current distribution and radiation patterns. </li>
+                        <li>Impedance characteristics and matching techniques.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5:  Loop Antennas</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Magnetic and electric field generation.</li>
+                        <li>Radiation resistance and efficiency.</li>
+                        <li>Applications in communication systems.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6: Antenna Arrays</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Principles of antenna arrays and array configurations. </li>
+                        <li>Beamforming, beam steering, and array synthesis. </li>
+                        <li>Mutual coupling effects and spacing considerations.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7: Aperture Antennas</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Types of aperture antennas and their applications. </li>
+                        <li>Field equivalence principle and aperture fields.</li>
+                        <li>Design parameters and performance analysis. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8: Microstrip Antennas</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Structure and operation of microstrip antennas.</li>
+                        <li>Feeding techniques and impedance matching. </li>
+                        <li>Advantages, limitations, and applications in modern communication systems.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9: Antenna Measurements</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Measurement of radiation patterns, gain, and impedance.</li>
+                        <li>Anechoic chambers and outdoor test ranges. </li>
+                        <li>Calibration techniques and error analysis.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10: Antenna Propagation and Wireless Communication</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Propagation models and path loss. </li>
+                        <li>Effects of multipath and fading.</li>
+                        <li>Antenna considerations in mobile and satellite communications. </li>
+                    </ul>
+                </div>
+
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 11: Advanced Antenna Design</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li>Smart antennas and adaptive arrays.</li>
+                        <li>Computational electromagnetics methods. </li>
+                        <li>Emerging trends in antenna technology, such as metamaterials and reconfigurable antennas.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+                <!-- Skills Gained -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Skills Gained:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Proficiency in Electromagnetic Theory: A deep understanding of electromagnetic fields and wave propagation is crucial for designing efficient antennas. This knowledge enables engineers to predict how antennas will interact with various environments.</li>
+                        <li>Antenna Design and Analysis: Ability to design, model, and analyze different types of antennas, such as dipole, patch, and array antennas, to meet specific requirements. Familiarity with design software and simulation tools is essential for this purpose.</li>
+                        <li>RF Circuit Design: Skills in designing radio-frequency circuits, including matching networks and filters, are vital to ensure optimal antenna performance.This involves understanding the integration of antennas with other RF components.</li>
+                        <li>Simulation and Modeling Tools: Proficiency in using tools like HFSS, CST Microwave Studio, or FEKO for simulating antenna performance and optimizing designs. These tools help in visualizing electromagnetic fields and assessing antenna characteristics. </li>
+                        <li>Measurement and Testing: Experience with measuring antenna parameters such as gain, radiation pattern, and impedance using equipment like vector network analyzers and anechoic chambers.Practical testing ensures that theoretical designs perform as expected in real-world scenarios.</li>
+                        <li>Knowledge of Regulatory Standards: Understanding international standards and regulations related to antenna design and electromagnetic compatibility to ensure compliance. This includes awareness of frequency allocations and transmission power limits. </li>
+                    
+                    </ul>
+                </div>
+
+                <!-- Job Opportunities -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Job Opportunities:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Antenna Design Engineer: Focuses on creating and developing antennas for various applications, including telecommunications, aerospace, and defense industries. These engineers work on innovative designs to meet specific performance criteria.</li>
+                        <li>RF Engineer: Specializes in designing and optimizing radio-frequency systems, including antennas, to ensure efficient wireless communication. This role often involves integrating antennas into larger communication systems.</li>
+                        <li>Electromagnetic Compatibility (EMC) Engineer: Ensures that electronic devices, including antennas, comply with EMC regulations to prevent interference with other devices. This role is critical in maintaining the reliability of electronic systems.</li>
+                        <li>Wireless Communication Engineer: Develops and implements wireless communication systems, with a focus on antenna integration and performance optimization. This includes working on technologies like Wi-Fi, Bluetooth, and cellular networks.</li>
+                        <li>Research and Development Engineer: Engages in innovative research to develop new antenna technologies and improve existing designs, often within academic or industrial research settings. This role contributes to advancements in communication technology</li>
+                    
+                    </ul>
+                </div>
+
+                <!-- Additional Benefits of Learning Antenna Design -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Benefits of Learning Antenna Design:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> High Demand: With the proliferation of wireless technologies, skilled antenna designers are sought after in various industries, including telecommunications, defense, and consumer electronics. The increasing reliance on wireless communication underscores the need for expertise in this area.</li> 
+                        <li>Competitive Salaries: Antenna design engineers often command attractive compensation packages, reflecting the specialized skills and knowledge required. Salaries can vary based on experience, education, and industry, with opportunities for advancement. </li>
+                        <li>Innovation Opportunities: Involvement in cutting-edge technology development, contributing to advancements in wireless communication and related fields. Antenna designers play a pivotal role in enabling new communication capabilities. </li>
+                        <li>Diverse Applications: Antenna design skills are applicable in various sectors, including telecommunications, aerospace, automotive, and healthcare, offering a wide range of career opportunities. This diversity allows engineers to work on a variety of exciting projects.</li>
+                    </ul>
+                </div>
+
+                <!-- Projects You Can Build -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Projects You Can Build:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Design of a Microstrip Patch Antenna: </strong>Develop a patch antenna for specific frequency bands, commonly used in mobile and satellite communications. This project involves designing, simulating, and testing the antenna to achieve desired performance characteristics.   </li>
+                        <li><strong>Yagi-Uda Antenna for TV Reception: </strong> Create a Yagi-Uda antenna optimized for television signal reception, enhancing understanding of directional antenna design. This project demonstrates the practical application of antenna theory in everyday technology.  </li>
+                        <li><strong>Log-Periodic Dipole Array for Wideband Applications: </strong>Design an antenna capable of operating over a wide frequency range, suitable for applications like spectrum monitoring. This project highlights the challenges and considerations in wideband antenna design.  </li>
+                        <li><strong>Helical Antenna for Circular Polarization: </strong> Build a helical antenna to study circularly polarized wave transmission, often used in satellite communications. This project provides insights into polarization and its impact on communication systems. </li>
+                        <li><strong>Software-Defined Radio (SDR) with Custom Antenna: </strong> Integrate a self-designed antenna with an SDR platform to explore various communication protocols and frequencies. This project combines antenna design with modern digital communication techniques. </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +372,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +385,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +404,5 @@
     </footer>
 
 </body>
+
 </html>

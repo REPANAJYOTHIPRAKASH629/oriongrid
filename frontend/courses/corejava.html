@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +140,467 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Core Java Basics Course Syllabus</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1:Introduction to Java Programming </h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Overview of Java</b> </li>
+                        <li> 1. History and Evolution of Java</li>
+                        <li>    2. Features of Java</li>
+                        <li>    3. Java Programming Paradigms</li>
+                        <li>        - Object-Oriented Programming (OOP)</li>
+                        <li>        - Platform Independence (JVM, JRE, JDK)</li>
+                        <li>      - Bytecode and Compilation Process</li>
+                        <li>    4. Types of Java Applications</li>
+                        <li>        - Standalone applications</li>
+                        <li>        - Web applications</li>
+                        <li>        - Mobile applications</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Setting up Java Development Environment</b> </li> 
+                        <li>Installing Java Development Kit (JDK)</li>
+                        <li> Installing Integrated Development Environment (IDE) like IntelliJ IDEA, Eclipse, or NetBeans</li>
+                        <li>  Setting up environment variables (JAVA_HOME, PATH)</li>
+                        <li>   First Java Program: "Hello World"</li>
+                        <li>      Writing, compiling, and running a simple Java program</li>
+                        
+                    </ul>
+                    
+                    
+                    
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2: Java Basics – Syntax and Structure</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Java Program Structure</b> </li> 
+                        <li> 1.Java Statements and Syntax Rules</li>
+                        <li>   2.Java Naming Conventions</li>
+                        <li>   3.Data Types and Variables</li>
+                        <li>       - Primitive data types (int, float, char, etc.)</li>
+                        <li>       - Wrapper classes (Integer, Double, Character, etc.)</li>
+                        <li>        - Constants (final keyword)</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Operators in Java</b> </li>
+                        <li>  Arithmetic Operators</li>
+                        <li> Relational Operators</li>
+                        <li> Logical Operators</li>
+                        <li> Bitwise Operators</li>
+                        <li>Assignment Operators</li>
+                        <li>Unary Operators</li>
+                        <li>Ternary Operator</li>
+                        <li> Precedence and Associativity of Operators</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Control Flow Statements</b> </li>
+                        <li>Conditional Statements (if, if-else, switch) </li>
+                        <li>Looping Statements (for, while, do-while)</li>
+                        <li>Break, Continue, and Return Statements</li>
+                        
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3:Object-Oriented Programming (OOP) Concepts </h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to OOP Concepts</b> </li> 
+                        <li>1.What is Object-Oriented Programming?</li>
+                        <li>2.Benefits of OOP</li>
+                        <li>3. Class and Object</li>
+                        <li>       - Defining a class</li>
+                        <li>     - Creating objects</li>
+                        <li>      - Constructors and their types</li>
+                        <li>       - Access Modifiers (private, public, protected, default)</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Encapsulation</b> </li> 
+                        <li>Private variables and Public methods (getters and setters)</li>
+                        <li>The 'this' keyword</li>
+                        <li>Java Access Modifiers and their usage</li>
+                       
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Inheritance</b> </li> 
+                        <li> Single Inheritance</li>
+                        <li>Method Overriding</li>
+                        <li> Constructor Chaining (super keyword)</li>
+                        <li> `Object` class and methods (equals, hashCode, toString)</li>
+                        <li> `final` keyword (final class, final method, final variable)</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Polymorphism</b> </li>
+                        <li>Method Overloading</li>
+                        <li>Method Overriding</li>
+                        <li>Dynamic Method Dispatch</li>
+                        <li>Polymorphism in Java (compile-time vs runtime)</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Abstraction</b> </li>
+                        <li>Abstract classes </li>
+                        <li>Abstract methods</li>
+                        <li>Interfaces</li>
+                        <li>Implementing interfaces in Java</li>
+                        <li>Differences between abstract classes and interfaces</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Java Packages</b> </li>
+                        <li> What are Packages?</li>
+                        <li>Built-in packages in Java (java.util, java.io, etc.)</li>
+                        <li>Creating and importing custom packages</li>
+                        <li>Naming conventions for packages</li>
+                    </ul>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4:Java Data Structures and Collections</h3>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Arrays</b> </li>
+                        <li>One-dimensional Arrays</li>
+                        <li>Multi-dimensional Arrays</li>
+                        <li>Arrays in Java: Declaration, Initialization, and Access</li>
+                        <li>Array Manipulation (traversing, sorting, and searching)</li>
+                        
+                    </ul>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Collections Framework</b> </li>
+                        <li> Overview of Java Collections</li>
+                        <li> List Interface (ArrayList, LinkedList)</li>
+                        <li> Set Interface (HashSet, LinkedHashSet, TreeSet)</li>
+                        <li> Map Interface (HashMap, LinkedHashMap, TreeMap, Hashtable)</li>
+                        <li>Queue Interface (LinkedList, PriorityQueue)</li>
+                        <li> Collection Interface (Collection, List, Set)</li>
+                        <li>Iterator Interface</li>
+                        <li> Iterating through collections (foreach, Iterator, ListIterator)</li>
+                        <li> Collection Operations (add, remove, contains, clear, size, etc.)</li>
+                        
+                    </ul>
+                    
+
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Generics in Java</b> </li>
+                        <li>What are Generics?</li>
+                        <li>Benefits of Generics</li>
+                        <li>Creating and using Generic Classes and Methods</li>
+                        <li> Type Parameters in Generics</li>
+                        <li>Wildcards (Unbounded, Upper Bound, Lower Bound)</li>
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5:Exception Handling</h3>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Exceptions</b> </li>
+                        
+                        <li>What is an Exception?</li>
+                        <li>Types of Exceptions (Checked vs Unchecked)</li>
+                        <li>Common Exceptions in Java (NullPointerException, ArrayIndexOutOfBoundsException, etc.)</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Try-Catch-Finally Block</b> </li>
+                        <li>Handling exceptions using try-catch </li>
+                        <li>Multiple catch blocks</li>
+                        <li>Nested try-catch blocks</li>
+                        <li>The finally block</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Throw and Throws</b> </li>
+                        <li> Throwing an exception using the throw keyword</li>
+                        <li>Declaring exceptions using throws keyword</li>
+                        <li>Creating custom exceptions by extending the Exception class</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Exception Hierarchy</b> </li>
+                        <li> Throwable class and its subclasses (Error vs Exception)</li>
+                        <li>RuntimeException and its subclasses</li>
+                        <li>Handling specific exceptions</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6: File I/O and Serialization</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>File Handling in Java</b> </li>
+                        <li> File class (creation, deletion, renaming, and checking existence)</li>
+                        <li>Reading files using FileReader, BufferedReader, and Scanner</li>
+                        <li>Writing files using FileWriter, BufferedWriter, PrintWriter</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Streams in Java</b> </li>
+                        <li>InputStream and OutputStream </li>
+                        <li>Reader and Writer classes</li>
+                        <li>Byte streams vs Character streams</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Serialization in Java</b> </li>
+                        <li>What is Serialization? </li>
+                        <li>Implementing Serializable interface</li>
+                        <li>Serializing and deserializing objects</li>
+                        <li>Transient keyword (marking fields for exclusion from serialization)</li>
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7: Multithreading and Concurrency</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Multithreading</b> </li>
+                        <li>What is Multithreading?</li>
+                        <li>Creating threads by extending Thread class</li>
+                        <li> Creating threads by implementing Runnable interface</li>
+                        <li>Thread Lifecycle (new, runnable, blocked, waiting, terminated)</li>
+                        <li>Starting and managing threads </li>
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Thread Synchronization</b> </li>
+                        <li>Why synchronization is needed</li>
+                        <li>Synchronized methods and blocks</li>
+                        <li>Locks and synchronization in multithreaded programs</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Concurrency Utilities</b> </li>
+                        <li> Executor framework</li>
+                        <li>Thread pools and task scheduling</li>
+                        <li>Callable and Future</li>
+                        <li>Synchronizers (CountDownLatch, CyclicBarrier, Semaphore)</li>
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8:Java 8 Features</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Lambda Expressions</b> </li>
+                        <li>What are Lambda Expressions?</li>
+                        <li>Syntax of Lambda Expressions</li>
+                        <li>Lambda Expressions and Functional Interfaces</li>
+                        <li>Using Lambda Expressions in Collections</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Streams API</b> </li>
+                        <li> Introduction to Streams</li>
+                        <li>Creating and processing streams</li>
+                        <li>Intermediate operations (filter, map, sorted)</li>
+                        <li>Terminal operations (collect, forEach, reduce)</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Default and Static Methods in Interfaces</b> </li>
+                        <li> Default methods</li>
+                        <li>Static methods in interfaces</li>
+                        <li>Method resolution in case of conflicts</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Optional Class</b> </li>
+                        <li>Using Optional to avoid NullPointerException </li>
+                        <li>Methods in Optional (isPresent, ifPresent, get, orElse, etc.)</li>
+                        
+                    </ul>
+                </div>
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9:Advanced Topics (Optional)</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Reflection in Java</b> </li>
+                        <li>What is Reflection?</li>
+                        <li>Using Reflection to inspect classes, methods, and fields</li>
+                        <li>Using reflection to create objects dynamically</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Java Annotations</b> </li>
+                        <li> What are Annotations?</li>
+                        <li>Common Java Annotations (Override, Deprecated, SuppressWarnings)</li>
+                        <li>Creating custom annotations</li>
+                        <li>Processing annotations at runtime using reflection</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Java Memory Management</b> </li>
+                        <li> Java Memory Model</li>
+                        <li>Stack vs Heap Memory</li>
+                        <li>Garbage Collection and its algorithms</li>
+                        <li>How Garbage Collector works in Java</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Java Networking (Optional)</b> </li>
+                        <li>Basics of Java Networking </li>
+                        <li>Using Sockets for communication</li>
+                        <li>Writing server-client applications</li>
+                        <li></li>
+                    </ul>
+                </div>
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10:Java Best Practices and Coding Standards</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Code Formatting and Naming Conventions</b> </li>
+                        <li>Writing clean, readable, and maintainable code</li>
+                        <li>Java coding standards (naming conventions for classes, methods, variables)</li>
+                        <li>Proper indentation and comments</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Error Handling Best Practices</b> </li>
+                        <li>Best practices for exception handling </li>
+                        <li>Custom exception design</li>
+                        <li>Logging exceptions</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Design Patterns in Java (Overview)</b> </li>
+                        <li>Introduction to design patterns </li>
+                        <li>Singleton, Factory, and Observer patterns (Basic introduction)</li>
+                        <li>When and where to use design patterns</li>
+                        
+                    </ul>
+                    
+                </div>
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 11:Java Debugging and Testing</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Debugging Java Programs</b> </li>
+                        <li>Using IDE Debugging tools (breakpoints, step execution, variable inspection)</li>
+                        <li>Print Debugging techniques</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Unit Testing with JUnit</b> </li>
+                        <li> Introduction to JUnit framework</li>
+                        <li>Writing test cases using JUnit</li>
+                        <li>Assertions and test suites</li>
+                        <li>Mocking with Mockito (basic introduction)</li>
+                    </ul>
+                    
+                    
+                </div>
+                <!-- Module 12 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 12:Final Project and Review</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Final Project: Building a Java Application</b> </li>
+                        <li>A hands-on project to apply all concepts learned</li>
+                        <li>Example projects: Student Management System, Banking Application, To-Do List, etc.</li>
+                        <li>Code review and best practices</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Review and Q&A</b> </li>
+                        <li>Recap of all the topics covered </li>
+                        <li>Q&A session to clarify any doubts</li>
+                        
+                    </ul>
+                    
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+
+                
+
+                
+                <!-- Recommended Prerequisites -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Recommended Prerequisites</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Basic Programming Concepts: Understanding variables, loops, conditional statements, and basic data structures like arrays. </li> 
+                        <li> Object-Oriented Programming (OOP) Basics: Familiarity with classes, objects, inheritance, and polymorphism. </li> 
+                        <li> Logical Thinking: Ability to approach problems methodically and break them into smaller tasks.</li> 
+
+                        
+                    </ul>
+                </div>
+
+                <!-- Learning Outcomes -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Learning Outcomes:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Proficiency in Java Syntax and Features </li>
+                        <li>Object-Oriented Programming Mastery </li>
+                        <li>Handling Data with Collections and Generics</li>
+                        <li>Exception Handling and Debugging</li>
+                        <li> Building Console and GUI Applications</li>
+                    
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +635,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +648,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +667,5 @@
     </footer>
 
 </body>
+
 </html>

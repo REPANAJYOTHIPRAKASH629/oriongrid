@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -107,58 +140,419 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">SQL Basics Course Syllabus</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1:Introduction to SQL and Databases </h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>What is SQL?</b> </li>
+                        <li>Overview of SQL (Structured Query Language) </li>
+                        <li>Importance and Uses of SQL in Data Management</li>
+                        <li>SQL and Relational Databases</li>
+                        <li>Types of SQL (DDL, DML, DCL, TCL)</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Relational Databases</b> </li> 
+                        <li>What is a Database? (Concept of Databases) </li>
+                        <li>Database Models (Relational Model vs NoSQL Model)</li>
+                        <li>What is a Table? (Rows and Columns)</li>
+                        <li>Primary Keys, Foreign Keys, and Relationships</li>
+                        <li>Database Management Systems (DBMS): MySQL, PostgreSQL, SQL Server, Oracle, SQLite</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Setting Up the SQL Environment</b> </li>
+                        <li>Installing a Database Management System (DBMS) like MySQL, PostgreSQL, or SQLite </li>
+                        <li>Introduction to SQL Clients and Tools (e.g., MySQL Workbench, pgAdmin, DBeaver)</li>
+                        <li>Connecting to a Database Server</li>
+                        <li>Writing SQL Queries (SQL Syntax)</li>
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2:Basic SQL Syntax and Querying </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Basic SQL Syntax</b> </li> 
+                        <li>Structure of SQL Queries </li>
+                        <li>Case Sensitivity in SQL</li>
+                        <li>SQL Query Terminology (SELECT, FROM, WHERE, etc.)</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>The SELECT Statement</b> </li>
+                        <li>Retrieving Data from a Table with SELECT </li>
+                        <li>Selecting Specific Columns (SELECT column_name)</li>
+                        <li>Selecting All Columns (SELECT *)</li>
+                        <li>Using Aliases for Columns (AS keyword)</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Filtering Data with WHERE Clause</b> </li>
+                        <li>Basic Filtering Conditions </li>
+                        <li>Comparison Operators: =, !=, <, >, <=, >=</li>
+                        <li>Logical Operators: AND, OR, NOT</li>
+                        <li>Pattern Matching with LIKE Operator (wildcards: %, _)</li>
+                        <li>Range Checks with BETWEEN Operator</li>
+                        <li>NULL Values and IS NULL, IS NOT NULL</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Sorting Data</b> </li>
+                        <li>Sorting Data with ORDER BY </li>
+                        <li>Ascending (ASC) and Descending (DESC) Order</li>
+                        <li>Sorting by Multiple Columns</li>
+                        
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3: Working with SQL Functions</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Aggregate Functions</b> </li> 
+                        <li>Introduction to Aggregate Functions: COUNT(), SUM(), AVG(), MIN(), MAX()</li>
+                        <li>Grouping Data with GROUP BY</li>
+                        <li>Filtering Groups with HAVING</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>String Functions</b> </li> 
+                        <li>String Functions: CONCAT(), UPPER(), LOWER(), LENGTH(), TRIM(), SUBSTRING()</li>
+                        <li>String Searching Functions: INSTR(), LOCATE(), REPLACE()</li>
+                        <li>String Formatting</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Numeric Functions</b> </li> 
+                        <li>Numeric Functions: ROUND(), CEIL(), FLOOR(), ABS(), MOD()</li>
+                        
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Date and Time Functions</b> </li>
+                        <li>Date Functions: CURDATE(), CURRENT_DATE, NOW(), DATE_ADD(), DATE_SUB()</li>
+                        <li>Date Formatting: DATE_FORMAT(), YEAR(), MONTH(), DAY()</li>
+                        <li>Extracting Date Parts: EXTRACT()</li>
+                        
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4:Joins in SQL</h3>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>What are Joins?</b> </li>
+                        <li>Understanding Relationships Between Tables (Primary and Foreign Keys)</li>
+                        <li>Types of Joins in SQL</li>
+                        
+                    </ul>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>INNER JOIN</b> </li>
+                        <li>Definition and Use of INNER JOIN</li>
+                        <li>Retrieving Data from Multiple Tables</li>
+                        <li>Examples of INNER JOIN Queries</li>
+                        
+                    </ul>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>LEFT JOIN (LEFT OUTER JOIN)</b> </li>
+                        <li>Understanding LEFT JOIN</li>
+                        <li> Retrieving All Data from Left Table and Matching Rows from Right Table</li>
+                        <li>Examples of LEFT JOIN Queries</li>
+                    </ul>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>RIGHT JOIN (RIGHT OUTER JOIN)</b> </li>
+                        <li>Understanding RIGHT JOIN</li>
+                        <li>Retrieving All Data from Right Table and Matching Rows from Left Table</li>
+                        <li>Examples of RIGHT JOIN Queries</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>FULL JOIN (FULL OUTER JOIN)</b> </li>
+                        <li>Understanding FULL OUTER JOIN </li>
+                        <li>Retrieving All Data from Both Tables</li>
+                        <li>Examples of FULL JOIN Queries</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Self Join</b> </li>
+                        <li>What is a Self Join? </li>
+                        <li>Use Cases of Self Joins</li>
+                        <li>Example of Self Join Query</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5:SQL Subqueries</h3>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Subqueries</b> </li>
+                        <li>What is a Subquery?</li>
+                        <li>Types of Subqueries: Single-Row, Multi-Row, and Correlated Subqueries</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Subqueries in SELECT Statements</b> </li>
+                        <li>Using Subqueries in SELECT Clauses </li>
+                        <li>Example: Subquery for Aggregation</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Subqueries in WHERE Clause</b> </li>
+                        <li> Using Subqueries to Filter Results in WHERE</li>
+                        <li>Correlated vs Non-Correlated Subqueries</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Subqueries in JOINs</b> </li>
+                        <li>Using Subqueries in Join Conditions </li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Subqueries in INSERT, UPDATE, and DELETE</b> </li>
+                        <li>Using Subqueries in Data Modification Queries </li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6:Modifying Data in SQL </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>INSERT Statement</b> </li>
+                        <li>Inserting Data into Tables using INSERT INTO </li>
+                        <li>Inserting Single and Multiple Rows</li>
+                        <li>Inserting Data from Another Table (Subqueries)</li>
+                        <li>Handling Default Values and NULLs</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>UPDATE Statement</b> </li>
+                        <li>Updating Data in Tables using UPDATE </li>
+                        <li>Modifying Specific Columns in Records</li>
+                        <li>Using WHERE to Filter Records for Update </li>
+                        <li>Handling Multiple Updates</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>DELETE Statement</b> </li>
+                        <li> Deleting Data from Tables using DELETE</li>
+                        <li>Deleting Specific Rows with WHERE Clause</li>
+                        <li>Deleting All Data from a Table (Removing all Rows)</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>TRUNCATE Statement</b> </li>
+                        <li>Difference Between DELETE and TRUNCATE </li>
+                        <li>Truncating All Data from a Table (Without Removing Structure)</li>
+                        
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7: Table Management</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Creating Tables</b> </li>
+                        <li>Creating Tables with CREATE TABLE</li>
+                        <li>Defining Columns and Data Types</li>
+                        <li>Constraints: NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK </li>
+                        <li>Example of CREATE TABLE Query</li>
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Altering Tables</b> </li>
+                        <li>Modifying Table Structure with ALTER TABLE</li>
+                        <li>Adding, Dropping, and Modifying Columns</li>
+                        <li>Renaming Columns and Tables</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Dropping Tables</b> </li>
+                        <li> Dropping a Table using DROP TABLE</li>
+                        <li>Differences Between DROP and TRUNCATE</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Constraints in SQL</b> </li>
+                        <li> Understanding Constraints in SQL</li>
+                        <li>Defining Constraints on Columns: PRIMARY KEY, FOREIGN KEY, CHECK, DEFAULT, UNIQUE</li>
+                        <li>Foreign Key Constraints and Referential Integrity</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8:Indexing and Views</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>What are Indexes?</b> </li>
+                        <li>Understanding Indexes and Their Purpose</li>
+                        <li>Types of Indexes: Unique, Primary, Composite</li>
+                        <li>Creating Indexes using CREATE INDEX</li>
+                        <li>Dropping Indexes with DROP INDEX</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Views in SQL</b> </li>
+                        <li> What is a View?</li>
+                        <li>Creating Views using CREATE VIEW</li>
+                        <li>Modifying Views using ALTER VIEW</li>
+                        <li>Dropping Views with DROP VIEW</li>
+                    </ul>
+                    
+                </div>
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9:Advanced SQL Queries</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>CASE Statement</b> </li>
+                        <li>Introduction to the CASE Statement</li>
+                        <li>Conditional Logic in Queries (Using CASE in SELECT, WHERE, ORDER BY)</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>GROUP_CONCAT and String Aggregation</b> </li>
+                        <li>Grouping Data into Concatenated Strings with GROUP_CONCAT() </li>
+                        <li>Example Use Cases</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Window Functions</b> </li>
+                        <li>What are Window Functions? </li>
+                        <li>Common Window Functions: ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE()</li>
+                        <li>Partitioning and Ordering Data Using PARTITION BY and ORDER BY</li>
+                        <li></li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Transactions in SQL</b> </li>
+                        <li> Understanding Transactions: ACID Properties (Atomicity, Consistency, Isolation, Durability)</li>
+                        <li>Controlling Transactions with BEGIN, COMMIT, ROLLBACK, SAVEPOINT</li>
+                        <li>Handling Errors and Rollbacks</li>
+                        
+                    </ul>
+                </div>
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10:Security and Optimization</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>SQL Security</b> </li>
+                        <li>SQL User Management and Permissions</li>
+                        <li>Granting and Revoking Permissions (GRANT, REVOKE)</li>
+                        <li>Creating and Managing User Roles</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>SQL Query Optimization</b> </li>
+                        <li> Indexing and Performance Considerations</li>
+                        <li>Optimizing Queries for Faster Performance</li>
+                        <li>Query Execution Plan and Analysis</li>
+                        <li>Using EXPLAIN to Analyze Query Performance</li>
+                    </ul>
+                    
+                </div>
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 11:Final Project and Review</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Final SQL Project</b> </li>
+                        <li>A hands-on project where students apply SQL knowledge to build a real-world application</li>
+                        <li>Example: A simple inventory management system, student database, or sales tracking system</li>
+                        
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Review and Q&A</b> </li>
+                        <li> Review Key Concepts and Skills</li>
+                        <li>Final Q&A Session to Address Any Remaining Doubts</li>
+                        
+                    </ul>
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+
+                
+
+                
+                <!-- Recommended Prerequisites -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Recommended Prerequisites</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Basic Computer Skills: Familiarity with using a computer, navigating files, and working with simple software applications. </li> 
+                        <li> Understanding of Databases: A general idea of what databases are and their purpose in storing and managing data. </li> 
+                        <li> Analytical Thinking: Ability to logically approach problems and interpret data relationships.</li> 
+
+                        
+                    </ul>
+                </div>
+
+                <!-- Learning Outcomes -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Learning Outcomes:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Database Fundamentals: Understand the basic concepts of databases, including tables, rows, columns, and relationships. </li>
+                        <li> SQL Syntax Mastery: Learn to write SQL queries to retrieve, filter, sort, and manipulate data effectively.</li>
+                        <li>Data Management: Acquire skills to create, update, and delete data in relational databases.</li>
+                        <li>Database Design: Understand how to structure and normalize databases for optimal performance and scalability.</li>
+                        <li>Real-World Applications: Apply SQL knowledge to solve practical problems, generate reports, and analyze data for decision-making. </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +587,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +600,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +619,5 @@
     </footer>
 
 </body>
+
 </html>

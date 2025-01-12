@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Interactive Module Cards */
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-text {
+            color: #0065BD;
+            font-weight: 600;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0065BD;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-list li,
+        .syllabus-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +51,8 @@
                 }
     </style>
 </head>
-<body class="text-gray-800">
 
-    <!-- Navbar -->
+<body class="bg-white text-gray-800">
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <!-- Logo -->
@@ -46,7 +79,7 @@
     
                 <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
                 <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+                <a href="/frontend/login.html" class="hover:text-[#EE1C25]"><strong>Login</strong></a>
             </div>
     
             <!-- Mobile Menu Button -->
@@ -82,6 +115,7 @@
             <a href="/frontend/login.html" class="block text-lg hover:text-[#EE1C25]">Login</a>
         </div>
     </div>
+
     
     <script>
         // Mobile Menu Toggle
@@ -107,58 +141,355 @@
         });
     </script>
     
-    <section id="about" class="py-0 px-6 max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600 mb-6 animate__animated animate__fadeIn">
-            About Us
-          </h1>
-          <p class="text-lg text-justify mb-12">
-            At <strong class="text-blue-600"> Orion Grid</strong>, we are pioneering the future of energy through innovative smart grid technologies and sustainable solutions. Our mission is to create intelligent, connected energy systems that drive global change and empower communities with reliable, efficient, and green power. By blending cutting-edge technology with a commitment to sustainability, we aim to build a more sustainable and energy-efficient world.
 
-            We believe in the power of collaboration and diversity, bringing together talent from around the globe to work on projects that make a real impact. Whether it's optimizing power grids, developing renewable energy solutions, or integrating advanced technologies, Orion Grid is at the forefront of transforming the energy landscape.          </p>
-        
-          <!-- About Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌟 Our Mission</h2>
-            <p class="text-lg mb-8">
-              We are committed to providing practical, skill-based education that equips you with the expertise needed to excel in your career and personal life. Whether you're looking to enhance your current skills or learn something new, we are here to help you succeed.
-            </p>
-          </div>
-        
-          <!-- Vision Section Box -->
-          <div class="p-6 bg-white shadow-lg rounded-lg mb-12 border-2 border-blue-500">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">🌍 Our Vision</h2>
-            <p class="text-lg mb-8">
-              To create a global learning community where innovation thrives, and individuals can connect, grow, and achieve their dreams through education that’s both impactful and accessible.
-            </p>
-          </div>
-        
-        <hr class="my-12 border-t-2 border-blue-600">
-      
-        <h2 class="text-2xl font-semibold text-red-600 mb-6">Why Choose Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-10">
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">⚙️ Skill-Based Courses</h3>
-            <p class="text-justify">Get hands-on, practical learning experiences that combine theory and real-world application. Master skills in areas like technology, leadership, communication, and more — and get ready to boost your career with confidence.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🛠️ Project Expertise Domains</h3>
-            <p class="text-justify">Dive deep into specialized project management domains such as planning, risk management, budgeting, and team coordination. Tailored to industries like IT, construction, and marketing, our courses will prepare you for successful project execution in any field.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🎓 Workshops</h3>
-            <p class="text-justify">Engage in interactive, collaborative workshops led by industry experts. Designed to sharpen both technical and soft skills, these workshops offer hands-on practice and real-world problem-solving.</p>
-          </div>
-          <div class="reason p-6 bg-white shadow-lg rounded-lg hover:scale-105 transform transition-all">
-            <h3 class="text-xl font-semibold text-red-500 mb-3">🔬 Research</h3>
-            <p class="text-justify">Fuel your curiosity with in-depth research that contributes to solving critical challenges and advancing knowledge in various fields — from technology to social sciences.</p>
-          </div>
+    <div class="max-w-4xl mx-auto p-0">
+
+        <!-- Buttons for Syllabus and Outcomes -->
+        <div class="mb-6 flex justify-center space-x-6">
+            <button id="syllabus-btn" class="px-6 py-3 bg-[#0065BD] text-white rounded-md shadow-lg hover:bg-[#0052a3] transition duration-300">Syllabus</button>
+            <button id="outcomes-btn" class="px-6 py-3 bg-[#EE1C25] text-white rounded-md shadow-lg hover:bg-[#c91920] transition duration-300">Outcomes</button>
         </div>
-      </section>
-      
-    
 
+        <!-- Content for Syllabus -->
+        <div id="syllabus-content" class="space-y-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course on Cloud Computing - Syllabus</h2>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 1:Introduction to Cloud Computing</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>What is Cloud Computing?</b> </li>
+                        <li>Definition of Cloud Computing </li>
+                        <li>Evolution and History of Cloud Computing</li>
+                        <li>Benefits and Key Characteristics: On-demand Self-service, Broad Network Access, Resource Pooling, Rapid Elasticity, Measured Service</li>
+                        <li>Understanding the Cloud Computing Stack: IaaS, PaaS, SaaS</li>
+                        <li>Examples of Cloud Computing Applications in Everyday Life</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Computing Service Models</b> </li> 
+                        <li>Infrastructure as a Service (IaaS): Definition, Examples (AWS EC2, Azure Virtual Machines, Google Compute Engine) </li>
+                        <li>Platform as a Service (PaaS): Definition, Examples (AWS Elastic Beanstalk, Google App Engine, Microsoft Azure App Services)</li>
+                        <li>Software as a Service (SaaS): Definition, Examples (Google Workspace, Microsoft Office 365, Dropbox)</li>
+                        <li>Comparison and Use Cases for each service model</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Computing Deployment Models</b> </li>
+                        <li>Public Cloud: Definition, Examples (AWS, Microsoft Azure, Google Cloud Platform) </li>
+                        <li>Private Cloud: Definition, Benefits, and Use Cases</li>
+                        <li>Hybrid Cloud: Combining Public and Private Clouds</li>
+                        <li>Community Cloud: Shared infrastructure for a specific community</li>
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 2: Cloud Architecture and Technologies</h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Computing Architecture</b> </li> 
+                        <li>Components of Cloud Architecture: Front-end and Back-end </li>
+                        <li>Cloud Service Provider's Role</li>
+                        <li>Client’s Role: Cloud Endpoints, Web Applications, Devices</li>
+                        <li> Cloud Data Centers and Virtualization Technology</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Virtualization in Cloud Computing</b> </li>
+                        <li>Definition and Importance of Virtualization in Cloud </li>
+                        <li>Types of Virtualization: Hardware, Network, Storage, and Application Virtualization</li>
+                        <li>Hypervisors: Types (Type 1 and Type 2), Examples (VMware, Hyper-V, KVM)</li>
+                        <li>Benefits of Virtualization in Cloud Environments</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Storage Technologies</b> </li>
+                        <li>Cloud Storage Overview: Definition and Key Benefits </li>
+                        <li>Types of Cloud Storage: Block Storage, Object Storage, File Storage</li>
+                        <li>Data Redundancy and Durability in Cloud Storage</li>
+                        <li>Examples of Cloud Storage Solutions (Amazon S3, Google Cloud Storage, Azure Blob Storage)</li>
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 3:Cloud Computing Providers </h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Overview of Leading Cloud Providers</b> </li> 
+                        <li>Amazon Web Services (AWS): Overview of Core Services (EC2, S3, Lambda, RDS, etc.)</li>
+                        <li>Microsoft Azure: Overview of Core Services (Virtual Machines, Blob Storage, Azure Functions, SQL Database)</li>
+                        <li>Google Cloud Platform (GCP): Overview of Core Services (Compute Engine, Cloud Storage, BigQuery, App Engine)</li>
+                        <li>IBM Cloud, Oracle Cloud, and others: Key Features and Offerings</li>
+                    </ul>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Choosing the Right Cloud Provider</b> </li> 
+                        <li>Criteria for Selecting a Cloud Provider: Cost, Reliability, Security, Global Reach</li>
+                        <li>Comparative Analysis of AWS, Azure, and GCP</li>
+                        <li>Cloud Pricing Models: Pay-as-you-go, Reserved Instances, Spot Instances</li>
+                        <li>Service-Level Agreements (SLAs) and Support Options</li>
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 4:Cloud Security and Compliance</h3>
+                    
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Cloud Security</b> </li>
+                        <li>Security Concerns in Cloud Computing</li>
+                        <li>Shared Responsibility Model: Security Responsibilities of Cloud Provider vs. Customer</li>
+                        <li>Common Cloud Security Threats: Data Breaches, Denial-of-Service Attacks, Insecure Interfaces</li>
+                        <li>Security Best Practices: Strong Authentication, Encryption, Multi-factor Authentication (MFA)</li>
+                        
+                    </ul>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Data Privacy and Compliance</b> </li>
+                        <li>Data Privacy Regulations: GDPR, HIPAA, SOC2, PCI-DSS</li>
+                        <li>Understanding Compliance Requirements for Cloud Services</li>
+                        <li>How Cloud Providers Ensure Compliance and Data Privacy</li>
+                        <li>Auditing and Monitoring Cloud Security</li>
+                    </ul>
+                    
+
+                    
+
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Identity and Access Management (IAM)</b> </li>
+                        <li>IAM Overview: Managing Users, Roles, Permissions </li>
+                        <li>IAM Policies in AWS, Azure, and GCP</li>
+                        <li>Using IAM for Cloud Security and Access Control</li>
+                        <li>Federation and Single Sign-On (SSO) in the Cloud</li>
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 5:Cloud Computing Networking</h3>
+
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Networking Concepts</b> </li>
+                        
+                        <li>Virtual Networks: Definition and Benefits</li>
+                        <li>Cloud VPC (Virtual Private Cloud): Structure and Configuration</li>
+                        <li>Subnets, Public and Private IP Addresses, and Routing in Cloud Networks</li>
+                        <li>VPNs and Direct Connections: Secure Network Connections to Cloud</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Load Balancing and Auto-Scaling</b> </li>
+                        <li> Load Balancing Techniques in Cloud: Types (Global, Regional), Benefits</li>
+                        <li>Auto-Scaling: How it Works, Use Cases, and Benefits</li>
+                        <li>Auto-Scaling in AWS, Azure, and GCP: Setting Up Auto-Scaling Groups</li>
+                        <li>Elastic Load Balancing and Application Load Balancers</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Content Delivery Networks (CDN)</b> </li>
+                        <li>Introduction to CDNs: What are They and How Do They Work? </li>
+                        <li>Cloud-based CDN Solutions: AWS CloudFront, Azure CDN, Google Cloud CDN</li>
+                        <li>Benefits of CDNs: Faster Content Delivery, Reduced Latency, Increased Availability</li>
+                        
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 6:Cloud Computing for Development and Deployment </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Platforms for Developers</b> </li>
+                        <li>Introduction to Cloud Platforms for Application Development </li>
+                        <li>Platform-as-a-Service (PaaS) for Developers: Advantages and Use Cases</li>
+                        <li>Using DevOps and CI/CD (Continuous Integration/Continuous Deployment) in the Cloud</li>
+                        <li>Tools for DevOps: AWS CodePipeline, Azure DevOps, Google Cloud Build</li>
+                        <li>Cloud SDKs and APIs for Application Deployment</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Serverless Computing</b> </li>
+                        <li>Definition and Key Concepts of Serverless Computing </li>
+                        <li>Advantages of Serverless Computing: Cost Efficiency, Scalability, No Server Management</li>
+                        <li> Popular Serverless Platforms: AWS Lambda, Azure Functions, Google Cloud Functions</li>
+                        <li>Use Cases and Limitations of Serverless Computing</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Containers and Container Orchestration</b> </li>
+                        <li> Introduction to Containers: Docker and Kubernetes</li>
+                        <li>Running Containers in the Cloud: ECS (AWS), AKS (Azure), GKE (Google Cloud)</li>
+                        <li>Container Orchestration with Kubernetes in the Cloud</li>
+                        <li>Benefits of Containerization in Cloud Environments</li>
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 7:Cloud Cost Management </h3>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Pricing Models</b> </li>
+                        <li>Pay-as-you-go Model: Usage-based Pricing</li>
+                        <li>Reserved Instances and Savings Plans</li>
+                        <li> Spot Instances and Preemptible VMs for Cost Optimization</li>
+                    </ul>
+                    
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Optimizing Cloud Costs</b> </li>
+                        <li>Best Practices for Cloud Cost Optimization: Rightsizing, Auto-Scaling, Cost Analysis </li>
+                        <li>Identifying and Eliminating Unused Resources</li>
+                        <li>Using Reserved Instances and Spot Instances for Cost Savings</li>
+                        <li>Monitoring Cloud Costs with AWS Cost Explorer, Azure Cost Management, and GCP Cost Management</li>
+                    </ul>
+                    
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 8:Cloud Migration</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Introduction to Cloud Migration</b> </li>
+                        <li>Why Migrate to the Cloud? Benefits of Cloud Migration</li>
+                        <li>Challenges in Cloud Migration: Data Security, Downtime, Compatibility</li>
+                        <li>Types of Cloud Migration: Rehost, Replatform, Refactor</li>
+                        <li>Migration Planning and Strategy</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Tools for Cloud Migration</b> </li>
+                        <li> Migration Tools Provided by Major Cloud Providers (AWS Migration Hub, Azure Migrate, Google Cloud Migration)</li>
+                        <li>Third-Party Cloud Migration Tools</li>
+                        <li>Best Practices for Cloud Migration</li>
+                        
+                    </ul>
+                    
+                    
+                </div>
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 9:Emerging Trends in Cloud Computing</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Edge Computing</b> </li>
+                        <li>Introduction to Edge Computing: Definition and Use Cases</li>
+                        <li>The Relationship Between Edge and Cloud Computing</li>
+                        <li>Edge Computing Solutions in AWS, Azure, and GCP</li>
+                        <li>Benefits and Challenges of Edge Computing</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud Artificial Intelligence and Machine Learning</b> </li>
+                        <li>AI and ML in the Cloud: AI as a Service </li>
+                        <li>Cloud-Based Machine Learning Platforms: AWS SageMaker, Azure ML Studio, Google AI Platform</li>
+                        <li>Use Cases for AI/ML in Cloud: Predictive Analytics, Natural Language Processing, Computer Vision</li>
+                        
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Cloud IoT (Internet of Things)</b> </li>
+                        <li>Introduction to IoT in the Cloud </li>
+                        <li>Cloud Platforms for IoT: AWS IoT, Azure IoT Hub, Google Cloud IoT</li>
+                        <li>IoT Architecture and Use Cases in the Cloud</li>
+                        
+                    </ul>
+                    
+                </div>
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 10:Cloud Computing Future</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>The Future of Cloud Computing</b> </li>
+                        <li>Multi-Cloud and Hybrid Cloud Adoption</li>
+                        <li>Quantum Computing in the Cloud</li>
+                        <li>The Role of Artificial Intelligence in Cloud Computing</li>
+                        <li>The Shift to Cloud-Native Applications</li>
+                    </ul>
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b> Careers in Cloud Computing</b> </li>
+                        <li>Job Roles in Cloud Computing: Cloud Architect, Cloud Developer, Cloud Security Specialist, Cloud Operations Engineer </li>
+                        <li>Certifications for Cloud Computing Professionals: AWS Certified Solutions Architect, Microsoft Certified: Azure Fundamentals, Google Cloud Professional Cloud Architect</li>
+                        <li>Preparing for a Career in Cloud Computing</li>
+                        
+                    </ul>
+                    
+                    
+                </div>
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <h3 class="text-xl font-semibold text-[#0065BD]">Module 11:Capstone Project</h3>
+                    
+                    <ul class="syllabus-list list-disc pl-5">
+                        <li><b>Project Overview:</b> </li>
+                        <li>Scenario: Design and deploy a scalable cloud-based solution for a small business (e.g., an e-commerce website, a mobile application backend, or a data analytics platform).</li>
+                        <li>Components: Choose a cloud provider, design cloud architecture, select appropriate services (IaaS, PaaS, SaaS), ensure security, and optimize cost.</li>
+                        <li>Deliverables: Presentation of the solution architecture, demonstration of services used, cost breakdown, and security strategies.</li>
+                        
+                    </ul>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- Content for Outcomes -->
+        <div id="outcomes-content" class="hidden space-y-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center section-title text-[#0065BD]">Course Completion Outcomes</h2>
+
+            <div class="space-y-6">
+
+                
+                <!-- Recommended Prerequisites -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Recommended Prerequisites</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Basic understanding of IT concepts, networking, and software development. </li> 
+                        <li> No prior experience with cloud computing is required, but a general knowledge of the internet and technology would be beneficial. </li> 
+                         
+
+                        
+                    </ul>
+                </div>
+
+                <!-- Learning Outcomes -->
+                <div class="module-card">
+                    <p class="text-[#0065BD] font-semibold"><strong>Learning Outcomes:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li> Understand the core concepts of cloud computing, including service and deployment models.</li>
+                        <li> Identify and use cloud services from leading providers like AWS, Azure, and Google Cloud.</li>
+                        <li> Understand the basics of cloud security, compliance, and data privacy.</li>
+                        <li> Develop cloud-based solutions using IaaS, PaaS, and SaaS offerings.</li>
+                        <li> Understand cloud networking, load balancing, and auto-scaling.</li>
+                        <li> Manage and optimize cloud costs effectively.</li>
+                        <li> Work with emerging trends in cloud technologies such as edge computing, IoT, and AI/ML.  </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle visibility of Syllabus and Outcomes sections
+        document.getElementById("syllabus-btn").addEventListener("click", function () {
+            document.getElementById("syllabus-content").classList.remove("hidden");
+            document.getElementById("outcomes-content").classList.add("hidden");
+        });
+
+        document.getElementById("outcomes-btn").addEventListener("click", function () {
+            document.getElementById("outcomes-content").classList.remove("hidden");
+            document.getElementById("syllabus-content").classList.add("hidden");
+        });
+    </script>
+    
     <!-- Footer -->
-    <footer class="bg-blue-100 text-[#0065BD] py-16">
+    <footer class="bg-blue-100 text-[#0065BD] py-8">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="contact-section mb-8">
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -193,7 +524,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Our Location</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2325.844180697483!2d79.55026954455266!3d13.434682874378888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d50a4110bc35f%3A0xb5bdda025d4522b1!2sCHM3%2BVGW%2C%208-120%2F2%2C%20SH%2067%2C%20Ramarao%20Colony%2C%20Ngo%20Colony%2C%20Ramarao%20Colony%2C%20Puttur%2C%20Andhra%20Pradesh%20517583!5e0!3m2!1sen!2sin!4v1736175944751!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1700.5725811588015!2d79.55251599702578!3d13.43202309325576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5100090d2807%3A0x9237ec0d48008405!2sPuttur!5e0!3m2!1sen!2sin!4v1736229344211!5m2!1sen!2sin"
                     class="w-full h-48 sm:h-64 md:h-80 border-0"
                     allowfullscreen=""
                     loading="lazy">
@@ -206,7 +537,9 @@
                 <ul> 
                     <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
-                    <li><a href="/services" class="hover:text-[#EE1C25]">Services</a></li>
+                    <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
+                    <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
+                    <li><a href="/frontend/projects.html" class="hover:text-[#EE1C25]">Projects</a></li>
                     <li><a href="/contact" class="hover:text-[#EE1C25]">Contact Us</a></li>
                     <li><a href="/privacy-policy" class="hover:text-[#EE1C25]">Privacy Policy</a></li>
                     <li><a href="/terms-of-service" class="hover:text-[#EE1C25]">Terms & Conditions</a></li>
@@ -223,4 +556,5 @@
     </footer>
 
 </body>
+
 </html>
