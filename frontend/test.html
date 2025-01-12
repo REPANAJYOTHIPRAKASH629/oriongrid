@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses Page</title>
+    <title>Orion Grid</title>
+    <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .red-btn {
@@ -19,343 +20,332 @@
     <style>
         body {
             font-family: 'Outfit', sans-serif;
-                }
+        }
 
-                h1, h2, h3, h4 {
-                    font-family: 'Outfit', sans-serif;
-                }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+        }
     </style>
 </head>
 
 <body class="bg-white">
 
-  <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
-    <div class="flex justify-between items-center">
-        <!-- Logo -->
-        <div class="flex-shrink-0">
-            <img src="/frontend/images/logo.jpg" alt="Orion Grid Logo" class="w-32 md:w-48 h-auto object-contain">
+    <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
+        <div class="flex justify-between items-center">
+            <div class="flex-shrink-0">
+                <img src="/frontend/images/logo.jpg" alt="Orion Grid Logo" class="w-32 md:w-48 h-auto object-contain">
+            </div>
+
+            <div class="hidden md:flex space-x-6 text-lg">
+                <a href="#" class="hover:text-[#EE1C25]"><strong>Home</strong></a>
+                <div class="relative group">
+                    <a href="#" class="hover:text-[#EE1C25]"><strong>Services</strong></a>
+                    <div class="absolute left-0 mt-0 hidden bg-white text-[#0065BD] rounded-lg shadow-lg group-hover:block group-focus-within:block transition-opacity duration-300 ease-in-out" id="services-dropdown">
+                        <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
+                        <a href="/frontend/internships.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                        <a href="/frontend/projects.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                        <a href="/frontend/workshops.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
+                    </div>
+                </div>
+                <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
+                <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
+                <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button class="text-[#EE1C25]" id="mobile-menu-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
+    </nav>
 
-        <!-- Navbar Links -->
-        <div class="hidden md:flex space-x-6 text-lg">
-            <a href="#" class="hover:text-[#EE1C25]"><strong>Home</strong></a>
-
-            <!-- Services Dropdown -->
-            <div class="relative group">
-                <a href="#" class="hover:text-[#EE1C25]"><strong>Services</strong></a>
-                <!-- Submenu (Hidden by default) -->
-                <div class="absolute left-0 mt-0 hidden bg-white text-[#0065BD] rounded-lg shadow-lg group-hover:block group-focus-within:block transition-opacity duration-300 ease-in-out" id="services-dropdown">
+    <div class="md:hidden hidden" id="mobile-menu">
+        <div class="space-y-4 px-6 py-4">
+            <a href="#" class="block text-lg hover:text-[#EE1C25]">Home</a>
+            <div class="relative" id="mobile-services-dropdown">
+                <button class="block text-lg hover:text-[#EE1C25]" id="mobile-services-button">Services</button>
+                <div class="absolute left-0 mt-2 hidden bg-white text-black rounded-lg shadow-lg" id="mobile-submenu">
                     <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
-                    <a href="/frontend/internships.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
-                    <a href="/frontend/projects.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
-                    <a href="/frontend/workshops.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
                     <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
                 </div>
             </div>
-
-            <a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]"><strong>About Us</strong></a>
-            <a href="/frontend/careers.html" class="hover:text-[#EE1C25]"><strong>Careers</strong></a>
-            <a href="#" class="hover:text-[#EE1C25]"><strong>My Learnings</strong></a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden flex items-center">
-            <button class="text-[#EE1C25]" id="mobile-menu-button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+            <a href="/frontend/aboutus.html" class="block text-lg hover:text-[#EE1C25]">About Us</a>
+            <a href="/frontend/careers.html" class="block text-lg hover:text-[#EE1C25]">Careers</a>
+            <a href="/frontend/login.html" class="block text-lg hover:text-[#EE1C25]">Login</a>
         </div>
     </div>
-</nav>
 
-<!-- Mobile Menu -->
-<div class="md:hidden hidden" id="mobile-menu">
-    <div class="space-y-4 px-6 py-4">
-        <a href="#" class="block text-lg hover:text-[#EE1C25]">Home</a>
-        
-        <!-- Services Dropdown for Mobile -->
-        <div class="relative" id="mobile-services-dropdown">
-            <button class="block text-lg hover:text-[#EE1C25]" id="mobile-services-button">Services</button>
-            <div class="absolute left-0 mt-2 hidden bg-white text-black rounded-lg shadow-lg" id="mobile-submenu">
-                <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
-            </div>
-        </div>
-        
-        <a href="/frontend/aboutus.html" class="block text-lg hover:text-[#EE1C25]">About Us</a>
-        <a href="/frontend/careers.html" class="block text-lg hover:text-[#EE1C25]">Careers</a>
-        <a href="/frontend/login.html" class="block text-lg hover:text-[#EE1C25]">Login</a>
-    </div>
-</div>
+    <div class="max-w-6xl mx-auto p-6">
 
-<script>
-    // Mobile Menu Toggle
-    document.getElementById('mobile-menu-button').addEventListener('click', function () {
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // Mobile Services Dropdown Toggle
-    const mobileServicesButton = document.getElementById('mobile-services-button');
-    const mobileSubmenu = document.getElementById('mobile-submenu');
-    
-    mobileServicesButton.addEventListener('click', function () {
-        mobileSubmenu.classList.toggle('hidden');
-    });
-
-    // Optional: Close submenu when clicking outside (for mobile view)
-    document.addEventListener('click', function (e) {
-        const isClickInside = mobileServicesButton.contains(e.target) || mobileSubmenu.contains(e.target);
-        if (!isClickInside) {
-            mobileSubmenu.classList.add('hidden');
-        }
-    });
-</script>
-
-    <div class="max-w-7xl mx-auto p-6">
-
-        <!-- Header -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-semibold text-[#0065BD] mb-4">Explore Exciting Projects</h1>
-            <p class="text-lg text-gray-600 mt-2 mb-8">Browse through our wide variety of projects categorized by technology field. Start building your next innovation today!</p>
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-semibold text-[#0065BD]">Internship Opportunities</h1>
+            <p class="text-lg text-gray-600 mt-2">Explore the best internships in various fields. Apply now to kickstart your career!</p>
         </header>
 
-        <!-- Project Categories -->
-        <div class="space-y-12">
-
-            <!-- CSE Projects -->
-            <section>
-                <h2 class="text-3xl font-semibold text-[#0065BD] mb-6">CSE Projects</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Project Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 1" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Machine Learning Model for Predicting Housing Prices</h3>
-                        <p class="text-gray-600 mb-2">An ML model that predicts housing prices based on features like location, size, and more.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $299</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 2" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Chatbot Using Natural Language Processing</h3>
-                        <p class="text-gray-600 mb-2">A chatbot that can understand and respond intelligently using NLP techniques.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $199</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 3 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 3" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Web Scraping and Data Analysis Tool</h3>
-                        <p class="text-gray-600 mb-2">A tool that extracts data from websites and performs analysis on the gathered data.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $149</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Restaurant Bill Management System -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="Restaurant Bill Management System" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Restaurant Bill Management System</h3>
-                            <p class="text-gray-600 mb-2">Manage and generate restaurant bills efficiently using Python.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    
-                        <!-- Captcha Generator -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="Captcha Generator In Python" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Captcha Generator In Python</h3>
-                            <p class="text-gray-600 mb-2">A Python application to generate CAPTCHA images for security purposes.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    
-                        <!-- Calculator App in Tkinter -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="Calculator App" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Calculator App In Tkinter Python</h3>
-                            <p class="text-gray-600 mb-2">A user-friendly calculator application built using Tkinter in Python.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    
-                        <!-- Movie Recommendation System -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="Movie Recommendation System" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Movie Recommendation System In Python</h3>
-                            <p class="text-gray-600 mb-2">An intelligent system that recommends movies based on user preferences.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    
-                        <!-- Student Management System -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="Student Management System" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Student Management System In Python</h3>
-                            <p class="text-gray-600 mb-2">A comprehensive system for managing student data and records.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    
-                        <!-- AI Chatbot -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="AI Chatbot" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">AI Chatbot In Python</h3>
-                            <p class="text-gray-600 mb-2">An interactive chatbot application built using Python and AI techniques.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    
-                        <!-- Best Employee Management System -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="Best Employee Management System" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Best Employee Management System</h3>
-                            <p class="text-gray-600 mb-2">A robust system for managing employee records and performance.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    
-                        <!-- Best House Rental Management System -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="Best House Rental Management System" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Best House Rental Management System</h3>
-                            <p class="text-gray-600 mb-2">A comprehensive solution for managing house rentals.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    
-                        <!-- Prison Management System -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="Prison Management System" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Prison Management System Using PHP</h3>
-                            <p class="text-gray-600 mb-2">A PHP-based system to manage prison data and inmate records.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    
-                        <!-- Computer Laboratory Management System -->
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                            <img src="https://via.placeholder.com/350x200" alt="Computer Laboratory Management System" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Computer Laboratory Management System</h3>
-                            <p class="text-gray-600 mb-2">A system for managing computer labs using PHP and MySQL.</p>
-                            <p class="text-gray-800 font-bold mb-4">Price: Free</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                                <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </section>
-
-            <!-- ECE/EEE Projects -->
-            <section>
-                <h2 class="text-3xl font-semibold text-[#EE1C25] mb-6">ECE/EEE Projects</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Project Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 1" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#EE1C25] mb-2">Solar-Powered Smart Street Light System</h3>
-                        <p class="text-gray-600 mb-2">A solar-powered streetlight system with IoT-based monitoring and control.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $249</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 2" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#EE1C25] mb-2">Microcontroller-Based Temperature Monitoring System</h3>
-                        <p class="text-gray-600 mb-2">A project based on microcontroller to monitor and display temperature readings.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $169</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- IoT Projects -->
-            <section>
-                <h2 class="text-3xl font-semibold text-[#0065BD] mb-6">IoT Projects</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Project Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 1" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Smart Farming System using IoT</h3>
-                        <p class="text-gray-600 mb-2">A smart farming system to monitor and manage crops using IoT technology.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $179</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                        <img src="https://via.placeholder.com/350x200" alt="Project 2" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-[#0065BD] mb-2">IoT-Enabled Smart Wearables</h3>
-                        <p class="text-gray-600 mb-2">Wearable devices integrated with IoT for health and fitness tracking.</p>
-                        <p class="text-gray-800 font-bold mb-4">Price: $199</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#c91920] transition duration-300">Details</a>
-                            <a href="#" class="bg-[#0065BD] text-white px-6 py-2 rounded-md w-full text-center hover:bg-[#004c8c] transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+        <!-- Buttons to filter internships -->
+        <div class="flex justify-center space-x-4 mb-6">
+            <button onclick="filterInternships('cse')" class="px-4 py-2 bg-[#0065BD] text-white rounded-md hover:bg-[#004a99]">CSE</button>
+            <button onclick="filterInternships('ece')" class="px-4 py-2 bg-[#EE1C25] text-white rounded-md hover:bg-[#c91920]">ECE/EEE</button>
+            <button onclick="filterInternships('iot')" class="px-4 py-2 bg-[#00a65a] text-white rounded-md hover:bg-[#008a48]">IoT</button>
         </div>
 
+        <!-- Internships Container -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="internships-container">
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/dataanalysis.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Analyst Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/datavisualization.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Visualization Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/python.svg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Python Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/java.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Java Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/sql.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">SQL Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/frontend.jpeg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Frontend Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/backend.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Backend Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/fullstack.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Full Stack Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/CloudComputing.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Cloud Computing Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+                <img src="/frontend/images/cse/machinelearning.jpeg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Machine Learning Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <!-- ece/eee internships -->
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/VLSI.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">VLSI Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/DIP.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Digial Image Processing Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/Microwave.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Microwave Communication Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/Microwave.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Antenna Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/Embedded Systems.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Embedded Systems Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/Optical.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Optical Communication Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/Networking.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Networking Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/signals.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Signals Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/Power Electronics.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Power Electronics Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
+                <img src="/frontend/images/ece/Thermal Engineering.jpeg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Thermal Electronics Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+
+            <!-- Iot internships -->
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card iot">
+                <img src="/frontend/images/iot/raspberrypi.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Rasberry PI Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card iot">
+                <img src="/frontend/images/iot/arduino.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Arduino Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card iot">
+                <img src="/frontend/images/iot/robotics.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Robotics Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/apply.html'">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
+    <script>
+        const filterInternships = (category) => {
+            const allCards = document.querySelectorAll('.internship-card');
+            allCards.forEach(card => card.style.display = 'none');
+
+            const selectedCards = document.querySelectorAll(`.internship-card.${category}`);
+            selectedCards.forEach(card => card.style.display = 'block');
+        };
+
+        // Show CSE internships by default on page load
+        filterInternships('cse');
+    </script>
 </body>
 
 </html>

@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses Page</title>
+    <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .red-btn {
@@ -29,7 +28,7 @@
     </style>
 </head>
 
-<body class="bg-white">
+<body style="background-image: url('https://img.freepik.com/premium-vector/technology-connection-digital-data-white-background_32996-546.jpg?semt=ais_hybrid'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
   <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
     <div class="flex justify-between items-center">
@@ -118,82 +117,126 @@
     });
 </script>
 
-    <div class="max-w-7xl mx-auto p-6">
+    <div class="max-w-3xl mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+        <h1 class="text-3xl text-center text-[#0065BD] font-bold mb-6">Internship Application Form</h1>
 
-        <!-- Header -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-semibold text-[#0065BD]">Upcoming Workshops</h1>
-            <p class="text-lg text-gray-600 mt-2">Join our expert-led workshops and enhance your skills in various fields.</p>
-        </header>
-
-        <!-- Workshops Container -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-            <!-- Workshop Card 1 -->
-            <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="/frontend/images/cse/java.jpg" alt="Workshop 1" class="w-full h-48 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Java Programming Basics</h3>
-                <p class="text-gray-600 mb-2">Date: January 15, 2025</p>
-                <p class="text-gray-800 font-bold mb-4">Price: <strike>$99</strike>  Free</p>
-                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md text-center hover:bg-[#c91920] transition duration-300">Details</a>
+        <form action="#" method="POST">
+            <!-- Full Name -->
+            <div class="mb-4">
+                <label for="fullname" class="block text-gray-700 font-medium mb-2">Full Name (As per Certificates)</label>
+                <input type="text" id="fullname" name="fullname" class="w-full p-3 border border-gray-300 rounded-lg" required>
             </div>
 
-            <!-- Workshop Card 2 -->
-            <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="/frontend/images/cse/dataanalysis.jpg" alt="Workshop 2" class="w-full h-48 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Science Essentials</h3>
-                <p class="text-gray-600 mb-2">Date: February 20, 2025</p>
-                <p class="text-gray-800 font-bold mb-4">Price: $129</p>
-                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md text-center hover:bg-[#c91920] transition duration-300">Details</a>
+            <!-- Roll Number -->
+            <div class="mb-4">
+                <label for="rollno" class="block text-gray-700 font-medium mb-2">Roll Number</label>
+                <input type="text" id="rollno" name="rollno" class="w-full p-3 border border-gray-300 rounded-lg" required>
             </div>
 
-            <!-- Workshop Card 3 -->
-            <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="/frontend/images/cse/machinelearning.jpeg" alt="Workshop 3" class="w-full h-48 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Machine Learning Fundamentals</h3>
-                <p class="text-gray-600 mb-2">Date: March 10, 2025</p>
-                <p class="text-gray-800 font-bold mb-4">Price: <strike>$199</strike> Free</p>
-                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md text-center hover:bg-[#c91920] transition duration-300">Details</a>
+            <!-- College Name -->
+            <div class="mb-4">
+                <label for="collegename" class="block text-gray-700 font-medium mb-2">College / University Name</label>
+                <input type="text" id="collegename" name="collegename" class="w-full p-3 border border-gray-300 rounded-lg" required>
             </div>
 
-            <!-- Workshop Card 4 -->
-            <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="/frontend/images/cse/python.svg" alt="Workshop 4" class="w-full h-48 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Python for Beginners</h3>
-                <p class="text-gray-600 mb-2">Date: April 5, 2025</p>
-                <p class="text-gray-800 font-bold mb-4">Price: $89</p>
-                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md text-center hover:bg-[#c91920] transition duration-300">Details</a>
+            <!-- Qualification -->
+            <div class="mb-4">
+                <label for="qualification" class="block text-gray-700 font-medium mb-2">Qualification</label>
+                <input type="text" id="qualification" name="qualification" class="w-full p-3 border border-gray-300 rounded-lg" required>
             </div>
 
-            <!-- Workshop Card 5 -->
-            <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="/frontend/images/ece/VLSI.png" alt="Workshop 5" class="w-full h-48 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">VLSI Design Fundamentals</h3>
-                <p class="text-gray-600 mb-2">Date: May 1, 2025</p>
-                <p class="text-gray-800 font-bold mb-4">Price: $149</p>
-                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md text-center hover:bg-[#c91920] transition duration-300">Details</a>
+            <!-- Year of Graduation -->
+            <div class="mb-4">
+                <label for="graduation_year" class="block text-gray-700 font-medium mb-2">Year of Graduation</label>
+                <select id="graduation_year" name="graduation_year" class="w-full p-3 border border-gray-300 rounded-lg" required>
+                    <script>
+                        let currentYear = new Date().getFullYear();
+                        for (let year = currentYear - 10; year <= currentYear + 10; year++) {
+                            document.write(`<option value="${year}">${year}</option>`);
+                        }
+                    </script>
+                </select>
             </div>
 
-            <!-- Workshop Card 6 -->
-            <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="/frontend/images/cse/CloudComputing.png" alt="Workshop 6" class="w-full h-48 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Cloud Computing Workshop</h3>
-                <p class="text-gray-600 mb-2">Date: June 12, 2025</p>
-                <p class="text-gray-800 font-bold mb-4">Price: $159</p>
-                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md text-center hover:bg-[#c91920] transition duration-300">Details</a>
+            <!-- Gender -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2">Gender</label>
+                <div class="flex items-center">
+                    <input type="radio" id="male" name="gender" value="Male" class="mr-2" required>
+                    <label for="male" class="text-gray-700 mr-4">Male</label>
+
+                    <input type="radio" id="female" name="gender" value="Female" class="mr-2">
+                    <label for="female" class="text-gray-700">Female</label>
+                </div>
             </div>
 
-            <!-- Workshop Card 7 -->
-            <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition duration-300">
-                <img src="/frontend/images/cse/sql.png" alt="Workshop 7" class="w-full h-48 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">SQL Database Management</h3>
-                <p class="text-gray-600 mb-2">Date: July 10, 2025</p>
-                <p class="text-gray-800 font-bold mb-4">Price: $119</p>
-                <a href="#" class="bg-[#EE1C25] text-white px-6 py-2 rounded-md text-center hover:bg-[#c91920] transition duration-300">Details</a>
+            <!-- Contact Number -->
+            <div class="mb-4">
+                <label for="contact" class="block text-gray-700 font-medium mb-2">Contact Number</label>
+                <input type="text" id="contact" name="contact" class="w-full p-3 border border-gray-300 rounded-lg" required>
             </div>
 
-        </div>
+            <!-- Select Internship -->
+            <div class="mb-4">
+                <label for="internship" class="block text-gray-700 font-medium mb-2">Select Internship</label>
+                <select id="internship" name="internship" class="w-full p-3 border border-gray-300 rounded-lg" required>
+                    <option value="Full Stack Development">Full Stack Development</option>
+                    <option value="Data Analysis">Data Analyst</option>
+                    <option value="Data Visualization">Data Visualization</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="SQL">SQL</option>
+                    <option value="Cloud Computing">Cloud Computing</option>
+                    <option value="Frontend Development">Frontend Development</option>
+                    <option value="Backend Development">Backend Development</option>
+                    <option value="VLSI">VLSI</option>
+                    <option value="Digital Image Processing">Digital Image Processing</option>
+                    <option value="Microwave Communication">Microwave Communication</option>
+                    <option value="Antenna">Antenna</option>
+                    <option value="Embedded Systems">Embedded Systems</option>
+                    <option value="Optical Communication">Optimal Communication</option>
+                    <option value="Networking">Networking</option>
+                    <option value="Signals">Signals</option>
+                    <option value="Power Electronics">Power Electronics</option>
+                    <option value="Thermal Electronics">Thermal Electronics</option>
+                    <option value="Rasberry PI">Rasberry PI</option>
+                    <option value="Arduino">Arduino</option>
+                    <option value="Robotics">Robotics</option>
+                </select>
+            </div>
 
+            <!-- Select Duration -->
+            <div class="mb-4">
+                <label for="duration" class="block text-gray-700 font-medium mb-2">Select Duration</label>
+                <select id="duration" name="duration" class="w-full p-3 border border-gray-300 rounded-lg" required>
+                    <option value="1" data-price="5000">1 Month - ₹5000</option>
+                    <option value="2" data-price="9000">2 Months - ₹9000</option>
+                    <option value="3" data-price="12000">3 Months - ₹12000</option>
+                    <option value="6" data-price="20000">6 Months - ₹20000</option>
+                </select>
+            </div>
+
+            <!-- QR Code Image -->
+            <div class="flex justify-center mb-4">
+                <img src="/frontend/images/qrcode.png" alt="QR Code" class="rounded-lg w-32 h-32 object-cover">
+            </div>
+            <p class="text-center">Pay here</p>
+
+
+            <!-- Transaction ID -->
+            <div class="mb-4">
+                <label for="transaction_id" class="block text-gray-700 font-medium mb-2">Transaction ID</label>
+                <input type="text" id="transaction_id" name="transaction_id" class="w-full p-3 border border-gray-300 rounded-lg" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-center">
+                <button type="submit" class="bg-[#0065BD] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#EE1C25] transition duration-300">
+                    Submit
+                </button>
+            </div>
+
+        </form>
     </div>
 
     <!-- Footer -->
@@ -262,8 +305,6 @@
             <p>&copy; 2025 <a href="/frontend/index.html" class="text-[#EE1C25]">Orion Grid</a>. All Rights Reserved.</p>
         </div>
     </footer>
+
 </body>
-
-
-
 </html>
