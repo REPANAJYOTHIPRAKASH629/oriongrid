@@ -27,6 +27,20 @@
                     font-family: 'Outfit', sans-serif;
                 }
     </style>
+    <style>
+        /* Disable text selection */
+        body {
+            user-select: none;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+        }
+    </style>
+     <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    </script>
 </head>
 
 <body class="bg-white" style="background-image: url('https://img.freepik.com/premium-vector/technology-connection-digital-data-white-background_32996-546.jpg?semt=ais_hybrid'); background-size: cover; background-position: center; background-repeat: no-repeat;">

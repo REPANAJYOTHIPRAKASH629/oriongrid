@@ -39,6 +39,20 @@
             margin-bottom: 0.5rem;
         }
     </style>
+    <style>
+        /* Disable text selection */
+        body {
+            user-select: none;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+        }
+    </style>
+     <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {

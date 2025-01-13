@@ -6,6 +6,20 @@
     <title>Orion Grid</title>
     <link rel="icon" href="/frontend/images/logo.jpg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Disable text selection */
+        body {
+            user-select: none;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+        }
+    </style>
+     <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    </script>
 </head>
 <body style="background-image: url('https://img.freepik.com/premium-vector/technology-connection-digital-data-white-background_32996-546.jpg?semt=ais_hybrid'); background-size: cover; background-position: center; background-repeat: no-repeat;" class=" font-sans leading-relaxed tracking-wide flex items-center justify-center min-h-screen">
 
