@@ -17,6 +17,20 @@
                     font-family: 'Outfit', sans-serif;
                 }
     </style>
+     <style>
+        /* Disable text selection */
+        body {
+            user-select: none;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+        }
+    </style>
+     <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    </script>
 </head>
 
 <body class="font-sans bg-white bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('https://img.freepik.com/premium-vector/technology-connection-digital-data-white-background_32996-546.jpg?semt=ais_hybrid'); background-size: cover; background-position: center; background-repeat: no-repeat;">
@@ -64,7 +78,7 @@
 <!-- Mobile Menu -->
 <div class="md:hidden hidden" id="mobile-menu">
     <div class="space-y-4 px-6 py-4">
-        <a href="#" class="block text-lg hover:text-[#EE1C25]">Home</a>
+        <a href="/frontend/homepage.html" class="block text-lg hover:text-[#EE1C25]">Home</a>
         
         <!-- Services Dropdown for Mobile -->
         <div class="relative" id="mobile-services-dropdown">
@@ -130,16 +144,32 @@
             <div class="overflow-hidden">
                 <div id="banner-carousel" class="flex transition-transform duration-1000 ease-in-out">
                     <div class="w-full flex-shrink-0">
-                        <img src="https://via.placeholder.com/1200x450/EE1C25/ffffff?text=Banner+1" alt="Banner 1" class="w-full h-[450px] object-cover rounded-lg shadow-lg">
+                        <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                            <video id="video1" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
+                                <source src="/frontend/images/banner1.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                     <div class="w-full flex-shrink-0">
-                        <img src="https://via.placeholder.com/1200x450/0065BD/ffffff?text=Banner+2" alt="Banner 2" class="w-full h-[450px] object-cover rounded-lg shadow-lg">
+                        <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                            <video id="video2" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
+                                <source src="/frontend/images/banner2.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                     <div class="w-full flex-shrink-0">
-                        <img src="https://via.placeholder.com/1200x450/EE1C25/ffffff?text=Banner+3" alt="Banner 3" class="w-full h-[450px] object-cover rounded-lg shadow-lg">
+                        <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                            <video id="video3" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
+                                <source src="/frontend/images/banner1.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                     <div class="w-full flex-shrink-0">
-                        <img src="https://via.placeholder.com/1200x450/0065BD/ffffff?text=Banner+4" alt="Banner 4" class="w-full h-[450px] object-cover rounded-lg shadow-lg">
+                        <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                            <video id="video4" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
+                                <source src="/frontend/images/banner2.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -147,28 +177,60 @@
             <button id="next" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-[#EE1C25] text-white px-4 py-2 rounded-full focus:outline-none">></button>
         </div>
     </section>
-
+    
     <script>
         let currentIndex = 0;
         const images = document.querySelectorAll("#banner-carousel > div");
         const totalImages = images.length;
         const carousel = document.getElementById("banner-carousel");
-
+    
+        // Array to hold all video elements
+        const videos = [
+            document.getElementById("video1"),
+            document.getElementById("video2"),
+            document.getElementById("video3"),
+            document.getElementById("video4")
+        ];
+    
+        // Start playing the first video
+        videos[currentIndex].play();
+    
+        // Function to move to the next slide
         function nextSlide() {
+            // Pause the current video and move to the next slide
+            videos[currentIndex].pause();
             currentIndex = (currentIndex + 1) % totalImages;
             carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+            // Play the next video
+            videos[currentIndex].play();
         }
-
+    
+        // Function to move to the previous slide
         function prevSlide() {
+            // Pause the current video and move to the previous slide
+            videos[currentIndex].pause();
             currentIndex = (currentIndex - 1 + totalImages) % totalImages;
             carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+            // Play the previous video
+            videos[currentIndex].play();
         }
-
-        setInterval(nextSlide, 3000);
-
+    
+        // Event listener to automatically move to next slide when the video ends
+        videos.forEach((video, index) => {
+            video.addEventListener("ended", () => {
+                // Wait for video to finish before moving to the next slide
+                nextSlide();
+            });
+        });
+    
+        // Button click events
         document.getElementById("next").addEventListener("click", nextSlide);
         document.getElementById("prev").addEventListener("click", prevSlide);
+    
     </script>
+    
 
     <!-- Mission and Vision -->
     <section class="py-8 text-white">
@@ -178,16 +240,12 @@
                 <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     <h3 class="text-3xl font-semibold text-[#EE1C25] mb-4">Mission</h3>
                     <p class="text-lg text-gray-700 text-justify">
-                        Our mission is to provide skill-based education to empower individuals with the knowledge and practical skills
-                        to excel in their careers and personal growth. Through innovative teaching methods and hands-on experience, we aim to equip individuals with the skills they need to succeed in today’s fast-paced job market.
-                    </p>
+                        At <Strong class="text-[#0065BD]">Orion Grid</Strong>, our mission is to empower the next generation of innovators, researchers, and creators by providing transformative experiences in cutting-edge research, development, and exhibition. We are dedicated to fostering a collaborative environment where emerging talents can contribute to breakthrough discoveries, engage with complex global challenges, and showcase their work to a wider audience. Through our internship program, dynamic project exhibitions, and forward-thinking research initiatives, we aim to create a platform that bridges the gap between academic curiosity and real-world application, inspiring positive change and advancing knowledge across industries. We strive to lead in areas Research, guided by a commitment to excellence, sustainability, and technological advancement. At Orion Grid, we believe in the power of knowledge, creativity, and collaboration to shape the future".</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     <h3 class="text-3xl font-semibold text-[#EE1C25] mb-4">Vision</h3>
                     <p class="text-lg text-gray-700 text-justify">
-                        Our vision is to foster innovation and create a global learning community that encourages creativity, collaboration,
-                        and continuous learning in all fields. We strive to build a platform that connects like-minded individuals, empowering them to learn, grow, and contribute to societal progress through shared knowledge and experiences.
-                    </p>
+                        At <Strong class="text-[#0065BD]">Orion Grid</Strong>, we envision a future where innovation knows no bounds and where the brightest minds come together to tackle the world’s most pressing challenges. By nurturing a vibrant ecosystem of talent, creativity, and collaboration, we aspire to be at the forefront of groundbreaking research, technological advancement, and transformative solutions. Our goal is to shape a world where ideas from diverse fields converge, driving positive social, environmental, and economic impact. We aim to create a lasting legacy of thought leadership that empowers individuals, organizations, and industries to thrive in an ever-evolving global landscape. Through our commitment to excellence and sustainability, we see Orion Grid as a catalyst for discovery, an incubator of change, and a trusted platform for bridging the gap between academic research and real-world applications. Together, we will build a brighter, more innovative future for all.</p>
                 </div>
             </div>
         </div>
@@ -350,7 +408,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
                 <ul> 
-                    <li><a href="/frontend/index.html" class="hover:text-[#EE1C25]">Home</a></li>
+                    <li><a href="/frontend/homepage.html" class="hover:text-[#EE1C25]">Home</a></li>
                     <li><a href="/frontend/aboutus.html" class="hover:text-[#EE1C25]">About Us</a></li>
                     <li><a href="/frontend/internships.html" class="hover:text-[#EE1C25]">Internships</a></li>
                     <li><a href="/frontend/courses.html" class="hover:text-[#EE1C25]">Courses</a></li>
