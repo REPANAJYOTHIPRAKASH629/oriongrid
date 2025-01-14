@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Listing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the abstract display */
+        .abstract {
+            display: none;
+            color: rgb(0, 0, 255);
+            background: rgb(167, 197, 233);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Add hover effect for project cards */
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-white via-red-50 to-purple-50 font-sans">
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Project Listing</h1>
+
+        <!-- Project Listing -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card 1 -->
+            <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                <h2 class="text-2xl font-semibold text-gray-900">Project 1</h2>
+                <p class="mt-2 text-gray-500">An innovative approach to solving real-world challenges.</p>
+                <button onclick="toggleAbstract(1)" class="mt-4 text-blue-500 hover:underline transition">
+                    Read Abstract
+                </button>
+                <div id="abstract-1" class="abstract mt-4">
+                    <p>This is the abstract for Project 1, diving deep into its technical aspects. We focus on efficiency and scalability in this project.</p>
+                </div>
+                <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                    Buy Now
+                </a>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                <h2 class="text-2xl font-semibold text-gray-900">Project 2</h2>
+                <p class="mt-2 text-gray-500">Exploring new methods to optimize workflows and productivity.</p>
+                <button onclick="toggleAbstract(2)" class="mt-4 text-blue-500 hover:underline transition">
+                    Read Abstract
+                </button>
+                <div id="abstract-2" class="abstract mt-4">
+                    <p>This abstract highlights the key innovations of Project 2, focusing on improving productivity with new technologies.</p>
+                </div>
+                <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                    Buy Now
+                </a>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                <h2 class="text-2xl font-semibold text-gray-900">Project 3</h2>
+                <p class="mt-2 text-gray-500">A research-driven solution aimed at tackling global issues.</p>
+                <button onclick="toggleAbstract(3)" class="mt-4 text-blue-500 hover:underline transition">
+                    Read Abstract
+                </button>
+                <div id="abstract-3" class="abstract mt-4">
+                    <p>This is the abstract for Project 3. The project addresses large-scale challenges and aims to provide scalable solutions.</p>
+                </div>
+                <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                    Buy Now
+                </a>
+            </div>
+
+            <!-- Add more projects as needed -->
+        </div>
+    </div>
+
+    <script>
+        function toggleAbstract(projectId) {
+            const abstractElement = document.getElementById(`abstract-${projectId}`);
+            if (abstractElement.style.display === "block") {
+                abstractElement.style.display = "none";
+            } else {
+                abstractElement.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>
