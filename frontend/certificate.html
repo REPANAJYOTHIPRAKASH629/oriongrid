@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Set the A4 page size for printing in landscape mode */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+        }
+
+        /* Certificate Wrapper Styling */
+        .certificate-wrapper {
+            width: 100%;
+            height: 100%;
+            max-width: 297mm; /* A4 width in mm */
+            max-height: 210mm; /* A4 height in mm */
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            padding: 10mm; /* Padding around the certificate content */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background image for the certificate */
+        .background-image {
+            background-image: url('https://png.pngtree.com/png-vector/20230515/ourmid/pngtree-luxury-golden-rectangle-corner-certificate-border-pattern-line-photo-frame-islamic-vector-png-image_7098529.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        /* Watermark styles */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Title Styling */
+        .certificate-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            z-index: 3;
+        }
+
+        /* Body Styling */
+        .certificate-body {
+            font-size: 1.125rem;
+            color: #4b5563;
+            text-align: justify;
+            line-height: 1.75;
+            margin: 30px 50px;
+            z-index: 3;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Footer Styling */
+        .certificate-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+            z-index: 3;
+        }
+
+        .footer-logos img {
+            width: 80px;
+            height: auto;
+            margin-left: 10px;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Ensure black text is visible */
+        .font-bold,
+        .font-semibold {
+            color: #000000;
+        }
+
+        /* Logo Styles */
+        .logo-img {
+            width: 80px;
+            height: auto;
+        }
+
+        .body-image {
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+
+</head>
+
+<body class="bg-white">
+
+    <div class="certificate-wrapper">
+        <!-- Background Image -->
+        <div class="background-image"></div>
+
+        <!-- Watermark Image -->
+        <img src="/frontend/images/logo.jpg" alt="Watermark Logo" class="watermark w-80 h-auto">
+
+        <!-- Header Logos -->
+        <div class="flex justify-center items-center space-x-6 m-10">
+            <img src="/frontend/images/logo.jpg" alt="OG Logo" style="width: 100px; height: auto;">
+            <img src="https://khalsaengineering.co.in/wp-content/uploads/2024/08/All_India_Council_for_Technical_Education_logo-removebg-preview-300x300.png" alt="AICTE Logo" style="width: 80px; height: auto;">
+            <img src="/frontend/images/iso.png" alt="ISO Logo" style="width: 100px; height: auto;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS130w81ctXb84lEm1fLQu7D-vylAHOY9_kZg&s" alt="MSME Logo" style="width: 100px; height: auto;">
+        </div>
+
+        <!-- Certificate Title -->
+        <div class="certificate-title">
+            Certificate of Completion
+        </div>
+
+        <!-- Certificate Body -->
+        <div class="certificate-body">
+            <p class="mt-4 text-xl">
+                This is to certify that <span class="font-bold text-xl">{{Recipient Name}}</span>, with Roll Number <span class="font-bold text-xl">{{Roll Number}}</span>, has successfully completed the course
+                <span class="font-bold text-xl">{{Course Title}}</span> conducted by <span class="font-bold">{{College Name}}</span>.
+            
+                The course was conducted from <span class="font-semibold">{{Start Date}}</span> to <span class="font-semibold">{{End Date}}</span>.
+            </p>
+            <p class="mt-4 text-lg">
+                We congratulate {{Recipient Name}} for their successful completion of this program and wish them success in their future endeavors.
+            </p>
+        </div>
+
+        <!-- Footer Section with Logos -->
+        <div class="certificate-footer ml-20">
+            <div>
+                <img src="/frontend/images/signature1.png" style="width: 100px; height: 50px;">
+                <p class="font-semibold text-lg text-[#0065BD]">CEO & CO-Founder</p>
+            </div>
+            <div class="footer-logos mr-20  ">
+                <img src="/frontend/images/logo.jpg" alt="OG Logo" style="width: 100px; height: auto;">
+                <img src="https://khalsaengineering.co.in/wp-content/uploads/2024/08/All_India_Council_for_Technical_Education_logo-removebg-preview-300x300.png" alt="AICTE Logo" style="width: 80px; height: auto;">
+                <img src="/frontend/images/iso.png" alt="ISO Logo" style="width: 100px; height: auto;">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

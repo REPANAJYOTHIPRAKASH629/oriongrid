@@ -186,6 +186,80 @@
                     </ul>
                 </div>
             </section>
+               <!-- Courses Section -->
+               <section class="mt-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Courses You Are Teaching</h3>
+                    <ul>
+                        <li class="mb-4">
+                            <h4 class="text-lg font-semibold">Introduction to Computer Science</h4>
+                            <p class="text-gray-600">Learn the fundamentals of computer science, algorithms, and programming.</p>
+                            <button onclick="openModal('cs-content')" class="mt-2 text-white bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-md">View Course</button>
+                        </li>
+                        <li class="mb-4">
+                            <h4 class="text-lg font-semibold">Web Development</h4>
+                            <p class="text-gray-600">A hands-on course that teaches modern web development technologies like HTML, CSS, and JavaScript.</p>
+                            <button onclick="openModal('wd-content')" class="mt-2 text-white bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-md">View Course</button>
+                        </li>
+                        <li class="mb-4">
+                            <h4 class="text-lg font-semibold">Data Structures and Algorithms</h4>
+                            <p class="text-gray-600">Study data structures like arrays, stacks, queues, and algorithms for solving problems efficiently.</p>
+                            <button onclick="openModal('dsa-content')" class="mt-2 text-white bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-md">View Course</button>
+                        </li>
+                        <li class="mb-4">
+                            <h4 class="text-lg font-semibold">Artificial Intelligence</h4>
+                            <p class="text-gray-600">Explore the principles and applications of AI, including machine learning, neural networks, and robotics.</p>
+                            <button onclick="openModal('ai-content')" class="mt-2 text-white bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-md">View Course</button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Course Modals (Hidden by Default) -->
+            <div id="cs-content" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                <div class="bg-white p-6 rounded-lg w-3/4 max-w-2xl">
+                    <h4 class="text-2xl font-semibold mb-4">Introduction to Computer Science - Course Content</h4>
+                    <p>This course will cover the basics of programming, algorithms, and computer architecture.</p>
+                    <button onclick="closeModal('cs-content')" class="mt-4 bg-red-600 text-white px-4 py-2 rounded-md">Close</button>
+                </div>
+            </div>
+            <div id="wd-content" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                <div class="bg-white p-6 rounded-lg w-3/4 max-w-2xl">
+                    <h4 class="text-2xl font-semibold mb-4">Web Development - Course Content</h4>
+                    <p>This course will teach you how to create dynamic websites using HTML, CSS, and JavaScript.</p>
+                    <button onclick="closeModal('wd-content')" class="mt-4 bg-red-600 text-white px-4 py-2 rounded-md">Close</button>
+                </div>
+            </div>
+            <div id="dsa-content" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                <div class="bg-white p-6 rounded-lg w-3/4 max-w-2xl">
+                    <h4 class="text-2xl font-semibold mb-4">Data Structures and Algorithms - Course Content</h4>
+                    <p>This course covers data structures like trees, graphs, and algorithms for sorting and searching.</p>
+                    <button onclick="closeModal('dsa-content')" class="mt-4 bg-red-600 text-white px-4 py-2 rounded-md">Close</button>
+                </div>
+            </div>
+            <div id="ai-content" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                <div class="bg-white p-6 rounded-lg w-3/4 max-w-2xl">
+                    <h4 class="text-2xl font-semibold mb-4">Artificial Intelligence - Course Content</h4>
+                    <p>This course introduces AI concepts, including machine learning, neural networks, and data analysis.</p>
+                    <button onclick="closeModal('ai-content')" class="mt-4 bg-red-600 text-white px-4 py-2 rounded-md">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+   
+
+    <!-- JavaScript to handle modal open/close -->
+    <script>
+        function openModal(courseId) {
+            document.getElementById(courseId).classList.remove('hidden');
+        }
+
+        function closeModal(courseId) {
+            document.getElementById(courseId).classList.add('hidden');
+        }
+    </script>
         </div>
     </div>
 
