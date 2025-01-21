@@ -58,7 +58,7 @@
     <nav class="text-[#EE1C25] py-2 px-4 md:px-8 ">
         <div class="flex justify-between items-center">
             <div class="flex-shrink-0">
-                <img src="/frontend/images/logo.jpg" alt="Orion Grid Logo" class="w-32 md:w-48 h-auto object-contain">
+                <img src="/frontend/images/logo2.png" alt="Orion Grid Logo" class="w-32 md:w-48 h-auto object-contain">
             </div>
 
             <div class="hidden md:flex space-x-6 text-lg">
@@ -639,15 +639,16 @@
         <!-- ECE/EEE Projects (hidden by default) -->
         <div id="ece-projects" class="project-section hidden-content">
             <h2 class="text-2xl text-center font-semibold mb-4">ECE/EEE Projects</h2>
-            <div class="flex flex-wrap justify-center space-x-4 mb-6">
-                <button id="vlsi-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-full md:w-32 mb-4 md:mb-0" onclick="showVLSI()">VLSI</button>
-                <button id="embedded-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-full md:w-32 mb-4 md:mb-0" onclick="showEmbedded()">Embedded Systems</button>
-                <button id="signals-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-full md:w-32" onclick="showSignals()">Signals</button>
-                <button id="antenna-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-full md:w-32" onclick="showAntenna()">Antenna</button>
-                <button id="imageprocessing-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-full md:w-32" onclick="showImageProcessing()">Image Processing</button>
-
+            <div class="flex flex-wrap justify-center space-x-2 mb-6">
+                <button id="vlsi-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-32 mb-4 md:mb-0" onclick="showVLSI()">VLSI</button>
+                <button id="embedded-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-32 mb-4 md:mb-0" onclick="showEmbedded()">Embedded Systems</button>
+                <button id="signals-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-32" onclick="showSignals()">Signals</button>
+                <button id="antenna-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-32" onclick="showAntenna()">Antenna</button>
+                <button id="imageprocessing-btn" class="px-6 py-3 rounded-lg bg-[#0065BD] text-white w-32" onclick="showImageProcessing()">Image Processing</button>
+                <button id="communication-btn" class="px-2 py-3 rounded-lg bg-[#0065BD] text-white w-32" onclick="showCommunication()">Communication</button>
             </div>
-            <!-- VLSI Projects (default shown) -->
+            
+            
             <!-- VLSI Projects (default shown) -->
             <div id="vlsi-projects" class="project-category">
                 <h3 class="text-xl text-center font-semibold mb-4">VLSI Projects</h3>
@@ -831,7 +832,7 @@
 
 
             <!-- Embedded Projects (default shown) -->
-            <div id="embedded-projects" class="project-category">
+            <div id="embedded-projects" class="project-category hidden-content">
                 <h3 class="text-xl text-center font-semibold mb-4">Embedded Systems Projects</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     <!-- Project Card -->
@@ -1139,7 +1140,7 @@
             
             
             <!-- signals Projects (default shown) -->
-            <div id="signals-projects" class="project-category">
+            <div id="signals-projects" class="project-category hidden-content">
                 <h3 class="text-xl text-center font-semibold mb-4">Signals Projects</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     <!-- Project Card -->
@@ -1418,7 +1419,7 @@
 
 
             <!-- antenna Projects (default shown) -->
-            <div id="antenna-projects" class="project-category">
+            <div id="antenna-projects" class="project-category hidden-content">
                 <h3 class="text-xl text-center font-semibold mb-4">Antenna Projects</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     <!-- Project Card -->
@@ -1844,7 +1845,7 @@
             </div>
 
             <!-- Image Processing Projects (default shown) -->
-            <div id="imageprocessing-projects" class="project-category">
+            <div id="imageprocessing-projects" class="project-category hidden-content">
                 <h3 class="text-xl text-center font-semibold mb-4">Image Processing Projects</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     <!-- Project Card -->
@@ -2201,6 +2202,616 @@
                             Buy Now
                         </a>
                     </div>
+                </div>
+            </div>
+
+
+            <!-- communication Projects  -->
+            <div id="communication-projects" class="project-category">
+                <h3 class="text-xl text-center font-semibold mb-4">communication Projects</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Secure Communication in IoT Networks Using Spread Spectrum</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 12,000/-</p>
+                        <button onclick="toggleAbstract(1000)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1000" class="abstract mt-4">
+                            <p>Implement covert communication using DSSS or FHSS to enhance security in IoT networks under AWGN and multipath fading channels.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Low-Power and Covert Modulation Techniques for IoT Devices</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 10,000/-</p>
+                        <button onclick="toggleAbstract(1001)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1001" class="abstract mt-4">
+                            <p>Design and implement low-power modulation techniques (e.g., BPSK, QPSK, or QAM) for secure and energy-efficient communication in IoT devices.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Communication Using OFDM in 5G and Beyond</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 15,000/-</p>
+                        <button onclick="toggleAbstract(1002)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1002" class="abstract mt-4">
+                            <p>Develop an OFDM-based system for covert data transmission in 5G and 6G networks under AWGN and THz channel conditions.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Terahertz Band Communication for IoT: Challenges and Solutions</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 20,000/-</p>
+                        <button onclick="toggleAbstract(1003)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1003" class="abstract mt-4">
+                            <p>Explore the use of the THz frequency band for ultra-high-speed communication in IoT applications, focusing on path loss, noise, and interference.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Machine Learning for Covert IoT Communication in AWGN Channels</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 18,000/-</p>
+                        <button onclick="toggleAbstract(1004)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1004" class="abstract mt-4">
+                            <p>Leverage machine learning to optimize covert communication in IoT networks under noisy environments and dynamically select modulation schemes.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Communication Using Visible Light Communication (VLC)</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 14,000/-</p>
+                        <button onclick="toggleAbstract(1005)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1005" class="abstract mt-4">
+                            <p>Implement covert communication techniques using VLC for IoT devices and compare its performance in AWGN and multipath environments.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Hybrid Modulation Techniques for Secure IoT Networks</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 16,000/-</p>
+                        <button onclick="toggleAbstract(1006)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1006" class="abstract mt-4">
+                            <p>Combine analog and digital modulation schemes for secure and covert communication in IoT networks, focusing on 5G and THz bands.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Physical Layer Security for IoT in 5G and 6G</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 18,000/-</p>
+                        <button onclick="toggleAbstract(1007)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1007" class="abstract mt-4">
+                            <p>Investigate physical layer security techniques like jamming-resistant modulation and beamforming for IoT communication in 5G and beyond.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Energy-Efficient Covert Communication for IoT in Smart Cities</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 12,000/-</p>
+                        <button onclick="toggleAbstract(1008)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1008" class="abstract mt-4">
+                            <p>Design an energy-efficient and secure communication system for IoT devices in smart cities, focusing on low-power modulation techniques.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Data Transmission Using Beamforming in 5G</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 15,000/-</p>
+                        <button onclick="toggleAbstract(1009)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1009" class="abstract mt-4">
+                            <p>Use beamforming techniques to enable covert communication in IoT networks, particularly in millimeter-wave and THz frequencies.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Steganographic Modulation Techniques for IoT Networks</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 13,000/-</p>
+                        <button onclick="toggleAbstract(1010)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1010" class="abstract mt-4">
+                            <p>Develop a steganographic communication system that hides data within standard IoT communication signals for covert purposes.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Polar Code-Based Covert Communication in IoT</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 16,000/-</p>
+                        <button onclick="toggleAbstract(1011)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1011" class="abstract mt-4">
+                            <p>Implement polar codes for covert and reliable data transmission in IoT networks under AWGN and fading channels, extending to 5G and THz bands.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Channel Coding for Secure IoT Communication in 6G</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 15,000/-</p>
+                        <button onclick="toggleAbstract(1012)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1012" class="abstract mt-4">
+                            <p>Investigate advanced channel coding techniques like LDPC or Turbo Codes for secure communication in IoT networks, focusing on THz bands.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">AI-Driven Covert Communication in IoT</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 20,000/-</p>
+                        <button onclick="toggleAbstract(1013)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1013" class="abstract mt-4">
+                            <p>Use AI and ML to optimize covert communication techniques in IoT networks, implementing algorithms for adaptive modulation and dynamic resource allocation.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Quantum-Assisted Covert Communication for IoT</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 25,000/-</p>
+                        <button onclick="toggleAbstract(1014)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1014" class="abstract mt-4">
+                            <p>Explore quantum key distribution and quantum-assisted techniques for secure IoT communication integrated with classical modulation schemes.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Communication for IoT Devices in UAV Networks</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 14,000/-</p>
+                        <button onclick="toggleAbstract(1015)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1015" class="abstract mt-4">
+                            <p>Design a covert communication system for IoT devices connected via UAV networks and study performance in AWGN and urban environments.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Modulation Techniques for Underwater Covert IoT Communication</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 20,000/-</p>
+                        <button onclick="toggleAbstract(1016)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1016" class="abstract mt-4">
+                            <p>Implement covert communication methods using acoustic modulation for IoT devices in underwater networks under high noise and multipath conditions.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Wireless Energy Transfer in IoT Networks</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 22,000/-</p>
+                        <button onclick="toggleAbstract(1017)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1017" class="abstract mt-4">
+                            <p>Explore covert methods for wireless energy transfer while transmitting data securely in IoT networks under noisy conditions and high-frequency bands.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Blockchain-Enabled Covert Communication for IoT</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 18,000/-</p>
+                        <button onclick="toggleAbstract(1018)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1018" class="abstract mt-4">
+                            <p>Integrate blockchain technology with covert modulation techniques for secure IoT communication, evaluating feasibility in 5G and 6G networks.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Multi-User Covert Communication in IoT Networks</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 17,000/-</p>
+                        <button onclick="toggleAbstract(1019)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1019" class="abstract mt-4">
+                            <p>Design a multi-user covert communication system using advanced modulation techniques like OFDM or NOMA, managing interference in 5G and THz bands.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Communication in IoT Using Chaotic Modulation Techniques</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 18,000/-</p>
+                        <button onclick="toggleAbstract(1020)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1020" class="abstract mt-4">
+                            <p>Design a chaotic modulation system (e.g., chaotic QAM) for secure data transmission in IoT networks, ensuring resistance against eavesdropping.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Cognitive Radio-Based Covert Communication for IoT Networks</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 20,000/-</p>
+                        <button onclick="toggleAbstract(1021)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1021" class="abstract mt-4">
+                            <p>Implement covert communication in cognitive radio networks by dynamically adapting frequency usage to avoid detection.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert IoT Communication Using 6G Holographic Beamforming</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 25,000/-</p>
+                        <button onclick="toggleAbstract(1022)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1022" class="abstract mt-4">
+                            <p>Explore holographic beamforming techniques in 6G networks for secure and covert communication in IoT systems.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Non-Coherent Modulation for Low-Latency Covert IoT Communication</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 15,000/-</p>
+                        <button onclick="toggleAbstract(1023)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1023" class="abstract mt-4">
+                            <p>Develop non-coherent modulation schemes (e.g., DPSK or FSK) for low-latency and covert IoT data transmission in AWGN and fading environments.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Communication in IoT Using Reconfigurable Intelligent Surfaces</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 22,000/-</p>
+                        <button onclick="toggleAbstract(1024)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1024" class="abstract mt-4">
+                            <p>Investigate the use of reconfigurable intelligent surfaces (RIS) to enhance covert communication in IoT networks over 5G and 6G.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Underwater Acoustic Covert Communication for IoT Sensor Nodes</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 21,000/-</p>
+                        <button onclick="toggleAbstract(1025)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1025" class="abstract mt-4">
+                            <p>Design an underwater acoustic communication system with covert techniques for IoT sensor nodes in marine environments.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Optical Communication for IoT Devices</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 19,000/-</p>
+                        <button onclick="toggleAbstract(1026)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1026" class="abstract mt-4">
+                            <p>Develop an optical communication system for IoT devices with covert transmission techniques using visible and infrared light.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Data Hiding in IoT Through Channel State Information (CSI)</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 18,000/-</p>
+                        <button onclick="toggleAbstract(1027)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1027" class="abstract mt-4">
+                            <p>Utilize channel state information (CSI) to embed covert data for IoT communication, ensuring resilience against eavesdroppers.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">MIMO-Based Covert Communication for IoT in 5G Networks</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 20,000/-</p>
+                        <button onclick="toggleAbstract(1028)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1028" class="abstract mt-4">
+                            <p>Implement a multi-input multi-output (MIMO) system to enable covert communication for IoT devices in 5G networks.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Wireless Body Area Networks (WBAN) for Healthcare IoT</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 20,000/-</p>
+                        <button onclick="toggleAbstract(1029)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1029" class="abstract mt-4">
+                            <p>Develop covert communication methods for WBANs to securely transmit sensitive health data over IoT networks.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Energy Harvesting for Covert IoT Communication</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 18,000/-</p>
+                        <button onclick="toggleAbstract(1030)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1030" class="abstract mt-4">
+                            <p>Design an IoT communication system that integrates energy harvesting to enable covert and sustainable data transmission.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Quantum Cryptography for Covert IoT Communication in 6G</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 25,000/-</p>
+                        <button onclick="toggleAbstract(1031)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1031" class="abstract mt-4">
+                            <p>Explore the use of quantum cryptographic techniques for secure and covert communication in IoT devices operating in 6G networks.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Vehicular Communication in IoT-Based Intelligent Transport Systems</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 22,000/-</p>
+                        <button onclick="toggleAbstract(1032)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1032" class="abstract mt-4">
+                            <p>Implement secure and covert communication techniques in IoT-based intelligent transport systems for vehicular networks.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Enhanced Covert Communication with Error Control Codes</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 15,000/-</p>
+                        <button onclick="toggleAbstract(1033)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1033" class="abstract mt-4">
+                            <p>Use error control coding techniques such as Hamming or BCH codes to improve the reliability of covert communication in IoT networks.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Cross-Layer Design for Covert IoT Communication</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 19,000/-</p>
+                        <button onclick="toggleAbstract(1034)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1034" class="abstract mt-4">
+                            <p>Develop a cross-layer design approach to enable covert communication across physical, MAC, and network layers in IoT systems.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">AI-Enhanced Covert Communication in IoT Using GANs</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 23,000/-</p>
+                        <button onclick="toggleAbstract(1035)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1035" class="abstract mt-4">
+                            <p>Use Generative Adversarial Networks (GANs) to simulate covert communication scenarios and improve security in IoT networks.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Communication for Smart Grids in IoT Networks</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 21,000/-</p>
+                        <button onclick="toggleAbstract(1036)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1036" class="abstract mt-4">
+                            <p>Develop secure and covert communication techniques for IoT-enabled smart grids, focusing on data integrity and low latency.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Adaptive Modulation for Covert IoT Communication in THz Bands</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 22,000/-</p>
+                        <button onclick="toggleAbstract(1037)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1037" class="abstract mt-4">
+                            <p>Design an adaptive modulation system for IoT devices operating in THz bands to enable secure and covert communication.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Fog Computing for Covert IoT Communication in Smart Cities</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 20,000/-</p>
+                        <button onclick="toggleAbstract(1038)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1038" class="abstract mt-4">
+                            <p>Leverage fog computing to enhance covert communication techniques for IoT devices deployed in smart cities.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-100 transition project-card">
+                        <h2 class="text-2xl text-[#0065BD] font-semibold">Covert Communication in IoT Using Spatial Modulation</h2>
+                        <p class="mt-2 text-gray-700 font-semibold">Rs 18,000/-</p>
+                        <button onclick="toggleAbstract(1039)" class="mt-4 text-[#0065BD] hover:underline transition">
+                            Read Abstract
+                        </button>
+                        <div id="abstract-1039" class="abstract mt-4">
+                            <p>Develop a spatial modulation-based covert communication system for IoT networks to improve security and reduce power consumption.</p>
+                        </div>
+                        <a href="apply.html" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            Buy Now
+                        </a>
+                    </div>
+
+
+
 
                 </div>
             </div>
@@ -2849,6 +3460,8 @@
             document.getElementById('signals-projects').classList.add('hidden-content');
             document.getElementById('antenna-projects').classList.add('hidden-content');
             document.getElementById('imageprocessing-projects').classList.add('hidden-content');
+            document.getElementById('communication-projects').classList.add('hidden-content');
+
         }
 
         function showEmbedded() {
@@ -2857,6 +3470,7 @@
             document.getElementById('signals-projects').classList.add('hidden-content');
             document.getElementById('antenna-projects').classList.add('hidden-content');
             document.getElementById('imageprocessing-projects').classList.add('hidden-content');
+            document.getElementById('communication-projects').classList.add('hidden-content');
         }
 
         function showSignals() {
@@ -2865,6 +3479,8 @@
             document.getElementById('signals-projects').classList.remove('hidden-content');
             document.getElementById('antenna-projects').classList.add('hidden-content');
             document.getElementById('imageprocessing-projects').classList.add('hidden-content');
+            document.getElementById('communication-projects').classList.add('hidden-content');
+
         }
 
         function showAntenna() {
@@ -2873,6 +3489,8 @@
             document.getElementById('signals-projects').classList.add('hidden-content');
             document.getElementById('antenna-projects').classList.remove('hidden-content');
             document.getElementById('imageprocessing-projects').classList.add('hidden-content');
+            document.getElementById('communication-projects').classList.add('hidden-content');
+
         }
 
         function showImageProcessing() {
@@ -2881,6 +3499,18 @@
             document.getElementById('signals-projects').classList.add('hidden-content');
             document.getElementById('antenna-projects').classList.add('hidden-content');
             document.getElementById('imageprocessing-projects').classList.remove('hidden-content');
+            document.getElementById('communication-projects').classList.add('hidden-content');
+
+        }
+
+        function showCommunication() {
+            document.getElementById('vlsi-projects').classList.add('hidden-content');
+            document.getElementById('embedded-projects').classList.add('hidden-content');
+            document.getElementById('signals-projects').classList.add('hidden-content');
+            document.getElementById('antenna-projects').classList.add('hidden-content');
+            document.getElementById('imageprocessing-projects').classList.add('hidden-content');
+            document.getElementById('communication-projects').classList.remove('hidden-content');
+
         }
 
         // Toggle Abstract Visibility
@@ -2964,5 +3594,4 @@
         <p>&copy; 2025 <a href="/frontend/index.html" class="text-[#EE1C25]">Orion Grid</a>. All Rights Reserved.</p>
     </div>
 </footer>
-
 </html>

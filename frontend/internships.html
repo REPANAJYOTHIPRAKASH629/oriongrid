@@ -120,25 +120,73 @@
 
         <!-- Internships Container -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="internships-container">
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/dataanalysis.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Analyst Intern</h3>
-                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
-                <div class="flex space-x-4 w-full">
-                    <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
-                </div>
-            </div>
+        <!-- Internship Card -->
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/datavisualization.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Visualization Intern</h3>
-                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
-                <div class="flex space-x-4 w-full">
-                    <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
-                </div>
+        <!-- JavaScript to Handle Modal Toggle -->
+            <script>
+                // Function to open modal
+                function openModal(modalId) {
+                    document.getElementById(modalId).classList.remove('hidden');
+                }
+
+                // Function to close modal
+                function closeModal(modalId) {
+                    document.getElementById(modalId).classList.add('hidden');
+                }
+
+                // Optionally, close modal by clicking outside of it
+                const modals = document.querySelectorAll('.fixed');
+                modals.forEach(modal => {
+                    modal.addEventListener('click', function(e) {
+                        if (e.target === modal) {
+                            closeModal(modal.id);
+                        }
+                    });
+                });
+            </script>
+
+            <!-- Internship Card 1 -->
+        <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+            <img src="/frontend/images/cse/dataanalysis.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Analyst Intern</h3>
+            <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+            <div class="flex space-x-4 w-full">
+                <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
+                <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal1')">Details</button>
             </div>
+        </div>
+
+        <!-- Modal for Data Analyst Intern -->
+        <div id="popupModal1" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-1/2 max-w-lg">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Data Analyst Internship</h3>
+                <p class="text-gray-600 mb-4 text-justify">A data analyst is a professional who collects, processes, and interprets data to help organizations make informed decisions. They use tools like spreadsheets, databases, and programming languages (e.g., SQL, Python, or R) to clean and organize raw data. Analysts identify patterns, trends, and insights, often presenting findings through reports, dashboards, or visualizations using tools like Tableau or Power BI. Their work supports decision-making in areas like business strategy, product development, marketing, and operations.</p>
+                <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] transition duration-300" onclick="closeModal('popupModal1')">Close</button>
+            </div>
+        </div>
+
+        <!-- Internship Card 2 -->
+        <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
+            <img src="/frontend/images/cse/datavisualization.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Visualization Intern</h3>
+            <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+            <div class="flex space-x-4 w-full">
+                <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
+                <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal2')">Details</button>
+            </div>
+        </div>
+
+        <!-- Modal for Data Visualization Intern -->
+        <div id="popupModal2" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-1/2 max-w-lg">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Data Visualization Internship</h3>
+                <p class="text-gray-600 mb-4 text-justify">Data visualization is the graphical representation of information and data. It uses visual elements like charts, graphs, maps, and dashboards to make complex data easier to understand and interpret. The goal of data visualization is to reveal patterns, trends, and insights in data, allowing users to make informed decisions quickly and effectively.
+
+                    Common tools for data visualization include Tableau, Power BI, Excel, and Python libraries like Matplotlib, Seaborn, and Plotly. Good visualizations are clear, accurate, and tailored to the audience, transforming raw data into intuitive visuals that tell a compelling story.
+                    </p>
+                <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] transition duration-300" onclick="closeModal('popupModal2')">Close</button>
+            </div>
+        </div>
 
             <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
                 <img src="/frontend/images/cse/python.svg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
@@ -147,6 +195,15 @@
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
                     <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                </div>
+            </div>
+
+            <!-- Modal for Data Visualization Intern -->
+            <div id="popupModal3" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-1/2 max-w-lg">
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Data Visualization Internship</h3>
+                    <p class="text-gray-600 mb-4 text-justify">Data visualization involves creating graphical representations of data and insights. It helps in understanding patterns, trends, and outliers in data, typically using tools like Tableau, Power BI, or Python libraries like Matplotlib. The role focuses on transforming data into clear and actionable insights for businesses or teams.</p>
+                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] transition duration-300" onclick="closeModal('popupModal2')">Close</button>
                 </div>
             </div>
 
