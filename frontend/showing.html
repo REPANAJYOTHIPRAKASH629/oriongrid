@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Internships</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 50%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Category Filter Buttons -->
+    <div class="max-w-4xl mx-auto p-6 mt-10 flex justify-center space-x-6 mb-6">
+        <button onclick="filterCategory('cse')" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">CSE</button>
+        <button onclick="filterCategory('ece')" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">ECE</button>
+        <button onclick="filterCategory('iot')" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">IoT</button>
+    </div>
+
+    <!-- Search and Sort Options -->
+    <div class="max-w-4xl mx-auto p-6 mt-10 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <input type="text" id="searchInput" placeholder="Search Internships" class="px-4 py-2 border rounded-md" />
+            <button onclick="searchInternships()" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Search</button>
+        </div>
+        <div class="flex space-x-4">
+            <button onclick="sortInternships('alphabetical')" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Sort Alphabetically</button>
+            <button onclick="sortInternships('price')" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Sort by Price</button>
+        </div>
+    </div>
+
+    <!-- Internship Display Section -->
+    <div id="internshipContainer" class="max-w-4xl mx-auto p-6">
+        <h2 class="text-2xl font-semibold text-center text-blue-600 mb-6">Available Internships</h2>
+        <div id="internshipList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Internship Cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Modal for Internship Details -->
+    <div id="popupModal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-xl font-semibold text-[#0065BD] mb-4" id="popupTitle">Internship Title</h3>
+            <p class="text-gray-600 mb-4 text-justify" id="popupDescription">Internship Description</p>
+            <button class="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition duration-300" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to retrieve internships from localStorage and display them
+        window.onload = function () {
+            loadInternships();
+        };
+
+        // Function to load internships and display cards
+        function loadInternships() {
+            const internships = JSON.parse(localStorage.getItem('internships')) || [];
+            const internshipList = document.getElementById('internshipList');
+
+            internshipList.innerHTML = '';
+
+            internships.forEach(internship => {
+                // Create an internship card
+                const internshipCard = document.createElement('div');
+                internshipCard.classList.add('bg-white', 'border', 'border-gray-300', 'rounded-lg', 'shadow-lg', 'p-5', 'flex', 'flex-col', 'items-center', 'hover:shadow-xl', 'transition', 'duration-300', `internship-card`, `${internship.category}`);
+                
+                internshipCard.innerHTML = `
+                    <img src="${internship.image}" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-2">${internship.title}</h3>
+                    <p class="text-gray-600 mb-4">Duration: ${internship.duration} Months</p>
+                    <p class="text-gray-600 mb-4">Price: $${internship.price}</p>
+                    <div class="flex space-x-4 w-full">
+                        <button class="apply-btn bg-red-600 text-white px-6 py-2 rounded-md w-full hover:bg-red-700 transition duration-300">Apply</button>
+                        <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="showModal('${internship.title}', '${internship.details}')">Details</button>
+                    </div>
+                `;
+
+                internshipList.appendChild(internshipCard);
+            });
+        }
+
+        // Function to search internships based on title
+        function searchInternships() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const internships = JSON.parse(localStorage.getItem('internships')) || [];
+            const filteredInternships = internships.filter(internship =>
+                internship.title.toLowerCase().includes(searchTerm)
+            );
+
+            displayInternships(filteredInternships);
+        }
+
+        // Function to display internships after filtering
+        function displayInternships(internships) {
+            const internshipList = document.getElementById('internshipList');
+            internshipList.innerHTML = '';
+
+            internships.forEach(internship => {
+                // Create an internship card
+                const internshipCard = document.createElement('div');
+                internshipCard.classList.add('bg-white', 'border', 'border-gray-300', 'rounded-lg', 'shadow-lg', 'p-5', 'flex', 'flex-col', 'items-center', 'hover:shadow-xl', 'transition', 'duration-300', `internship-card`, `${internship.category}`);
+                
+                internshipCard.innerHTML = `
+                    <img src="${internship.image}" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-2">${internship.title}</h3>
+                    <p class="text-gray-600 mb-4">Duration: ${internship.duration} Months</p>
+                    <p class="text-gray-600 mb-4">Price: $${internship.price}</p>
+                    <div class="flex space-x-4 w-full">
+                        <button class="apply-btn bg-red-600 text-white px-6 py-2 rounded-md w-full hover:bg-red-700 transition duration-300">Apply</button>
+                        <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="showModal('${internship.title}', '${internship.details}')">Details</button>
+                    </div>
+                `;
+
+                internshipList.appendChild(internshipCard);
+            });
+        }
+
+        // Function to sort internships based on price or alphabetical order
+        function sortInternships(type) {
+            const internships = JSON.parse(localStorage.getItem('internships')) || [];
+
+            if (type === 'alphabetical') {
+                internships.sort((a, b) => a.title.localeCompare(b.title));
+            } else if (type === 'price') {
+                internships.sort((a, b) => a.price - b.price);
+            }
+
+            displayInternships(internships);
+        }
+
+        // Function to show the modal with internship details
+        function showModal(title, description) {
+            const popupTitle = document.getElementById('popupTitle');
+            const popupDescription = document.getElementById('popupDescription');
+
+            popupTitle.innerText = title;
+            popupDescription.innerText = description;
+
+            document.getElementById('popupModal').style.display = 'flex';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('popupModal').style.display = 'none';
+        }
+
+        // Function to filter internships by category
+        function filterCategory(category) {
+            const internships = JSON.parse(localStorage.getItem('internships')) || [];
+            const filteredInternships = internships.filter(internship => internship.category === category);
+
+            displayInternships(filteredInternships);
+        }
+    </script>
+
+</body>
+
+</html>

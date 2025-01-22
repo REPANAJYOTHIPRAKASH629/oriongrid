@@ -16,6 +16,51 @@
             background-color: #0065BD;
         }
     </style>
+
+<style>
+    /* Custom Styles for Modals */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 600px;
+        text-align: left;
+    }
+
+    .internship-img {
+        width: 100%;
+        height: 150px;
+        object-fit: fill;
+        border-radius: 8px;
+    }
+
+    .category-button {
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    .category-button:hover {
+        background-color: #0065BD;
+        color: white;
+    }
+</style>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -104,328 +149,1636 @@
         </div>
     </div>
 
-    <div class="max-w-6xl mx-auto p-6">
+    <div class=" mx-auto p-6">
 
         <header class="text-center mb-8">
             <h1 class="text-4xl font-semibold text-[#0065BD]">Internship Opportunities</h1>
             <p class="text-lg text-gray-600 mt-2">Explore the best internships in various fields. Apply now to kickstart your career!</p>
         </header>
+    </div>
 
-        <!-- Buttons to filter internships -->
-        <div class="flex justify-center space-x-4 mb-6">
-            <button onclick="filterInternships('cse')" class="px-4 py-2 bg-[#0065BD] text-white rounded-md hover:bg-[#004a99]">CSE</button>
-            <button onclick="filterInternships('ece')" class="px-4 py-2 bg-[#EE1C25] text-white rounded-md hover:bg-[#c91920]">ECE/EEE</button>
-            <button onclick="filterInternships('iot')" class="px-4 py-2 bg-[#00a65a] text-white rounded-md hover:bg-[#008a48]">IoT</button>
-        </div>
+   <!-- Navbar with Category Buttons -->
+    <div class="flex justify-center space-x-6 mt-6 mb-12">
+        <button class="category-button bg-[#0065BD] text-white px-6 py-3 w-48 text-center" onclick="scrollToSection('cse-internships')" style="min-width: 150px;">CSE</button>
+        <button class="category-button bg-[#0065BD] text-white px-6 py-3 w-48 text-center" onclick="scrollToSection('ece-internships')" style="min-width: 150px;">ECE / EEE</button>
+        <button class="category-button bg-[#0065BD] text-white px-6 py-3 w-48 text-center" onclick="scrollToSection('iot-internships')" style="min-width: 150px;">IoT</button>
+    </div>
 
-        <!-- Internships Container -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="internships-container">
-        <!-- Internship Card -->
+    <!-- Internships Container -->
+    <div class="max-w-6xl container mx-auto p-4">
 
-        <!-- JavaScript to Handle Modal Toggle -->
-            <script>
-                // Function to open modal
-                function openModal(modalId) {
-                    document.getElementById(modalId).classList.remove('hidden');
-                }
-
-                // Function to close modal
-                function closeModal(modalId) {
-                    document.getElementById(modalId).classList.add('hidden');
-                }
-
-                // Optionally, close modal by clicking outside of it
-                const modals = document.querySelectorAll('.fixed');
-                modals.forEach(modal => {
-                    modal.addEventListener('click', function(e) {
-                        if (e.target === modal) {
-                            closeModal(modal.id);
-                        }
-                    });
-                });
-            </script>
-
-            <!-- Internship Card 1 -->
-        <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-            <img src="/frontend/images/cse/dataanalysis.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
-            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Analyst Intern</h3>
-            <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
-            <div class="flex space-x-4 w-full">
-                <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal1')">Details</button>
+        <!-- CSE Internships -->
+        <h2 id="cse-internships" class="text-2xl font-bold text-center text-[#0065BD] mb-6">CSE Internships</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12" id="cse-internships">
+            <!-- Data Analyst Intern -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/dataanalysis.jpg" alt="Data Analyst" class="internship-img">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Analyst Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal1')">Details</button>
+                </div>
             </div>
-        </div>
 
-        <!-- Modal for Data Analyst Intern -->
-        <div id="popupModal1" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-1/2 max-w-lg">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Data Analyst Internship</h3>
-                <p class="text-gray-600 mb-4 text-justify">A data analyst is a professional who collects, processes, and interprets data to help organizations make informed decisions. They use tools like spreadsheets, databases, and programming languages (e.g., SQL, Python, or R) to clean and organize raw data. Analysts identify patterns, trends, and insights, often presenting findings through reports, dashboards, or visualizations using tools like Tableau or Power BI. Their work supports decision-making in areas like business strategy, product development, marketing, and operations.</p>
-                <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] transition duration-300" onclick="closeModal('popupModal1')">Close</button>
+            <!-- Modal for Data Analyst Internship -->
+            <div id="popupModal1" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Data Analyst Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            A Data Analyst internship provides hands-on experience in gathering, processing, and interpreting data to help organizations make informed decisions. The internship allows you to learn and apply various data analysis tools, including Excel, SQL, Python, and business intelligence platforms like Tableau and Power BI.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Collect, clean, and organize raw data from various sources.</li>
+                            <li>Identify patterns, trends, and insights from data analysis.</li>
+                            <li>Create reports, dashboards, and visualizations using data analysis tools.</li>
+                            <li>Assist in developing data-driven strategies to improve business operations.</li>
+                            <li>Collaborate with teams to deliver actionable insights to different departments.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Basic understanding of data analysis concepts and tools.</li>
+                            <li>Proficiency in Excel and/or experience with data analysis tools like SQL, Python, Tableau, or Power BI.</li>
+                            <li>Attention to detail and ability to work with large datasets.</li>
+                            <li>Strong communication and presentation skills to share findings.</li>
+                            <li>Ability to work independently and as part of a team.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate of completion at the end of the program. In addition to this, they will receive daily attendance and performance assessment reports throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal1')">
+                            Close
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Internship Card 2 -->
-        <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-            <img src="/frontend/images/cse/datavisualization.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
-            <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Visualization Intern</h3>
-            <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
-            <div class="flex space-x-4 w-full">
-                <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal2')">Details</button>
+            <!-- Data Visualization -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/datavisualization.jpg" alt="Data Visualization" class="internship-img">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Data Visualization Intern</h3>
+                <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
+                <div class="flex space-x-4 w-full">
+                    <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal2')">Details</button>
+                </div>
             </div>
-        </div>
 
-        <!-- Modal for Data Visualization Intern -->
-        <div id="popupModal2" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-1/2 max-w-lg">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Data Visualization Internship</h3>
-                <p class="text-gray-600 mb-4 text-justify">Data visualization is the graphical representation of information and data. It uses visual elements like charts, graphs, maps, and dashboards to make complex data easier to understand and interpret. The goal of data visualization is to reveal patterns, trends, and insights in data, allowing users to make informed decisions quickly and effectively.<br>
+            <!-- Modal for Data Visualization Internship -->
+            <div id="popupModal2" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Data Visualization Internship</h3>
 
-                Common tools for data visualization include Tableau, Power BI, Excel, and Python libraries like Matplotlib, Seaborn, and Plotly. Good visualizations are clear, accurate, and tailored to the audience, transforming raw data into intuitive visuals that tell a compelling story.
-                </p>
-                <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] transition duration-300" onclick="closeModal('popupModal2')">Close</button>
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Data Visualization Internship provides hands-on experience in transforming complex data into clear, actionable insights through compelling visualizations. Interns will learn how to use data visualization tools like Tableau, Power BI, and D3.js to create impactful charts, graphs, and dashboards that aid decision-making processes.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Design and develop interactive dashboards and reports using data visualization tools.</li>
+                            <li>Work with large datasets to identify trends and insights for various business applications.</li>
+                            <li>Collaborate with teams to understand data needs and translate them into visually appealing reports.</li>
+                            <li>Perform data analysis and clean data to ensure accurate and meaningful visualizations.</li>
+                            <li>Assist in presenting data findings to stakeholders using visual aids.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Familiarity with data visualization tools like Tableau, Power BI, or D3.js.</li>
+                            <li>Strong understanding of data analysis concepts and techniques.</li>
+                            <li>Proficiency in Excel and basic knowledge of SQL or Python is a plus.</li>
+                            <li>Creativity and a strong eye for detail to design clear and impactful visualizations.</li>
+                            <li>Good communication skills for presenting insights and collaborating with teams.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion. In addition, daily attendance and assessment reports will be provided during the internship.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal2')">
+                            Close
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/python.svg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Python -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/python.svg" alt="Python" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Python Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal3')">Details</button>
                 </div>
             </div>
 
-            <!-- Modal for Data Visualization Intern -->
-            <div id="popupModal3" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
-                <div class="bg-white p-6 rounded-lg shadow-lg w-1/2 max-w-lg">
-                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4">Data Visualization Internship</h3>
-                    <p class="text-gray-600 mb-4 text-justify">Data visualization involves creating graphical representations of data and insights. It helps in understanding patterns, trends, and outliers in data, typically using tools like Tableau, Power BI, or Python libraries like Matplotlib. The role focuses on transforming data into clear and actionable insights for businesses or teams.</p>
-                    <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] transition duration-300" onclick="closeModal('popupModal2')">Close</button>
+            <!-- Modal for Python Internship -->
+            <div id="popupModal3" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Python Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Python is a versatile programming language used in fields like web development, data science, AI, and more. This internship offers an opportunity to learn and apply Python in real-world projects.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Write and maintain Python scripts for automation and data analysis.</li>
+                            <li>Collaborate on data-driven projects and solutions.</li>
+                            <li>Work with APIs, databases, and data analysis tools.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Basic knowledge of Python programming.</li>
+                            <li>Familiarity with data manipulation libraries (e.g., Pandas, NumPy).</li>
+                            <li>Interest in learning and problem-solving.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Upon completion, interns will receive a certificate along with daily attendance and assessment reports.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal3')">
+                            Close
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/java.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Java -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/java.jpg" alt="JAVA" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Java Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal4')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/sql.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Java Internship -->
+            <div id="popupModal4" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Java Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Java Internship offers the opportunity to gain hands-on experience in software development using Java, one of the most widely used programming languages in the world. Interns will learn how to build and optimize Java applications, implement data structures, and work with various Java frameworks and libraries to solve real-world problems.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Develop and maintain Java applications and software solutions.</li>
+                            <li>Collaborate with team members to design, implement, and test software features.</li>
+                            <li>Write clean, efficient, and well-documented code in Java.</li>
+                            <li>Work with Java libraries and frameworks (e.g., Spring, Hibernate, etc.).</li>
+                            <li>Participate in debugging, testing, and troubleshooting Java-based systems.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong understanding of Java programming and object-oriented programming concepts.</li>
+                            <li>Familiarity with Java development tools, IDEs (e.g., IntelliJ IDEA, Eclipse), and version control systems (e.g., Git).</li>
+                            <li>Basic knowledge of databases and SQL.</li>
+                            <li>Willingness to learn and adapt to new technologies and frameworks.</li>
+                            <li>Strong problem-solving skills and attention to detail.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon completing the program. Additionally, daily attendance and performance assessment reports will be provided throughout the internship.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal4')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SQL -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/sql.png" alt="SQL" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">SQL Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal5')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/frontend.jpeg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for SQL Internship -->
+            <div id="popupModal5" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">SQL Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The SQL Internship provides an opportunity to learn and apply SQL (Structured Query Language) for managing and analyzing databases. Interns will work on writing complex queries, optimizing SQL performance, and learning database management techniques, all while supporting various business processes.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Write and optimize SQL queries to manage and extract data from relational databases.</li>
+                            <li>Assist in designing and implementing database schemas and structures.</li>
+                            <li>Perform data validation, analysis, and reporting using SQL queries.</li>
+                            <li>Work with teams to troubleshoot and resolve SQL-related issues.</li>
+                            <li>Contribute to the improvement of database performance and efficiency.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Basic understanding of relational databases and SQL.</li>
+                            <li>Familiarity with SQL development tools such as MySQL, PostgreSQL, or SQL Server.</li>
+                            <li>Ability to write basic and advanced SQL queries (joins, subqueries, aggregate functions, etc.).</li>
+                            <li>Attention to detail and ability to work with large datasets.</li>
+                            <li>Strong problem-solving skills and eagerness to learn database optimization techniques.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon completion of the internship. Additionally, daily attendance and performance assessment reports will be provided during the course of the internship.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal5')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frontend -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/frontend.jpeg" alt="Frontend" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Frontend Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal6')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/backend.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Frontend Internship -->
+            <div id="popupModal6" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Frontend Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Frontend Internship offers the opportunity to learn and work with the latest web development technologies such as HTML, CSS, JavaScript, and popular frameworks like React, Angular, or Vue.js. Interns will gain hands-on experience in building user-friendly web applications and websites, focusing on UI/UX design, responsive layouts, and ensuring smooth interactions.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Design and implement responsive user interfaces using HTML, CSS, and JavaScript.</li>
+                            <li>Work with frontend frameworks like React, Angular, or Vue.js to build dynamic applications.</li>
+                            <li>Ensure the application is optimized for performance across devices and browsers.</li>
+                            <li>Collaborate with backend developers to integrate APIs and services with the frontend.</li>
+                            <li>Test and debug code to ensure functionality and quality of the frontend application.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Basic understanding of HTML, CSS, and JavaScript.</li>
+                            <li>Familiarity with frontend frameworks such as React, Angular, or Vue.js is a plus.</li>
+                            <li>Understanding of responsive web design principles and cross-browser compatibility.</li>
+                            <li>Ability to debug and troubleshoot frontend code.</li>
+                            <li>Good communication skills and a willingness to learn new technologies.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal6')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/backend.png" alt="Backend" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Backend Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal7')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/fullstack.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Backend Internship -->
+            <div id="popupModal7" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Backend Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Backend Internship provides hands-on experience in server-side development, where you will learn to design, build, and maintain scalable backend systems and APIs. Interns will work with various backend technologies like Node.js, Python, Java, and databases such as MySQL, PostgreSQL, or MongoDB, and gain exposure to cloud platforms like AWS or Azure.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Design and develop backend services and APIs to support frontend functionality.</li>
+                            <li>Work with databases (SQL/NoSQL) to store, retrieve, and manipulate data.</li>
+                            <li>Ensure the performance, security, and scalability of backend applications.</li>
+                            <li>Collaborate with frontend developers to integrate backend services with user-facing applications.</li>
+                            <li>Write clean, maintainable, and well-documented code for backend systems.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Familiarity with backend programming languages such as Node.js, Python, or Java.</li>
+                            <li>Understanding of database concepts and hands-on experience with databases (MySQL, MongoDB, etc.).</li>
+                            <li>Ability to write RESTful APIs and handle data processing tasks.</li>
+                            <li>Basic knowledge of cloud platforms like AWS or Azure is a plus.</li>
+                            <li>Strong problem-solving skills and ability to debug and troubleshoot backend issues.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided during the internship.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal7')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FULL STACK -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/fullstack.jpg" alt="Full-Stack" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Full Stack Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal8')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/CloudComputing.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Full Stack Internship -->
+            <div id="popupModal8" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Full Stack Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Full Stack Internship offers an exciting opportunity to work on both frontend and backend development. Interns will get hands-on experience building web applications from scratch, working with technologies like HTML, CSS, JavaScript (React, Angular, or Vue.js), and backend frameworks (Node.js, Python, Java). You will also work with databases, APIs, and cloud platforms to create robust and scalable solutions.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Design and implement both frontend and backend features for web applications.</li>
+                            <li>Develop and integrate RESTful APIs and ensure smooth communication between frontend and backend.</li>
+                            <li>Work with databases (SQL/NoSQL) to manage and store data efficiently.</li>
+                            <li>Collaborate with cross-functional teams to create user-friendly and scalable applications.</li>
+                            <li>Write clean, maintainable, and well-documented code for full stack applications.</li>
+                            <li>Test and debug code to ensure performance, scalability, and security.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong understanding of both frontend (HTML, CSS, JavaScript) and backend (Node.js, Python, Java) technologies.</li>
+                            <li>Experience with frontend frameworks like React, Angular, or Vue.js.</li>
+                            <li>Familiarity with backend frameworks and server-side technologies (e.g., Express, Django, Spring Boot).</li>
+                            <li>Understanding of databases (SQL and NoSQL) and how to design database schemas and queries.</li>
+                            <li>Ability to write RESTful APIs and integrate them with frontend interfaces.</li>
+                            <li>Good understanding of version control systems like Git and GitHub.</li>
+                            <li>Willingness to learn and adapt to new technologies and frameworks.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the duration of the internship.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal8')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud Computing -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/CloudComputing.png" alt="Cloud Computing" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Cloud Computing Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal9')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card cse">
-                <img src="/frontend/images/cse/machinelearning.jpeg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Cloud Computing Internship -->
+            <div id="popupModal9" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Cloud Computing Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Cloud Computing Internship provides an opportunity to work with cloud platforms like AWS, Microsoft Azure, and Google Cloud. Interns will learn about deploying and managing cloud-based applications, cloud architecture, services, and virtualized environments. This internship is ideal for individuals looking to expand their knowledge in cloud technologies and gain hands-on experience working with real-world cloud systems.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in setting up and configuring cloud environments using platforms such as AWS, Azure, or Google Cloud.</li>
+                            <li>Learn to deploy, manage, and monitor cloud-based applications and services.</li>
+                            <li>Work with cloud storage solutions, networking, and security management in the cloud.</li>
+                            <li>Assist in optimizing the performance and cost efficiency of cloud services.</li>
+                            <li>Collaborate with teams to integrate cloud infrastructure with other technology systems.</li>
+                            <li>Learn about cloud automation tools and infrastructure as code (e.g., Terraform, AWS CloudFormation).</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Basic understanding of cloud computing concepts and services.</li>
+                            <li>Familiarity with cloud platforms like AWS, Azure, or Google Cloud is a plus.</li>
+                            <li>Knowledge of virtualization and containerization technologies (e.g., Docker, Kubernetes).</li>
+                            <li>Ability to work with cloud storage and database services (e.g., AWS S3, Google Cloud Storage, RDS, etc.).</li>
+                            <li>Strong problem-solving skills and willingness to learn cloud technologies.</li>
+                            <li>Good communication skills and the ability to work in a team environment.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal9')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Machine Learning -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/cse/machinelearning.jpeg" alt="Machine Learning" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Machine Learning Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal10')">Details</button>
                 </div>
             </div>
 
-            <!-- ece/eee internships -->
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/VLSI.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Machine Learning Internship -->
+            <div id="popupModal10" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Machine Learning Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Machine Learning Internship offers an exciting opportunity to gain hands-on experience in building machine learning models and working with real-world data. Interns will learn how to use machine learning frameworks and tools like TensorFlow, Keras, scikit-learn, and more to solve business problems. This internship will provide exposure to the entire machine learning pipeline, from data preprocessing to model deployment.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in data collection, cleaning, and preprocessing tasks.</li>
+                            <li>Build, train, and evaluate machine learning models for various use cases.</li>
+                            <li>Work with large datasets and apply machine learning algorithms such as regression, classification, and clustering.</li>
+                            <li>Collaborate with data scientists and engineers to deploy machine learning models into production.</li>
+                            <li>Analyze model performance and fine-tune models for better results.</li>
+                            <li>Stay updated with the latest trends in machine learning and artificial intelligence technologies.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong foundation in machine learning concepts and algorithms.</li>
+                            <li>Proficiency in Python programming, along with libraries like NumPy, Pandas, and Matplotlib.</li>
+                            <li>Familiarity with machine learning frameworks such as TensorFlow, Keras, and scikit-learn.</li>
+                            <li>Experience with data preprocessing techniques, such as handling missing data and feature scaling.</li>
+                            <li>Good understanding of statistics and linear algebra.</li>
+                            <li>Strong problem-solving skills and analytical thinking.</li>
+                            <li>Willingness to learn and adapt to new tools and techniques in machine learning.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided during the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal10')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- More CSE Internship Cards (repeat as needed) -->
+        </div>
+
+        <!-- ECE/EEE Internships -->
+        <h2 id="ece-internships" class="text-2xl font-bold text-center text-[#0065BD] mb-6">ECE / EEE Internships</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12" id="ece-internships">
+            <!-- VLSI Intern -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/VLSI.png" alt="VLSI Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">VLSI Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModal51')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/DIP.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Digial Image Processing Intern</h3>
+            <!-- Modal for VLSI Internship -->
+            <div id="popupModal51" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">VLSI Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The VLSI Internship offers hands-on experience in the field of Very Large Scale Integration (VLSI) design and verification. Interns will work on designing integrated circuits, using tools like CAD (Computer-Aided Design), and performing simulations for VLSI systems. The internship will provide exposure to both digital and analog VLSI designs, as well as the latest technologies used in semiconductor industries.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in designing, simulating, and testing VLSI circuits and systems.</li>
+                            <li>Use CAD tools for layout design, timing analysis, and verification of VLSI systems.</li>
+                            <li>Collaborate with teams for chip design and implementation in various technologies (CMOS, BiCMOS, etc.).</li>
+                            <li>Assist in writing and running testbenches for simulation and verification of designs.</li>
+                            <li>Work on optimizing the performance of VLSI circuits, focusing on speed, area, and power consumption.</li>
+                            <li>Learn about industry standards and best practices for VLSI design and testing.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong knowledge of digital and analog circuit design principles.</li>
+                            <li>Familiarity with VLSI design tools (e.g., Cadence, Synopsys, Mentor Graphics).</li>
+                            <li>Basic understanding of semiconductor physics and electronic components.</li>
+                            <li>Experience with programming and scripting languages (e.g., Verilog, VHDL, Python).</li>
+                            <li>Ability to work with simulation tools and analyze results.</li>
+                            <li>Strong problem-solving skills and attention to detail.</li>
+                            <li>Willingness to learn and adapt to the rapidly evolving VLSI technologies.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModal11')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIP Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/DIP.png" alt="DIP Intern" class="internship-img">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">DIP Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD52')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/Microwave.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for DIP Internship -->
+            <div id="popupModalD52" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">DIP Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Digital Image Processing (DIP) Internship provides a hands-on learning experience in the field of image processing techniques, computer vision, and machine learning applications. Interns will work on processing and analyzing images using various algorithms and tools, including MATLAB, OpenCV, and Python. The internship will cover topics like image enhancement, segmentation, object detection, and feature extraction.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Develop and implement image processing algorithms for enhancement and restoration.</li>
+                            <li>Work on object detection, recognition, and segmentation techniques using machine learning and deep learning models.</li>
+                            <li>Collaborate with team members on computer vision tasks, such as image classification and feature extraction.</li>
+                            <li>Analyze and process large datasets of images to extract useful information.</li>
+                            <li>Utilize OpenCV and MATLAB for prototyping and testing algorithms.</li>
+                            <li>Assist in the implementation of real-time image processing solutions for embedded systems.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong knowledge of image processing techniques and algorithms.</li>
+                            <li>Familiarity with programming languages like Python, C++, or MATLAB.</li>
+                            <li>Experience with libraries and tools like OpenCV, TensorFlow, Keras, or PyTorch.</li>
+                            <li>Basic understanding of machine learning concepts and algorithms.</li>
+                            <li>Ability to work with large image datasets and process them efficiently.</li>
+                            <li>Good problem-solving skills and analytical thinking.</li>
+                            <li>Strong communication skills and ability to work in a collaborative environment.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD52')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Microwave Communication Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/Microwave.jpg" alt="Microwave Communication Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Microwave Communication Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD53')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/Microwave.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Microwave Communication Internship -->
+            <div id="popupModalD53" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Microwave Communication Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Microwave Communication Internship provides hands-on experience in the design, testing, and implementation of microwave communication systems. Interns will work on various communication systems, including satellite, radar, and wireless communication technologies that operate in the microwave frequency range. They will gain exposure to advanced topics such as microwave circuit design, antenna theory, and signal propagation.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in the design and simulation of microwave communication systems and circuits.</li>
+                            <li>Work on antenna design, including patch antennas, parabolic antennas, and phased array systems.</li>
+                            <li>Conduct experiments and simulations related to signal propagation and microwave link budgets.</li>
+                            <li>Support testing and optimization of microwave components, such as amplifiers, filters, and mixers.</li>
+                            <li>Assist in the implementation of wireless communication systems operating in the microwave frequency range.</li>
+                            <li>Collaborate with teams to integrate microwave technologies into modern communication systems.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong knowledge of electromagnetic theory and microwave communication principles.</li>
+                            <li>Familiarity with microwave circuit design tools (e.g., HFSS, CST Studio, ADS).</li>
+                            <li>Basic understanding of antenna theory and wireless communication systems.</li>
+                            <li>Experience with signal processing and analysis tools like MATLAB or Python.</li>
+                            <li>Ability to work with RF testing equipment, including network analyzers and spectrum analyzers.</li>
+                            <li>Strong problem-solving skills and attention to detail.</li>
+                            <li>Willingness to learn and adapt to rapidly evolving microwave technologies.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD53')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Antenna Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/antenna.jpg" alt="Antenna Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Antenna Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD54')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/Embedded Systems.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Antenna Internship -->
+            <div id="popupModalD54" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Antenna Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Antenna Internship offers hands-on experience in the design, testing, and optimization of antenna systems for communication and radar applications. Interns will gain experience in various antenna types, including dipole antennas, patch antennas, and phased arrays. This internship will allow you to work with simulation software and real-world testing environments to develop efficient antenna designs.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in the design and simulation of various types of antennas for communication and radar systems.</li>
+                            <li>Use electromagnetic simulation tools like HFSS, CST Studio, or FEKO for antenna analysis and design.</li>
+                            <li>Perform measurements and tests on prototype antenna designs to evaluate performance metrics such as gain, radiation patterns, and efficiency.</li>
+                            <li>Assist in optimizing antenna designs for specific applications, including wireless communication and satellite systems.</li>
+                            <li>Collaborate with the team to integrate antenna designs into larger communication and radar systems.</li>
+                            <li>Support testing, troubleshooting, and validation of antenna prototypes in laboratory setups and field trials.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong understanding of electromagnetic theory and antenna design principles.</li>
+                            <li>Familiarity with antenna simulation tools (e.g., HFSS, CST Studio, FEKO).</li>
+                            <li>Basic knowledge of transmission lines, waveguides, and radio frequency (RF) systems.</li>
+                            <li>Experience with RF testing equipment such as network analyzers, spectrum analyzers, and signal generators.</li>
+                            <li>Proficiency in programming and scripting for automation and analysis (e.g., MATLAB, Python).</li>
+                            <li>Strong problem-solving skills and attention to detail.</li>
+                            <li>Willingness to learn and adapt to new technologies and tools in antenna design and testing.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD54')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Embedded Systems Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/Embedded Systems.png" alt="Embedded Systems Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Embedded Systems Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD55')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/Optical.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Embedded Systems Internship -->
+            <div id="popupModalD55" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Embedded Systems Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Embedded Systems Internship provides hands-on experience in the design, development, and integration of embedded systems for various applications. Interns will work on hardware and software co-design, firmware development, and testing on microcontrollers and microprocessors. This internship will cover a range of topics including sensor interfacing, real-time operating systems (RTOS), and communication protocols.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in the design, development, and debugging of embedded software and firmware.</li>
+                            <li>Work on interfacing sensors, actuators, and communication modules with microcontrollers.</li>
+                            <li>Develop and test embedded applications using C/C++ for various microcontroller platforms (e.g., Arduino, Raspberry Pi, ARM Cortex).</li>
+                            <li>Implement communication protocols like UART, SPI, I2C, and MQTT in embedded systems.</li>
+                            <li>Assist in optimizing embedded systems for power consumption, speed, and resource utilization.</li>
+                            <li>Collaborate with the hardware team to integrate software with embedded hardware components.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong knowledge of embedded systems architecture and programming in C/C++.</li>
+                            <li>Familiarity with microcontroller platforms such as Arduino, Raspberry Pi, STM32, or ARM-based systems.</li>
+                            <li>Experience with interfacing sensors, actuators, and communication modules.</li>
+                            <li>Understanding of communication protocols like UART, SPI, I2C, and CAN.</li>
+                            <li>Experience with real-time operating systems (RTOS) is a plus.</li>
+                            <li>Familiarity with debugging tools such as oscilloscopes, logic analyzers, and JTAG debuggers.</li>
+                            <li>Ability to work in a collaborative team environment and problem-solving skills.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD55')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optical Communication Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/Optical.jpg" alt="Optical Communication Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Optical Communication Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD56')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/Networking.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Optical Communication Internship -->
+            <div id="popupModalD56" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Optical Communication Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Optical Communication Internship provides hands-on experience in the design, testing, and optimization of optical communication systems. Interns will work on various topics such as fiber optic communication, free-space optical communication, and modulation techniques used in high-speed optical networks. This internship covers both theoretical and practical aspects of optical communication systems.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in the design and simulation of optical communication systems, including fiber optic and free-space optical communication.</li>
+                            <li>Work on the implementation of modulation techniques such as PSK, QAM, and OFDM in optical systems.</li>
+                            <li>Help with the testing and evaluation of optical components such as lasers, modulators, detectors, and fiber-optic cables.</li>
+                            <li>Assist in setting up and analyzing experimental setups for optical communication systems.</li>
+                            <li>Collaborate with the team to optimize communication systems for high data rate, low latency, and long-distance transmission.</li>
+                            <li>Analyze and troubleshoot the performance of optical communication systems using various diagnostic tools and techniques.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong understanding of optical communication principles, fiber optics, and light propagation.</li>
+                            <li>Familiarity with optical devices like lasers, photodetectors, and modulators.</li>
+                            <li>Basic knowledge of communication modulation techniques such as PSK, QAM, and OFDM.</li>
+                            <li>Experience with optical network design and performance analysis tools.</li>
+                            <li>Proficiency in using simulation tools like MATLAB, Optiwave, or COMSOL for optical systems design.</li>
+                            <li>Strong problem-solving skills and attention to detail.</li>
+                            <li>Willingness to learn and stay updated with emerging trends in optical communication technologies.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD56')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Networking Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/Networking.png" alt="Networking Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Networking Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD57')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/signals.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Networking Internship -->
+            <div id="popupModalD57" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Networking Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Networking Internship offers practical experience in the design, configuration, and optimization of networking systems. Interns will work on various networking technologies such as TCP/IP, routing and switching, network security, and wireless networks. This internship provides exposure to both theoretical knowledge and hands-on tasks to understand real-world network infrastructure.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in the design, configuration, and troubleshooting of networking equipment such as routers, switches, and firewalls.</li>
+                            <li>Work with network protocols such as TCP/IP, DNS, HTTP, and VPNs to optimize network performance.</li>
+                            <li>Assist in configuring and monitoring network security measures, including firewalls and intrusion detection systems (IDS).</li>
+                            <li>Help set up and troubleshoot wireless networks, including Wi-Fi access points and routers.</li>
+                            <li>Collaborate with the team to perform network testing, bandwidth analysis, and latency optimization.</li>
+                            <li>Assist in managing network documentation and preparing reports on network performance and configurations.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong understanding of networking concepts and protocols such as TCP/IP, DNS, DHCP, HTTP, and VPNs.</li>
+                            <li>Familiarity with networking devices like routers, switches, firewalls, and access points.</li>
+                            <li>Knowledge of network security best practices, including firewalls, IDS/IPS, and encryption protocols.</li>
+                            <li>Experience with network simulation tools such as Cisco Packet Tracer, GNS3, or Wireshark is a plus.</li>
+                            <li>Basic understanding of network performance monitoring tools and troubleshooting techniques.</li>
+                            <li>Strong problem-solving skills and the ability to work in a team environment.</li>
+                            <li>Willingness to learn and adapt to new networking technologies and protocols.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD57')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signals Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/Signals.png" alt="Signals Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Signals Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD58')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/Power Electronics.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Signals Internship -->
+            <div id="popupModalD58" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Signals Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Signals Internship offers an opportunity to work in the field of signal processing, covering a wide range of areas including analog and digital signal processing, communication signals, and filtering techniques. Interns will gain practical experience in the analysis, simulation, and design of signal processing systems, and learn about applications in communications, audio/video processing, and control systems.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in the analysis and design of analog and digital signal processing systems.</li>
+                            <li>Work on the implementation of filters, Fourier transforms, and other signal processing techniques.</li>
+                            <li>Participate in the simulation and testing of signal processing algorithms using software like MATLAB, Simulink, or Python.</li>
+                            <li>Assist in the development of communication systems including modulation, demodulation, and noise reduction techniques.</li>
+                            <li>Help optimize signal processing systems for various applications, including communication, audio, and image processing.</li>
+                            <li>Collaborate with teams to evaluate the performance of signal processing systems and troubleshoot issues.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong understanding of signal processing concepts including Fourier transform, filters, and modulation techniques.</li>
+                            <li>Familiarity with signal processing tools like MATLAB, Simulink, or Python.</li>
+                            <li>Basic understanding of communication systems and their components.</li>
+                            <li>Experience in analyzing and processing both analog and digital signals.</li>
+                            <li>Proficiency in mathematical concepts like linear algebra, probability, and statistics.</li>
+                            <li>Strong problem-solving skills and attention to detail.</li>
+                            <li>Willingness to learn and stay updated with emerging trends in signal processing technologies.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD58')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Power Electronics Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/Power Electronics.jpg" alt="Power Electronics Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Power Electronics Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD59')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card ece">
-                <img src="/frontend/images/ece/Thermal Engineering.jpeg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Power Electronics Internship -->
+            <div id="popupModalD59" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Power Electronics Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Power Electronics Internship provides hands-on experience in the design, analysis, and testing of power electronic circuits and systems. Interns will gain knowledge in areas such as DC-DC converters, inverters, motor drives, and power quality. This internship will allow participants to work on practical applications in renewable energy systems, electric vehicles, and industrial automation.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in the design and analysis of power electronic circuits such as converters, inverters, and rectifiers.</li>
+                            <li>Work with power components including transistors, diodes, capacitors, and inductors for high-efficiency circuits.</li>
+                            <li>Assist in the simulation and modeling of power electronic systems using tools like MATLAB/Simulink and PSIM.</li>
+                            <li>Support the development and testing of motor drive systems, including DC motors and AC induction motors.</li>
+                            <li>Participate in the integration of power electronics systems with renewable energy solutions (e.g., solar power and wind energy systems).</li>
+                            <li>Assist with power quality analysis and work on improving system efficiency, voltage regulation, and harmonic reduction.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong understanding of power electronics concepts including converters, inverters, and DC-AC power conversion.</li>
+                            <li>Knowledge of power components like transistors, MOSFETs, IGBTs, diodes, and passive components.</li>
+                            <li>Familiarity with simulation tools such as MATLAB/Simulink, PSIM, or LTspice for circuit modeling and analysis.</li>
+                            <li>Basic knowledge of control systems and their application to power electronic devices.</li>
+                            <li>Experience with renewable energy systems like solar inverters, wind turbines, and energy storage systems is a plus.</li>
+                            <li>Strong problem-solving skills and the ability to work in a team environment.</li>
+                            <li>Willingness to learn and stay updated with the latest developments in power electronics technologies.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD59')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thermal Electronics Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/ece/Thermal Engineering.jpeg" alt="Thermal Electronics Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Thermal Electronics Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD60')">Details</button>
+                </div>
+            </div>
+
+            <!-- Modal for Thermal Electronics Internship -->
+            <div id="popupModalD60" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Thermal Electronics Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Thermal Electronics Internship provides practical experience in the field of thermal management in electronic systems. Interns will gain exposure to the analysis, design, and optimization of heat dissipation solutions for electronic components and circuits. Key areas of work include thermal simulation, heat sink design, cooling systems, and temperature control for high-performance electronics in various applications such as power electronics, electric vehicles, and communication devices.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Assist in thermal analysis and simulation of electronic circuits and components.</li>
+                            <li>Work on designing and testing heat dissipation solutions, including heat sinks, fans, and cooling systems.</li>
+                            <li>Participate in the design and optimization of temperature control systems for high-performance electronics.</li>
+                            <li>Support the implementation of thermal modeling using software tools such as COMSOL, ANSYS, or SolidWorks.</li>
+                            <li>Assist in evaluating the thermal performance of power electronics, including power converters and motor drives.</li>
+                            <li>Collaborate with teams to improve energy efficiency and thermal management in electronic products.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong understanding of thermal management principles and heat transfer mechanisms (conduction, convection, and radiation).</li>
+                            <li>Familiarity with thermal simulation software such as COMSOL, ANSYS, or SolidWorks.</li>
+                            <li>Knowledge of electronics and power devices, with a focus on heat generation in electronic circuits.</li>
+                            <li>Experience in the design of heat sinks, cooling solutions, and other thermal control mechanisms.</li>
+                            <li>Basic understanding of materials with high thermal conductivity and their application in heat dissipation.</li>
+                            <li>Ability to work with tools for measuring temperature and thermal resistance.</li>
+                            <li>Strong problem-solving skills and the ability to work in a team environment.</li>
+                            <li>Willingness to learn and stay updated with the latest developments in thermal management technologies.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD60')">
+                            Close
+                        </button>
+                    </div>
                 </div>
             </div>
 
 
-            <!-- Iot internships -->
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card iot">
-                <img src="/frontend/images/iot/raspberrypi.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
-                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Rasberry PI Intern</h3>
+            <!-- Add more ECE / EEE internships -->
+        </div>
+
+        <!-- IoT Internships -->
+        <h2 id="iot-internships" class="text-2xl font-bold text-center text-[#0065BD] mb-6">IoT Internships</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12" id="iot-internships">
+            <!-- Raspberry Pi Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/iot/raspberrypi.jpg" alt="Raspberry Pi Intern" class="internship-img">
+                <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Raspberry Pi Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD91')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card iot">
-                <img src="/frontend/images/iot/arduino.png" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Raspberry Pi Internship -->
+            <div id="popupModalD91" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Raspberry Pi Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Raspberry Pi Internship offers hands-on experience in embedded systems and IoT (Internet of Things) development using the Raspberry Pi platform. Interns will work on projects involving hardware interfacing, programming, automation, and sensor integration. This internship provides an opportunity to learn and apply skills in programming languages like Python, C++, and Linux-based systems to create innovative solutions using Raspberry Pi.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Develop and implement software solutions for Raspberry Pi-based systems using Python, C++, or other languages.</li>
+                            <li>Work on projects involving sensor integration, data acquisition, and automation using the GPIO pins on the Raspberry Pi.</li>
+                            <li>Assist in building IoT-based systems with cloud integration and wireless communication protocols (Wi-Fi, Bluetooth).</li>
+                            <li>Help design and implement automation systems for real-time data monitoring and control.</li>
+                            <li>Collaborate with teams on creating hardware interfaces and integrating various electronic components with Raspberry Pi.</li>
+                            <li>Test, debug, and troubleshoot hardware and software issues related to Raspberry Pi projects.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Strong knowledge of embedded systems and experience with the Raspberry Pi platform.</li>
+                            <li>Familiarity with programming languages like Python, C++, or JavaScript.</li>
+                            <li>Basic understanding of Linux-based operating systems and shell scripting.</li>
+                            <li>Experience with hardware interfacing using GPIO pins, sensors, and actuators.</li>
+                            <li>Knowledge of communication protocols like I2C, SPI, UART, and wireless communication (Wi-Fi, Bluetooth).</li>
+                            <li>Strong problem-solving skills and the ability to troubleshoot hardware and software issues.</li>
+                            <li>Willingness to learn and apply new technologies in the field of IoT and embedded systems development.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD91')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Arduino Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/iot/arduino.png" alt="Arduino Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Arduino Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD92')">Details</button>
                 </div>
             </div>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300 internship-card iot">
-                <img src="/frontend/images/iot/robotics.jpg" alt="Internship" class="w-full h-32 object-cover mb-4 rounded-md">
+            <!-- Modal for Arduino Internship -->
+            <div id="popupModalD92" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Arduino Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Arduino Internship offers hands-on experience in designing and developing embedded systems using Arduino platforms. Interns will have the opportunity to work on various projects, including automation systems, sensor integration, IoT devices, and robotics. The internship will allow participants to explore programming, hardware interfacing, and circuit design while working on real-world applications using Arduino microcontrollers.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Develop and implement software solutions for Arduino-based systems using Arduino IDE and programming languages like C/C++.</li>
+                            <li>Work on projects involving sensor integration, data acquisition, and automation using Arduino boards and external modules.</li>
+                            <li>Assist in building IoT-based systems with cloud integration and wireless communication protocols (Wi-Fi, Bluetooth, etc.).</li>
+                            <li>Help design and implement automation systems for real-time data monitoring and control using Arduino.</li>
+                            <li>Collaborate with teams on creating hardware interfaces and integrating various electronic components with Arduino.</li>
+                            <li>Test, debug, and troubleshoot hardware and software issues related to Arduino-based projects.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Basic knowledge of embedded systems and experience with the Arduino platform.</li>
+                            <li>Familiarity with programming languages such as C/C++ or Python for embedded systems.</li>
+                            <li>Experience with Arduino IDE and interfacing external components like sensors, motors, and displays.</li>
+                            <li>Understanding of communication protocols like I2C, SPI, UART, and wireless communication (Wi-Fi, Bluetooth).</li>
+                            <li>Strong problem-solving skills and ability to troubleshoot hardware and software issues.</li>
+                            <li>Willingness to learn and apply new technologies in the field of IoT and embedded systems development.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD92')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Robotics Internship -->
+            <div class="internship-card bg-white border border-gray-300 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition duration-300">
+                <img src="/frontend/images/iot/robotics.jpg" alt="Robotics Intern" class="internship-img">
                 <h3 class="text-xl font-semibold text-[#0065BD] mb-2">Robotics Intern</h3>
                 <p class="text-gray-600 mb-4">Duration: 1/2/3 Months</p>
                 <div class="flex space-x-4 w-full">
                     <button class="apply-btn bg-[#EE1C25] text-white px-6 py-2 rounded-md w-full hover:bg-[#c91920] transition duration-300" onclick="window.location.href='/frontend/iapply.html'">Apply</button>
-                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300">Details</button>
+                    <button class="border border-[#0065BD] text-[#0065BD] px-6 py-2 rounded-md w-full hover:bg-[#0065BD] hover:text-white transition duration-300" onclick="openModal('popupModalD93')">Details</button>
                 </div>
             </div>
 
+            <!-- Modal for Robotics Internship -->
+            <div id="popupModalD93" class="modal fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50 hidden">
+                <div class="modal-content bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 overflow-y-auto max-h-[90vh]">
+                    <!-- Modal Header -->
+                    <h3 class="text-xl font-semibold text-[#0065BD] mb-4 text-center">Robotics Internship</h3>
+
+                    <!-- About Internship Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">About the Internship</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            The Robotics Internship offers hands-on experience in the design, development, and testing of robotic systems. Interns will work with various robotic platforms and technologies, including automation, control systems, sensor integration, and real-time programming. This internship provides an opportunity to apply knowledge in robotics, embedded systems, and machine learning to develop intelligent systems for real-world applications in industries like manufacturing, healthcare, and autonomous vehicles.
+                        </p>
+                    </section>
+
+                    <!-- Key Responsibilities Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Design, build, and test robotic systems for various applications, including automation and sensor-based control.</li>
+                            <li>Program and control robotic platforms using embedded systems and real-time software, including microcontrollers and PLCs.</li>
+                            <li>Integrate sensors, actuators, and controllers to improve robotic system functionality.</li>
+                            <li>Assist in developing algorithms for robotic path planning, navigation, and decision-making processes.</li>
+                            <li>Collaborate with cross-functional teams to improve the performance, efficiency, and accuracy of robotic systems.</li>
+                            <li>Test and troubleshoot hardware and software components of robotic systems to ensure optimal performance.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Requirements Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements</h4>
+                        <ul class="list-disc pl-6 text-sm text-gray-600">
+                            <li>Basic knowledge of robotics, control systems, and automation technologies.</li>
+                            <li>Familiarity with programming languages such as C, C++, Python, or MATLAB for embedded systems.</li>
+                            <li>Experience with microcontrollers (e.g., Arduino, Raspberry Pi) and robotic platforms.</li>
+                            <li>Understanding of sensor integration (e.g., LIDAR, cameras, encoders) and actuators (e.g., motors, servos).</li>
+                            <li>Ability to work with robotics frameworks and libraries, such as ROS (Robot Operating System).</li>
+                            <li>Strong problem-solving skills and the ability to troubleshoot hardware and software issues.</li>
+                            <li>Willingness to learn and explore new advancements in robotics and AI technologies.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Additional Information Section -->
+                    <section class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Additional Information</h4>
+                        <p class="text-sm text-gray-600 text-justify">
+                            Interns will receive a certificate upon successful completion of the internship. Additionally, daily attendance and performance assessment reports will be provided throughout the internship period.
+                        </p>
+                    </section>
+
+                    <!-- Close Button -->
+                    <div class="flex justify-center mt-4">
+                        <button class="bg-[#EE1C25] text-white px-6 py-2 rounded-md hover:bg-[#c91920] focus:outline-none focus:ring-2 focus:ring-[#EE1C25]" onclick="closeModal('popupModalD93')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        const filterInternships = (category) => {
-            const allCards = document.querySelectorAll('.internship-card');
-            allCards.forEach(card => card.style.display = 'none');
+        // Function to open modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
 
-            const selectedCards = document.querySelectorAll(`.internship-card.${category}`);
-            selectedCards.forEach(card => card.style.display = 'block');
-        };
+        // Function to close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
 
-        // Show CSE internships by default on page load
-        filterInternships('cse');
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Optionally, close modal by clicking outside of it
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
     </script>
-</body>
+
+    
 <!-- Footer -->
 <footer class="bg-blue-100 text-[#0065BD] py-8">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -484,6 +1837,7 @@
             </ul>
         </div>
     </div>
+    
 
     
 
@@ -492,5 +1846,8 @@
         <p>&copy; 2025 <a href="/frontend/index.html" class="text-[#EE1C25]">Orion Grid</a>. All Rights Reserved.</p>
     </div>
 </footer>
+
+</body>
+
 
 </html>

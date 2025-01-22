@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course, Project, Internship Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.0"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .button-animation:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-red-600 p-4 text-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-semibold">Course & Internship Manager</a>
+            <div class="space-x-4">
+                <button onclick="filterCategory('CSE')" class="bg-blue-600 py-2 px-4 rounded-lg button-animation">CSE</button>
+                <button onclick="filterCategory('ECE/EEE')" class="bg-blue-600 py-2 px-4 rounded-lg button-animation">ECE/EEE</button>
+                <button onclick="filterCategory('IoT')" class="bg-blue-600 py-2 px-4 rounded-lg button-animation">IoT</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Section for Adding Course/Project/Internship -->
+    <section class="mt-10 container mx-auto p-6 bg-white rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold text-center mb-4">Add New Course/Project/Internship</h2>
+        <form id="itemForm" class="space-y-4">
+            <!-- Type Selection (Course, Project, Internship) -->
+            <div>
+                <label for="itemType" class="block text-lg font-medium">Select Item Type</label>
+                <select id="itemType" class="w-full p-2 border border-gray-300 rounded-lg" onchange="changeForm()">
+                    <option value="course">Course</option>
+                    <option value="internship">Internship</option>
+                    <option value="project">Project</option>
+                </select>
+            </div>
+
+            <!-- Category Selection (CSE, ECE/EEE, IoT) -->
+            <div>
+                <label for="category" class="block text-lg font-medium">Select Branch</label>
+                <select id="category" class="w-full p-2 border border-gray-300 rounded-lg">
+                    <option value="CSE">CSE</option>
+                    <option value="ECE/EEE">ECE/EEE</option>
+                    <option value="IoT">IoT</option>
+                </select>
+            </div>
+
+            <!-- Image Upload (Hidden for Projects) -->
+            <div id="imageUploadDiv">
+                <label for="image" class="block text-lg font-medium">Upload Image</label>
+                <input type="file" id="image" class="w-full p-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <!-- Title Input -->
+            <div>
+                <label for="title" class="block text-lg font-medium">Title</label>
+                <input type="text" id="title" class="w-full p-2 border border-gray-300 rounded-lg" required>
+            </div>
+
+            <!-- Dynamic Description, Duration, Abstract Inputs -->
+            <div id="dynamicFields"></div>
+
+            <!-- Price/Duration Input -->
+            <div>
+                <label for="price" class="block text-lg font-medium" id="priceLabel">Price</label>
+                <input type="text" id="price" class="w-full p-2 border border-gray-300 rounded-lg" required>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="bg-red-600 text-white py-2 px-6 rounded-lg button-animation">Add Item</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Display Section for Courses, Projects, Internships -->
+    <section id="itemsList" class="mt-10 container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dynamic content will be injected here -->
+    </section>
+
+    <script>
+        const items = [];
+
+        // Handle form submission
+        document.getElementById('itemForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const itemType = document.getElementById('itemType').value;
+            const category = document.getElementById('category').value;
+            const image = document.getElementById('image').files[0];
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description') ? document.getElementById('description').value : '';
+            const duration = document.getElementById('duration') ? document.getElementById('duration').value : '';
+            const price = document.getElementById('price').value;
+
+            // Create an item object
+            const item = {
+                itemType,
+                category,
+                image: image ? URL.createObjectURL(image) : null,
+                title,
+                description,
+                duration,
+                price
+            };
+
+            // Add the item to the array
+            items.push(item);
+
+            // Clear the form
+            document.getElementById('itemForm').reset();
+
+            // Update the displayed list
+            displayItems();
+
+            // Save the items to showing.html (Simulated, as actual file saving is not possible in browser)
+            saveToShowingHtml();
+        });
+
+        // Change the form based on the selected item type (Course, Internship, Project)
+        function changeForm() {
+            const itemType = document.getElementById('itemType').value;
+            const dynamicFields = document.getElementById('dynamicFields');
+            const priceLabel = document.getElementById('priceLabel');
+            const imageUploadDiv = document.getElementById('imageUploadDiv');
+
+            // Clear the existing dynamic fields
+            dynamicFields.innerHTML = '';
+
+            if (itemType === 'course') {
+                dynamicFields.innerHTML = `
+                    <div>
+                        <label for="description" class="block text-lg font-medium">Description</label>
+                        <textarea id="description" class="w-full p-2 border border-gray-300 rounded-lg" rows="4" required></textarea>
+                    </div>
+                `;
+                priceLabel.textContent = 'Price';
+                imageUploadDiv.style.display = 'block';
+            } else if (itemType === 'internship') {
+                dynamicFields.innerHTML = `
+                    <div>
+                        <label for="duration" class="block text-lg font-medium">Duration</label>
+                        <input type="text" id="duration" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    </div>
+                `;
+                priceLabel.textContent = 'Stipend/Price';
+                imageUploadDiv.style.display = 'block';
+            } else if (itemType === 'project') {
+                dynamicFields.innerHTML = `
+                    <div>
+                        <label for="description" class="block text-lg font-medium">Abstract</label>
+                        <textarea id="description" class="w-full p-2 border border-gray-300 rounded-lg" rows="4" required></textarea>
+                    </div>
+                `;
+                priceLabel.textContent = 'Project Cost';
+                imageUploadDiv.style.display = 'none'; // Hide image upload for projects
+            }
+        }
+
+        // Filter items based on category
+        function filterCategory(category) {
+            displayItems(category);
+        }
+
+        // Display items based on category
+        function displayItems(filterCategory = '') {
+            const itemsList = document.getElementById('itemsList');
+            itemsList.innerHTML = '';
+
+            const filteredItems = filterCategory
+                ? items.filter(item => item.category === filterCategory)
+                : items;
+
+            filteredItems.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('bg-white', 'p-4', 'rounded-lg', 'shadow-lg', 'transition', 'transform', 'duration-300', 'hover:scale-105');
+
+                itemDiv.innerHTML = `
+                    ${item.image ? `<img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover rounded-lg mb-4">` : ''}
+                    <h3 class="text-xl font-semibold">${item.title}</h3>
+                    <p class="text-gray-500 text-sm mb-2">${item.description}</p>
+                    <p class="font-semibold text-red-600">${item.itemType === 'internship' ? 'Duration: ' + item.duration : 'Price: ' + item.price}</p>
+                    <div class="flex justify-between mt-4">
+                        <button onclick="editItem(${index})" class="bg-blue-600 text-white py-1 px-4 rounded-lg button-animation">Edit</button>
+                        <button onclick="deleteItem(${index})" class="bg-red-600 text-white py-1 px-4 rounded-lg button-animation">Delete</button>
+                    </div>
+                `;
+                itemsList.appendChild(itemDiv);
+            });
+        }
+
+        // Edit an item
+        function editItem(index) {
+            const item = items[index];
+            document.getElementById('itemType').value = item.itemType;
+            document.getElementById('category').value = item.category;
+            document.getElementById('title').value = item.title;
+            document.getElementById('price').value = item.price;
+            changeForm();
+            document.getElementById('description').value = item.description;
+            if (item.itemType === 'internship') {
+                document.getElementById('duration').value = item.duration;
+            }
+        }
+
+        // Delete an item with a confirmation alert
+        function deleteItem(index) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, keep it'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    items.splice(index, 1);
+                    displayItems();
+                    saveToShowingHtml();
+                    Swal.fire('Deleted!', 'Your item has been deleted.', 'success');
+                }
+            });
+        }
+
+        // Simulate saving items to showing.html file (Client-side code won't actually save the file)
+        function saveToShowingHtml() {
+            const fileName = 'showing.html';
+            const content = items.reduce((html, item) => {
+                html += `
+                    <div class="bg-white p-4 rounded-lg shadow-lg">
+                        ${item.image ? `<img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover rounded-lg mb-4">` : ''}
+                        <h3 class="text-xl font-semibold">${item.title}</h3>
+                        <p class="text-gray-500 text-sm mb-2">${item.description}</p>
+                        <p class="font-semibold text-red-600">${item.itemType === 'internship' ? 'Duration: ' + item.duration : 'Price: ' + item.price}</p>
+                    </div>
+                `;
+                return html;
+            }, '');
+
+            // This is simulated, actual file writing isn't possible in client-side code.
+            console.log('HTML saved:', fileName);
+            console.log(content);
+        }
+    </script>
+
+</body>
+
+</html>
