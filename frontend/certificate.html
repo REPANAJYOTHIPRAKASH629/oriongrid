@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate</title>
+    <title>Orion Grid</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Set the A4 page size for printing in landscape mode */
@@ -71,7 +71,7 @@
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 2px;
             z-index: 3;
         }
 
@@ -88,11 +88,14 @@
 
         /* Footer Styling */
         .certificate-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 40px 0;
-            z-index: 3;
+            margin: 60px 100px;
         }
 
         .footer-logos img {
@@ -125,10 +128,9 @@
             margin: 20px 0;
         }
     </style>
-
 </head>
 
-<body class="bg-white">
+<body class="bg-blue">
 
     <div class="certificate-wrapper">
         <!-- Background Image -->
@@ -142,11 +144,12 @@
             <img src="/frontend/images/logo.jpg" alt="OG Logo" style="width: 100px; height: auto;">
             <img src="https://khalsaengineering.co.in/wp-content/uploads/2024/08/All_India_Council_for_Technical_Education_logo-removebg-preview-300x300.png" alt="AICTE Logo" style="width: 80px; height: auto;">
             <img src="/frontend/images/iso.png" alt="ISO Logo" style="width: 100px; height: auto;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS130w81ctXb84lEm1fLQu7D-vylAHOY9_kZg&s" alt="MSME Logo" style="width: 100px; height: auto;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS130w81ctXb84lEm1fLQu7D-vylAHOY9_kZg&s" alt="MSME Logo" style="width: 145px; height: auto;">
+            <img src="https://www.startupindia.gov.in/content/dam/invest-india/newhomepage/DPIIT-header.png" alt="Startup India Logo" style="width: 200px; height: auto;">
         </div>
 
         <!-- Certificate Title -->
-        <div class="certificate-title">
+        <div class="certificate-title text-[#0065BD] italic">
             Certificate of Completion
         </div>
 
@@ -163,16 +166,25 @@
             </p>
         </div>
 
-        <!-- Footer Section with Logos -->
-        <div class="certificate-footer ml-20">
-            <div>
-                <img src="/frontend/images/signature1.png" style="width: 100px; height: 50px;">
-                <p class="font-semibold text-lg text-[#0065BD]">CEO & CO-Founder</p>
+        <!-- Footer Section with Signatures and QR Code -->
+        <div class="certificate-footer">
+            <!-- CEO Signature on the left -->
+            <div class="flex flex-col items-center">
+                <img src="/frontend/images/signature.png" style="width: auto; height: 50px;" alt="CEO Signature">
+                <p class="font-semibold text-lg text-[#0065BD] ml-2">R. Jyothi Prakash</p>
+                <p class="font-semibold text-lg text-[#0065BD] ml-2">CEO & Co-Founder</p>
             </div>
-            <div class="footer-logos mr-20  ">
-                <img src="/frontend/images/logo.jpg" alt="OG Logo" style="width: 100px; height: auto;">
-                <img src="https://khalsaengineering.co.in/wp-content/uploads/2024/08/All_India_Council_for_Technical_Education_logo-removebg-preview-300x300.png" alt="AICTE Logo" style="width: 80px; height: auto;">
-                <img src="/frontend/images/iso.png" alt="ISO Logo" style="width: 100px; height: auto;">
+
+            <!-- QR Code in the center -->
+            <div class="flex justify-center">
+                <img src="/frontend/images/qrcode.png" alt="QR Code" style="width: 100px; height: auto;">
+            </div>
+
+            <!-- Manager Signature on the right -->
+            <div class="flex flex-col items-center">
+                <img src="/frontend/images/signature1.png" style="width: 100px; height: 50px;" alt="Manager Signature">
+                <p class="font-semibold text-lg text-[#0065BD] ml-2">P. Tirish</p>
+                <p class="font-semibold text-lg text-[#0065BD] ml-2">CTO & Co-Founder</p>
             </div>
         </div>
     </div>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4; /* Light gray background */
+      height: 100%; /* Ensure body takes full height */
+    }
+
+    /* Container for the full page, ensures content is centered */
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f4; /* Ensure container has the same light background */
+      box-sizing: border-box;
+    }
+
+    /* Certificate styling (A4 landscape format) */
+    .certificate {
+      position: relative;
+      width: 100%;
+      max-width: 297mm;  /* A4 landscape width */
+      height: 100%;
+      max-height: 210mm; /* A4 landscape height */
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #fff; /* White background for the certificate */
+      box-shadow: 0 2px 8px rgba(63, 69, 81, 0.16);
+    }
+
+    /* Maintain the aspect ratio of the iframe (100% width, height as per content ratio) */
+    .embed-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Optional styling for the link at the bottom */
+    .link-container {
+      text-align: center;
+      padding: 10px;
+    }
+    .link-container a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Main container centering the certificate -->
+  <div class="container">
+    <!-- Certificate frame -->
+    <div class="certificate">
+      <div class="embed-container">
+        <iframe loading="lazy" 
+          src="https://www.canva.com/design/DAGdcy-4mAM/-neDtMc6tSKKChEDASb8PA/view?embed" 
+          seamless 
+          allowfullscreen="allowfullscreen">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

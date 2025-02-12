@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canva Embed with Tailwind CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Ensure the design is responsive across all screen sizes */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Print styles to ensure proper printing in A4 portrait size */
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .canva-embed-container {
+        width: 100%;
+        height: 100%;
+        max-width: 210mm; /* A4 width */
+        max-height: 297mm; /* A4 height */
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+      iframe {
+        width: 100% !important;
+        height: 100% !important;
+      }
+      @page {
+        size: A4; /* Portrait mode for printing */
+        margin: 0;
+      }
+    }
+
+    /* Container for the Canva embed */
+    .canva-embed-container {
+      position: relative;
+      width: 100%;
+      max-width: 210mm; /* A4 width */
+      max-height: 297mm; /* A4 height */
+      aspect-ratio: 210 / 297; /* Ensures the aspect ratio matches A4 */
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(63, 69, 81, 0.16);
+      margin: 0 auto;
+    }
+
+    .canva-embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Make the embed responsive on smaller screens */
+    @media (max-width: 768px) {
+      .canva-embed-container {
+        width: 90%;
+      }
+    }
+
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <div class="canva-embed-container">
+    <iframe loading="lazy" 
+            src="https://www.canva.com/design/DAGeC1ZUEhE/f5W9jm1jgZlufnjvw5Ga9w/view?embed" 
+            allowfullscreen="allowfullscreen" 
+            allow="fullscreen">
+    </iframe>
+  </div>
+
+</body>
+</html>

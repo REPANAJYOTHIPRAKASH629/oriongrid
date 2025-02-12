@@ -93,9 +93,9 @@
             <button class="block text-lg hover:text-[#EE1C25]" id="mobile-services-button">Services</button>
             <div class="absolute left-0 mt-2 hidden bg-white text-black rounded-lg shadow-lg" id="mobile-submenu">
                 <a href="/frontend/courses.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Courses</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
-                <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
+                <a href="/frontend/internships.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Internships</a>
+                <a href="/frontend/projects.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Projects</a>
+                <a href="/frontend/workshops.html" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Workshops</a>
                 <a href="#" class="block px-4 py-2 hover:bg-[#EE1C25] hover:text-white">Research</a>
             </div>
         </div>
@@ -146,99 +146,110 @@
     </section>
 
     <!-- Banner Section -->
-    <section class="py-0">
-        <div class="relative w-full mx-auto px-2">
-            <!-- Carousel Wrapper -->
-            <div class="overflow-hidden">
-                <div id="banner-carousel" class="flex transition-transform duration-1000 ease-in-out">
-                    <div class="w-full flex-shrink-0">
-                        <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
-                            <video id="video1" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
-                                <source src="/frontend/images/banner1.mp4" type="video/mp4">
-                            </video>
-                        </div>
+        <!-- Banner Section -->
+<section class="py-0">
+    <div class="relative w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto px-2"> <!-- Adjusted widths for responsiveness -->
+        <!-- Carousel Wrapper -->
+        <div class="overflow-hidden">
+            <div id="banner-carousel" class="flex transition-transform duration-1000 ease-in-out">
+                <div class="w-full flex-shrink-0">
+                    <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                        <video id="video1" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
+                            <source src="/frontend/images/banner1.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="w-full flex-shrink-0">
-                        <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
-                            <video id="video2" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
-                                <source src="/frontend/images/banner2.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                        <video id="video2" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
+                            <source src="/frontend/images/banner2.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="w-full flex-shrink-0">
-                        <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
-                            <video id="video3" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
-                                <source src="/frontend/images/banner1.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                        <video id="video3" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
+                            <source src="/frontend/images/banner3.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="w-full flex-shrink-0">
-                        <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
-                            <video id="video4" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
-                                <source src="/frontend/images/banner2.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                </div>
+                
+                <script>
+                    // Select the video element with id 'video3'
+                    const video3 = document.getElementById("video3");
+                
+                    // Set playback speed to 3x normal speed
+                    video3.playbackRate = 2;
+                
+                    // Optionally, you can start playing the video immediately
+                    video3.play();
+                </script>
+                
+                <div class="w-full flex-shrink-0">
+                    <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                        <video id="video4" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg" muted>
+                            <source src="/frontend/images/banner2.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
-            <button id="prev" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-[#EE1C25] text-white px-4 py-2 rounded-full focus:outline-none"><</button>
-            <button id="next" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-[#EE1C25] text-white px-4 py-2 rounded-full focus:outline-none">></button>
         </div>
-    </section>
-    
-    <script>
-        let currentIndex = 0;
-        const images = document.querySelectorAll("#banner-carousel > div");
-        const totalImages = images.length;
-        const carousel = document.getElementById("banner-carousel");
-    
-        // Array to hold all video elements
-        const videos = [
-            document.getElementById("video1"),
-            document.getElementById("video2"),
-            document.getElementById("video3"),
-            document.getElementById("video4")
-        ];
-    
-        // Start playing the first video
+        <button id="prev" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-[#EE1C25] text-white px-4 py-2 rounded-full focus:outline-none"><</button>
+        <button id="next" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-[#EE1C25] text-white px-4 py-2 rounded-full focus:outline-none">></button>
+    </div>
+</section>
+
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll("#banner-carousel > div");
+    const totalImages = images.length;
+    const carousel = document.getElementById("banner-carousel");
+
+    // Array to hold all video elements
+    const videos = [
+        document.getElementById("video1"),
+        document.getElementById("video2"),
+        document.getElementById("video3"),
+        document.getElementById("video4")
+    ];
+
+    // Start playing the first video
+    videos[currentIndex].play();
+
+    // Function to move to the next slide
+    function nextSlide() {
+        // Pause the current video and move to the next slide
+        videos[currentIndex].pause();
+        currentIndex = (currentIndex + 1) % totalImages;
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Play the next video
         videos[currentIndex].play();
-    
-        // Function to move to the next slide
-        function nextSlide() {
-            // Pause the current video and move to the next slide
-            videos[currentIndex].pause();
-            currentIndex = (currentIndex + 1) % totalImages;
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    
-            // Play the next video
-            videos[currentIndex].play();
-        }
-    
-        // Function to move to the previous slide
-        function prevSlide() {
-            // Pause the current video and move to the previous slide
-            videos[currentIndex].pause();
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    
-            // Play the previous video
-            videos[currentIndex].play();
-        }
-    
-        // Event listener to automatically move to next slide when the video ends
-        videos.forEach((video, index) => {
-            video.addEventListener("ended", () => {
-                // Wait for video to finish before moving to the next slide
-                nextSlide();
-            });
+    }
+
+    // Function to move to the previous slide
+    function prevSlide() {
+        // Pause the current video and move to the previous slide
+        videos[currentIndex].pause();
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Play the previous video
+        videos[currentIndex].play();
+    }
+
+    // Event listener to automatically move to next slide when the video ends
+    videos.forEach((video, index) => {
+        video.addEventListener("ended", () => {
+            // Wait for video to finish before moving to the next slide
+            nextSlide();
         });
-    
-        // Button click events
-        document.getElementById("next").addEventListener("click", nextSlide);
-        document.getElementById("prev").addEventListener("click", prevSlide);
-    
-    </script>
-    
+    });
+
+    // Button click events
+    document.getElementById("next").addEventListener("click", nextSlide);
+    document.getElementById("prev").addEventListener("click", prevSlide);
+</script>
 
     <!-- Mission and Vision -->
     <section class="py-8 text-white">
